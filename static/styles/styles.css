@@ -1,0 +1,54 @@
+/* Reset some default styles */
+body, h1, h2, p, div {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Header Styles */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+}
+
+/* Body Section Styles */
+.body-section {
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+.tagline {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Footer Section Styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.contact-form, .contact-details, .developer-info {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+/* Add additional styling based on your design requirements */
