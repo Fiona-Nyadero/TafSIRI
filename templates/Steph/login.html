@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <title>TafSIRI Initiative - Login</title>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">TafSIRI</div>
+        <div class="account-info">
+            <!-- Display user account information or login/logout button -->
+        </div>
+        <div class="menu-btn">Menu</div>
+    </header>
+
+    <!-- Body Section -->
+    <section class="body-section">
+        <h1>Welcome to TafSIRI Initiative</h1>
+        <p class="tagline">The Digital Baraza</p>
+
+        <!-- Login Form -->
+        <div class="login-form">
+            <h2>Login</h2>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="login-username-email">Username or Email:</label>
+                    <input type="text" id="login-username-email" name="login-username-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" name="login-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="remember-me">Remember Me</label>
+                    <input type="checkbox" id="remember-me" name="remember-me">
+                </div>
+                <div class="form-group">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <!-- Contact form, contact details, and developer info go here -->
+    </footer>
+
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+</body>
+</html>
