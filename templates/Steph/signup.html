@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <title>TafSIRI Initiative - Sign Up</title>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">TafSIRI</div>
+        <div class="account-info">
+            <!-- Display user account information or login/logout button -->
+        </div>
+        <div class="menu-btn">Menu</div>
+    </header>
+
+    <!-- Body Section -->
+    <section class="body-section">
+        <h1>Welcome to TafSIRI Initiative</h1>
+        <p class="tagline">The Digital Baraza</p>
+
+        <!-- Signup Form -->
+        <div class="signup-form">
+            <h2>Sign Up</h2>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="signup-fullname">Full Name:</label>
+                    <input type="text" id="signup-fullname" name="signup-fullname" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email:</label>
+                    <input type="email" id="signup-email" name="signup-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password:</label>
+                    <input type="password" id="signup-password" name="signup-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone-number">Phone Number (Optional):</label>
+                    <input type="tel" id="phone-number" name="phone-number">
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth (Optional):</label>
+                    <input type="date" id="dob" name="dob">
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <!-- Contact form, contact details, and developer info go here -->
+    </footer>
+
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+</body>
+</html>
