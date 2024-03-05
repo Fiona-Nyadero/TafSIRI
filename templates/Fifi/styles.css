@@ -49,7 +49,7 @@ input[type="text"] {
 }
 
 .logo {
-    max-width: 75px; /* Adjust the maximum width of your logo */
+    max-width: 75px;
 }
 
 .dropdownMenu {
@@ -93,4 +93,22 @@ input[type="text"] {
 .header-center {
     display: flex;
     align-items: center;
+    font-size: larger;
+}
+.loginbutton{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #E23125;
+    color: #f1f1f1;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+footer{
+    background-color: #010440;
+    color: #f1f1f1;
+    max-height: 100px;
 }
