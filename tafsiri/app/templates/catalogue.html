@@ -3,16 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--title change-->
-    {% if title %}
-    <title> {{ title }} - TafSIRI Initiative</title>
-    {% else %}
-    <title>Welcome to TafSIRI!</title>
-    {% endif %}
-
-    <!--Stylesheets-->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-.........." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>TafSIRI Initiative - Catalog</title>
 </head>
 <body>
 
@@ -36,8 +30,8 @@
         </div>
 
         <div class="header-center">
-            <a href="index.html">Home</a>
-            <a href="catalogue.html">Catalogue</a>
+            <a href="/index">Home</a>
+            <a href="/catalogue">Catalogue</a>
             <a href="partnerships.html">Partnerships</a>
             <a href="blog.html">Blog</a>
         </div>
@@ -46,10 +40,8 @@
             <form action="">
                 <input type="text" placeholder="Search">
             </form>
-            <div class="account-info">
-                <h1>Hi, {{ user.username }}!</h1>
-                <!-- <a href="login.html" class="loginbutton">Log In</a> -->
-            </div>
+            <h1>Hello, {{ user.username }}!</h1>
+            <!-- <a href="login.html" class="loginbutton">Log In</a> -->
         </div>
     </header>
 
@@ -111,7 +103,25 @@ The TafSIRI Initiative is an innovative platform designed to enhance and streaml
 
     <!-- Footer Section -->
     <footer>
-        <!-- Contact form, contact details, and developer info go here -->
+        <div class="footer-left">
+            <img src="Tafsiri logo white.png" alt="Logo" class="logo-footer">
+            TafSIRI Initiative
+        </div>
+        <div class="footer-middle">
+            <div class="social-media">
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-right">
+            <div class="copyright">
+                TafSIRI@2024
+            </div>
+        </div>
     </footer>
 
     <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
