@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome to TafSIRI Initiative</h1>
+    <p class="tagline">The Digital Baraza</p>
+
+    <!-- Login Form -->
+    <div class="login-form">
+        <h2>Login</h2>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+
+            <p class="form-group">
+                {{ form.username.label }}<br>
+                {{ form.username(size=32) }}
+                {% for error in form.username.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </p>
+            
+            <p class="form-group">
+                {{ form.password.label }}<br>
+                {{ form.password(size=32) }}
+                {% for error in form.password.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </p>
+
+            <p class="form-group">
+                {{ form.remember_me() }} {{ form.remember_me.label }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+        
+        <div class="forgotpassword">
+            <a href="#">Forgot Password?</a>
+        </div>
+
+        <div class="signup-form">
+            Not a Member?
+            <div>
+                <a href="signup.html" class="loginbutton">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

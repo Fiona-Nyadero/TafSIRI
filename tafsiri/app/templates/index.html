@@ -1,130 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta name="viewport" content="initial_scale=1, width=device-width">
-        
-        <!--title change-->
-        {% if title %}
-        <title> {{ title }} - TafSIRI Initiative</title>
-        {% else %}
-        <title>Welcome to TafSIRI!</title>
-        {% endif %}
+{% extends "base.html" %}
 
-        <!--Stylesheets-->
-        <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-.........." crossorigin="anonymous" referrerpolicy="no-referrer" />
-    </head>
-    <body>
-        <header>
-            <div class="header-left">
-                <img src="Tafsiri logo blue.png" alt="Logo" class="logo">
-                <div class="dropdownMenu">
-                    <button class="dropbtn" type="button" data-bs-toggle="collapse">
-                        <span class="Picture8.png"></span>
-                    </button>
-                    <!-- Menu Button failed implementation
-                    <div class="dropdown-content">
-                        <a href="#">Home</a>
-                        <a href="#">Catalogue</a>
-                        <a href="#">Partnerships</a>
-                        <a href="#">Blog</a>
-                    </div>
-                    -->
+{% block content %}
+    <div class="main-body">
+        <div class="hero-section">
+            <div class="carousel-slide">
+                <img src="img388.jpg" alt="Slide 1">
+            </div>
+        </div>
+        <div class="info-section">
+            <div class="info-left">
+                <div class="heading">
+                    <h1>The</h1>
+                    <h1>TafSIRI</h1>
+                    <h1>Initiative</h1>
                 </div>
+                <p id="tagline">THE DIGITAL BARAZA</p>
             </div>
-
-            <div class="header-center">
-                <a href="/index">Home</a>
-                <a href="/catalogue">Catalogue</a>
-                <a href="partnerships.html">Partnerships</a>
-                <a href="blog.html">Blog</a>
+            <div class="info-right">
+                <p>TafSIRI makes civic engagement fun!</p>
+                <p>The easy platform lets you explore, ask questions and join community conversations on the latests developments</p>
+                <p>TafSIRI encourages curiosity and welcomes all questions and ideas!</p>
+                <p>Sign up to make informed decisions with TafSIRI!</p>
             </div>
-
-            <div class="header-right">
-                <form action="">
-                    <input type="text" placeholder="Search">
-                </form>
-                <a href="login.html" class="loginbutton">Log In</a>
-            </div>
-        </header>
-        <div class="main-body">
-            <div class="hero-section">
-                <div class="carousel-slide">
-                  <img src="img388.jpg" alt="Slide 1">
-                </div>
-            </div>
-            <div class="info-section">
-                <div class="info-left">
-                    <div class="heading">
-                        <h1>The</h1>
-                        <h1>TafSIRI</h1>
-                        <h1>Initiative</h1>
-                    </div>
-                    <p id="tagline">THE DIGITAL BARAZA</p>
-                </div>
-                <div class="info-right">
-                    <p>TafSIRI makes civic engagement fun!</p>
-                    <p>The easy platform lets you explore, ask questions and join community conversations on the latests developments</p>
-                    <p>TafSIRI encourages curiosity and welcomes all questions and ideas!</p>
-                    <p>Sign up to make informed decisions with TafSIRI!</p>
-                </div>
-            </div>
+        </div>
             <div class="about">
                 <h1>About</h1>
                 <p>The TafSIRI Initiative is an innovative platform designed to enhance and streamline Public Participation in infrastructure projects at the County level.</p>
                 <p>The term "TafSIRI" originates from the Swahili word 'Tafsiri,' meaning 'to decode/interpret/translate.'</p>
             </div>
-        </div>
-        <footer>
-            <div class="footer-left">
-                <h3>Contact Us</h3>
-                Drop your queries and comments below!
-                <form class="contact-form" action="">
-                    <div class="form-floating">
-                        <label for="floatingInput">Name: </label>
-                        <input type="name" class="form-control" id="floatingInput" placeholder="Name">
-                    </div>
-                    <div class="form-floating">
-                        <label for="floatingInput">Email address: </label>
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    </div>
-                    <div class="form-floating">
-                        <label for="floatingInput">Message: </label>
-                        <input type="text" id="message" class="form-control" placeholder="Message">
-                    </div>
-                    <input type="submit" class="form-button">
-                </form>
-            </div>
-            <div class="footer-right">
-                <h3>Our Contacts</h3>
-                <div class="address">
-                    P. 0. Box 24680-08642,
-                    <div>Nairobi-Kenya.</div>
-                </div>
-                <div class="email-address">
-                    Email: tafsiriinitiative@gmail.com
-                </div>
-                <div 
-                class="mobile">
-                    Mobile: +254 712 345678, +254 787 654321 
-                </div>
-                <div class="social-media">
-                    <h3>Social Links</h3>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="developers">
-                    Developers: Stephanie Chepkirui, Fiona Nyadero
-                </div>
-                <div class="copyright">
-                    TafSIRI@2024
-                </div>
-            </div>
-        </footer>
-        <script src="script.js"></script>
-    </body>
-</html>
+    </div>
+{% endblock %}

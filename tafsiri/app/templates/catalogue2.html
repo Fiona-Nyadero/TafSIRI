@@ -1,0 +1,60 @@
+{% extends "base2.html" %}
+
+{% block content %}
+<!-- Body Section -->
+    <section class="body-section">
+        <h1>Welcome to TafSIRI Initiative Catalog</h1>
+        <p class="tagline">The Digital Baraza</p>
+
+        <!-- About Section -->
+        <div class="about">
+            <h2>About</h2>
+            <p>
+        
+The TafSIRI Initiative is an innovative platform designed to enhance and streamline Public Participation in infrastructure projects at the County level. The term "TafSIRI" originates from the Swahili word 'Tafsiri,' meaning 'to decode/interpret/translate.'
+
+            </p>
+        </div>
+
+        <!-- Map Section -->
+        <div id="map" style="height: 400px;"></div>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <script>
+            // Example location: Nairobi, Kenya
+            var latitude = -1.286389;
+            var longitude = 36.817223;
+            var zoom = 13;
+
+            // Initialize the map
+            var map = L.map('map').setView([latitude, longitude], zoom);
+
+            // Add OpenStreetMap tile layer
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Add a marker at the specific location
+            L.marker([latitude, longitude]).addTo(map)
+                .bindPopup('Your Location');
+        </script>
+
+        <!-- Search Section -->
+<div class="search">
+    <h2>Search</h2>
+    <form id="searchForm">
+        <label for="searchInput">Search Projects:</label>
+        <input type="text" id="searchInput" name="searchInput" placeholder="Enter keywords...">
+        <button type="button" onclick="performSearch()">Search</button>
+    </form>
+</div>
+
+        <!-- Slide show of Projects -->
+        <div class="project-slideshow">
+            <h2>Projects</h2>
+            {% for post in posts %}
+            <div><p>{{ post.proponent.username }} : <b>{{ post.title }}</b></p></div>
+            {% endfor %}>
+        </div>
+    </section>
+
+{% endblock %}
