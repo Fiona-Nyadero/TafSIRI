@@ -1,0 +1,111 @@
+/* Reset some default styles */
+body, h1, h2, p, div {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Circular', sans-serif;
+}
+
+/* Header Styles */
+header {
+    background-color: #F9E0E2;
+    color: black;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-container {
+    margin-right: 20px;
+}
+
+.logo-container img {
+    width: 100px; /* Adjust the width as needed */
+}
+
+.title-container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.title-container p {
+    font-size: 16px;
+    color: black;
+}
+
+/* Main Content Section Styles */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.preview-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.content-details {
+    width: 40%;
+}
+
+.content-details p {
+    font-size: 18px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+/* Form Styles */
+/* Style for Unordered List (Bullet Points) */
+ul {
+    list-style-type: disc; /* Use 'circle' for a different bullet style */
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Style for Sign In Form */
+#optInForm {
+    margin-top: 20px;
+}
+
+label, input, button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Adjust the size of the email input box */
+#email {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+
+/* Footer Section Styles */
+footer {
+    background-color: #F9E0E2;
+    color: black;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Add any additional styling based on your design requirements */
