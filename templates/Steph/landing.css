@@ -1,0 +1,111 @@
+/* Reset some default styles */
+body, h1, h2, p, div {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Circular', sans-serif;
+}
+
+/* Header Styles */
+header {
+    background-color: #F9E0E2;
+    color: black;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-container {
+    margin-right: 20px;
+}
+
+.logo-container img {
+    width: 100px; /* Adjust the width as needed */
+}
+
+.title-container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.title-container p {
+    font-size: 16px;
+    color: black;
+}
+
+/* Main Content Section Styles */
+.content-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.content-section.alternate {
+    flex-direction: row-reverse;
+}
+
+.background-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('background-image.jpg') center/cover no-repeat; /* Add background image */
+    color: white;
+    padding: 50px;
+}
+
+.background-section .content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.image {
+    flex: 1;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Add more styling as needed */
+.btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
+/* Footer Section Styles */
+footer {
+    background-color: #F9E0E2;
+    color: black;
+    padding: 20px;
+    text-align: center;
+}
