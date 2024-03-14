@@ -40,11 +40,11 @@
             <form action="">
                 <input type="text" placeholder="Search">
             </form>
-            <!-- {% if current_user.user %} -->
-            <h1>Hello, {{ current_user.Username }}</h1>
-            <!-- {% else %}
-            <h1>Hello there, this is TafSIRI!</h1>
-            {% endif %}-->
+
+            {% if current_user.Username %}
+            <p><i>Hi, {{ current_user.Username }}!</i></p>
+            {% endif %}
+
             <!-- Login/logout button -->
             {% if current_user.is_anonymous %}
                 <a href="{{ url_for('login') }}" class="loginbutton">Log In</a>
@@ -105,7 +105,7 @@ The TafSIRI Initiative is an innovative platform designed to enhance and streaml
         <div class="project-slideshow">
             <h2>Projects</h2>
             {% for project in projects %}
-            <div><p>{{ project.Author.Username }} : <b>{{ Project.Title }}</b></p></div>
+            <div><p><b>{{ project.Title }}</b></p></div>
             {% endfor %}
         </div>
     </section>

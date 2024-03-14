@@ -1,8 +1,7 @@
-from flask_login import logout_user
-from flask_login import current_user, login_user, login_required
+from flask_login import current_user, login_user, login_required, logout_user
 import sqlalchemy as sa
 from app import db
-from app.models import User
+from app.models import User, Project
 from app.forms import RegistrationForm
 from flask import render_template, flash, redirect, url_for, request
 from urllib.parse import urlsplit
@@ -17,9 +16,9 @@ def index():
 
 @app.route('/catalogue')
 def catalogue():
-    #projects = db.session.scalar(
-        #sa.select(Project).all())
-    return render_template('catalogue.html', title='Catalogue')
+    query = sa.select(Project)
+    projects = db.session.scalars(query)
+    return render_template('catalogue.html', title='Catalogue', projects=projects)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
