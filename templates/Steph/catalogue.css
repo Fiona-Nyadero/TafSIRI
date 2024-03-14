@@ -1,0 +1,128 @@
+/* Reset some default styles */
+body, h1, h2, p, div {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Circular', sans-serif;
+}
+
+/* Header Styles */
+header {
+    background-color: #F9E0E2;
+    color: black;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-container {
+    margin-right: 20px;
+}
+
+.logo-container img {
+    width: 100px; /* Adjust the width as needed */
+}
+
+.title-container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.title-container p {
+    font-size: 16px;
+    color: black;
+}
+.menu-btn {
+    cursor: pointer;
+}
+
+/* Body Section Styles */
+.body-section {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    font-size: 18px;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+.about, .search, .project-slideshow {
+    margin-bottom: 30px;
+}
+
+.about h2, .search h2, .project-slideshow h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Map Section Styles */
+#map {
+    margin-bottom: 30px;
+}
+
+/* Search Section Styles */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+label {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+#searchInput {
+    padding: 8px;
+    font-size: 16px;
+    flex: 1;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #3498db; /* Match the header color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+}
+
+/* Footer Section Styles */
+footer {
+    background-color: #ecf0f1; /* Adjust the color based on your design */
+    color: #7f8c8d;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Responsive Design - Adjustments for smaller screens */
+@media only screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu-btn {
+        margin-top: 10px;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    #searchInput {
+        margin-top: 10px;
+    }
+}
