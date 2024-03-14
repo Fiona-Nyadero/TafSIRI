@@ -45,7 +45,7 @@
                     <input type="text" placeholder="Search">
                 </form>
                 {% if current_user.Username %}
-                <p><i>Hi, {{ current_user.Username }}!</i></p>
+                <a href="{{ url_for('user', username=current_user.Username) }}"><i>Hi, {{ current_user.Username }}!</i></a>
                 {% endif %}
 
                 {% if current_user.is_anonymous %}

@@ -44,12 +44,30 @@
                 <form action="">
                     <input type="text" placeholder="Search">
                 </form>
-                <h1>Hello, {{ user.username }}!</h1>
-                <!-- <a href="login.html" class="loginbutton">Log In</a> -->
+                {% if current_user.Username %}
+                <a href="{{ url_for('user', username=current_user.Username) }}"><i>Hi, {{ current_user.Username }}!</i></a>
+                <!-- <p><i>Hi, {{ current_user.Username }}!</i></p> -->
+                {% endif %}
+
+                {% if current_user.is_anonymous %}
+                <a href="{{ url_for('login') }}" class="loginbutton">Log In</a>
+                {% else %}
+                <a href="{{ url_for('logout') }}" class="loginbutton">Log Out</a>
+                {% endif %}
             </div>
         </header>
-       {% block content %}{% endblock %}
-       <footer>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+        <footer>
             <div class="footer-left">
                 <img src="Tafsiri logo white.png" alt="Logo" class="logo-footer">
                 TafSIRI Initiative
@@ -69,7 +87,7 @@
                     <p>&copy; 2024 TafSIRI. All rights reserved.</p>
                 </div>
             </div>
-    </footer>
+        </footer>
         <script src="script.js"></script>
     </body>
 </html>

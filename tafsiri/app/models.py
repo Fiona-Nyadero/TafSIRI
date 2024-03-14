@@ -5,6 +5,7 @@ import sqlalchemy as sa
 import sqlalchemy.orm as so
 from app import db, login
 from flask_login import UserMixin
+from hashlib import md5
 
 class User(UserMixin, db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
@@ -15,6 +16,9 @@ class User(UserMixin, db.Model):
     Password_hash: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256))
     Phone_number: so.Mapped[Optional[str]] = so.mapped_column(sa.String(20))
     Date_of_birth: so.Mapped[Optional[date]] = so.mapped_column(sa.Date)
+    About_me: so.Mapped[Optional[str]] = so.mapped_column(sa.String(140))
+    Last_seen: so.Mapped[Optional[datetime]] = so.mapped_column(
+        default=lambda: datetime.now(timezone.utc))
 
     Projects: so.WriteOnlyMapped['Project'] = so.relationship(
         back_populates='Author')
@@ -27,6 +31,10 @@ class User(UserMixin, db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.Password_hash, password)
+    
+    def avatar(self, size):
+        digest = md5(self.Email.lower().encode('utf-8')).hexdigest()
+        return f'https://www.gravatar.com/avatar/{digest}?d=identicon&s={size}'
     
 class Project(db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)

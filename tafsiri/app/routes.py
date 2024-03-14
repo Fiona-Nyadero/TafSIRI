@@ -2,11 +2,11 @@ from flask_login import current_user, login_user, login_required, logout_user
 import sqlalchemy as sa
 from app import db
 from app.models import User, Project
-from app.forms import RegistrationForm
+from app.forms import RegistrationForm, LoginForm, EditProfileForm
 from flask import render_template, flash, redirect, url_for, request
 from urllib.parse import urlsplit
 from app import app
-from app.forms import LoginForm
+from datetime import datetime, timezone
 
 @app.route('/')
 @app.route('/index')
@@ -56,3 +56,35 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Sign Up', form=form)
+
+@app.route('/user/<username>')
+@login_required
+def user(username):
+    user = db.first_or_404(sa.select(User).where(User.Username == username))
+    projects = [
+        {'author': user, 'title': 'Test post #1'},
+        {'author': user, 'title': 'Test post #2'},
+    ]
+    return render_template('user.html', user=user, projects=projects)
+
+@app.before_request
+def before_request():
+    if current_user.is_authenticated:
+        current_user.Last_seen = datetime.now(timezone.utc)
+        db.session.commit()
+
+@app.route('/edit_profile', methods=['GET', 'POST'])
+@login_required
+def edit_profile():
+    form = EditProfileForm()
+    if form.validate_on_submit():
+        current_user.Username = form.username.data
+        current_user.About_me = form.about_me.data
+        db.session.commit()
+        flash('Your changes have been saved')
+        return redirect(url_for('edit_profile'))
+    elif request.method == 'GET':
+        form.username.data = current_user.Username
+        form.about_me.data = current_user.About_me
+    return render_template('edit_profile.html', title='Edit Profile',
+                           form=form)

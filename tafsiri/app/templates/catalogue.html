@@ -42,7 +42,8 @@
             </form>
 
             {% if current_user.Username %}
-            <p><i>Hi, {{ current_user.Username }}!</i></p>
+            <a href="{{ url_for('user', username=current_user.Username) }}"><i>Hi, {{ current_user.Username }}!</i></a>
+            <!-- <p><i>Hi, {{ current_user.Username }}!</i></p> -->
             {% endif %}
 
             <!-- Login/logout button -->
@@ -74,21 +75,36 @@ The TafSIRI Initiative is an innovative platform designed to enhance and streaml
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
         <script>
             // Example location: Nairobi, Kenya
-            var latitude = -1.286389;
-            var longitude = 36.817223;
-            var zoom = 13;
+            // var latitude = -1.286389;
+            // var longitude = 36.817223;
+            // var zoom = 13;
 
             // Initialize the map
-            var map = L.map('map').setView([latitude, longitude], zoom);
+            var map = L.map('map').setView([0, 0], 13);
 
             // Add OpenStreetMap tile layer
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
             }).addTo(map);
 
-            // Add a marker at the specific location
-            L.marker([latitude, longitude]).addTo(map)
-                .bindPopup('Your Location');
+            // Add a marker for the user's location
+            function addMarker(lat, lon) {
+                L.marker([lat, lon]).addTo(map)
+                    .bindPopup('Your Location').openPopup();
+            }
+
+            // Check if the browser supports geolocation
+            if ('geolocation' in navigator) {
+                // Get the user's current location
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+                    map.setView([latitude, longitude], 13); // Set view to user's location
+                    addMarker(latitude, longitude); // Add marker for user's location
+                });
+            } else {
+                console.log('Geolocation is not supported by this browser.');
+            }
         </script>
 
         <!-- Search Section -->
