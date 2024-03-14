@@ -44,7 +44,11 @@
                 <form action="">
                     <input type="text" placeholder="Search">
                 </form>
+                {% if current_user.is_anonymous %}
                 <a href="{{ url_for('login') }}" class="loginbutton">Log In</a>
+                {% else %}
+                <a href="{{ url_for('logout') }}" class="loginbutton">Log Out</a>
+                {% endif %}
             </div>
         </header>
         <hr>
