@@ -53,9 +53,15 @@ header {
     padding: 50px 20px;
     text-align: center;
 }
+.content_explore {
+    flex-direction: row-reverse;
+    flex: 1;
+    max-width: 100%;
+}
 
 .content_feedback {
-    flex-direction: row-reverse;
+    flex: 1;
+    max-width: 100%;
 }
 
 .content_collaborate {
