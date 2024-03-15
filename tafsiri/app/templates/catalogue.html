@@ -39,8 +39,11 @@
             </form> -->
 
             {% if current_user.Username %}
-            <a href="{{ url_for('user', username=current_user.Username) }}"><i>Hi, {{ current_user.Username }}!</i></a>
-            <!-- <p><i>Hi, {{ current_user.Username }}!</i></p> -->
+                    {% if current_user.Type != 'Admin' %}
+                    <a href="{{ url_for('user', username=current_user.Username) }}"><i>Hi, {{ current_user.Username }}!</i></a>
+                    {% else %}
+                    <a href="{{ url_for('admin', username=current_user.Username) }}"><i>Hi Admin, {{ current_user.Username }}!</i></a>
+                    {% endif %}
             {% endif %}
 
             <!-- Login/logout button -->

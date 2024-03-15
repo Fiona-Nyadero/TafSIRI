@@ -19,8 +19,8 @@ class RegistrationForm(FlaskForm):
         'Repeat Password', validators=[DataRequired(), EqualTo('password')])
     phone_number = StringField('Phone Number') 
     date_of_birth = DateField('Date of Birth', validators=[DataRequired()])
+    user_type = SelectField('User Type', choices=[('Regular', 'Regular'), ('Admin', 'Admin')], default='Regular')
     submit = SubmitField('Register')
-    user_type = SelectField('Type', choices=[('Admin', 'Admin'), ('Regular', 'Regular')], validators=[DataRequired()])
 
     def validate_username(self, username):
         user = db.session.scalar(sa.select(User).where(

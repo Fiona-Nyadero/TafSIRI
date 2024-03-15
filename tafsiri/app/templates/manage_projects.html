@@ -1,0 +1,25 @@
+{% extends "base2.html" %}
+
+{% block content %}
+    <h1>Manage Projects</h1>
+    <p>Here's where you can modify an existing project or add one, if you like!</p>
+    <button><a href="{{ url_for('add_project') }}">Add a Project</a></button>
+
+    <div class="project-tiles">
+        <h2>Projects</h2>
+        <p>A list of all the projects can be found below:</p>
+        {% for project in projects %}
+        <table>
+            <tr valign="top">
+                <td><a href="{{ url_for('project', projectname=project.Title) }}"><img src="" alt="project thumbnail"></a></td>
+                <td><h2>{{ project.Title }}</h2>
+                    <p>{{ project.Description }}</p>
+                    <p><b>Submission Deadline: </b></p>
+                    <p><b>Phase: </b></p>
+                    <button><a href="{{ url_for('edit_project') }}">Edit Project</a></button>
+                </td>
+            </tr>
+        </table>
+        {% endfor %}
+    </div>
+{% endblock %}

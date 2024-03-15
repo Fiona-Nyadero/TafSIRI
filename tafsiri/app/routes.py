@@ -49,7 +49,11 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(Username=form.username.data, Email=form.email.data)
+        user = User(
+            Username=form.username.data,
+            Email=form.email.data,
+            Type=form.user_type.data
+        )
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -61,6 +65,8 @@ def register():
 @login_required
 def user(username):
     user = db.first_or_404(sa.select(User).where(User.Username == username))
+    if current_user.Type == 'Admin':
+        return redirect(url_for('index'))
     projects = [
         {'author': user, 'title': 'Test post #1'},
         {'author': user, 'title': 'Test post #2'},
@@ -93,3 +99,61 @@ def edit_profile():
         form.about_me.data = current_user.About_me
     return render_template('edit_profile.html', title='Edit Profile',
                            form=form)
+
+@app.route('/admin/<username>')
+@login_required
+def admin(username):
+    user = db.first_or_404(sa.select(User).where(User.Username == username))
+    if current_user.Type != 'Admin':
+        return redirect(url_for('index'))
+    projects = [
+        {'author': user, 'title': 'Test post #1'},
+        {'author': user, 'title': 'Test post #2'},
+    ]
+    return render_template('admin.html', user=user, projects=projects)
+
+@app.route('/add_project', methods=['GET', 'POST'])
+@login_required
+def add_project():
+    if current_user.Type != 'Admin':
+        return redirect(url_for('index'))
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(
+            Username=form.username.data,
+            Email=form.email.data,
+            Type=form.user_type.data
+        )
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('Congratulations, you are now a registered user!')
+        return redirect(url_for('/admin/<username>'))
+    return render_template('add_project.html', title='Add Project', form=form)
+
+@app.route('/edit_project', methods=['GET', 'POST'])
+@login_required
+def edit_project():
+    if current_user.Type != 'Admin':
+        return redirect(url_for('index'))
+    form = EditProfileForm()
+    if form.validate_on_submit():
+        current_user.Username = form.username.data
+        current_user.About_me = form.about_me.data
+        db.session.commit()
+        flash('Your changes have been saved')
+        return redirect(url_for('edit_profile'))
+    elif request.method == 'GET':
+        form.username.data = current_user.Username
+        form.about_me.data = current_user.About_me
+    return render_template('edit_project.html', title='Edit Project',
+                           form=form)
+
+@app.route('/manage_projects')
+@login_required
+def manage_projects():
+    if current_user.Type != 'Admin':
+        return redirect(url_for('index'))
+    query = sa.select(Project)
+    projects = db.session.scalars(query)
+    return render_template('manage_projects.html', title='Manage Projects', projects=projects)

@@ -35,5 +35,9 @@
     <hr>
     <h2>Sustainable Development Goals(SDGs)</h2>
     <p>Here's how this project contributes towards sustainable development:</p>
+    
+    {% if current_user.Type == 'Admin' %}
+        {% include '_projectAdmin.html' %}
+    {% endif %}
 
 {% endblock %}
