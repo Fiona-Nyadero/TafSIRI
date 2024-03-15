@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateField, TextAreaField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateField, TextAreaField, SelectField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Length
 import sqlalchemy as sa
 from app import db
@@ -20,6 +20,7 @@ class RegistrationForm(FlaskForm):
     phone_number = StringField('Phone Number') 
     date_of_birth = DateField('Date of Birth', validators=[DataRequired()])
     submit = SubmitField('Register')
+    user_type = SelectField('Type', choices=[('Admin', 'Admin'), ('Regular', 'Regular')], validators=[DataRequired()])
 
     def validate_username(self, username):
         user = db.session.scalar(sa.select(User).where(

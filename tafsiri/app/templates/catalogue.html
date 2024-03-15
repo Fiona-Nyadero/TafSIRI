@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../static/catalogue.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-.........." crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>TafSIRI Initiative - Catalog</title>
@@ -13,11 +13,8 @@
     <!-- Header Section -->
     <header>
         <div class="header-left">
-            <img src="Tafsiri logo blue.png" alt="Logo" class="logo">
+            <img src="{{ url_for ('static', filename='images/Tafsiri logo blue.png') }}" alt="Logo" class="logo">
             <div class="dropdownMenu">
-                <button class="dropbtn" type="button" data-bs-toggle="collapse">
-                    <span class="Picture8.png"></span>
-                </button>
                 <!-- Menu Button failed implementation
                 <div class="dropdown-content">
                     <a href="#">Home</a>
@@ -37,9 +34,9 @@
         </div>
 
         <div class="header-right">
-            <form action="">
+            <!-- <form action="">
                 <input type="text" placeholder="Search">
-            </form>
+            </form> -->
 
             {% if current_user.Username %}
             <a href="{{ url_for('user', username=current_user.Username) }}"><i>Hi, {{ current_user.Username }}!</i></a>
@@ -121,7 +118,7 @@ The TafSIRI Initiative is an innovative platform designed to enhance and streaml
         <div class="project-slideshow">
             <h2>Projects</h2>
             {% for project in projects %}
-            <div><p><b>{{ project.Title }}</b></p></div>
+            <div><a href="{{ url_for('project', projectname=project.Title) }}"><p><b>{{ project.Title }}</b></p></a></div>
             {% endfor %}
         </div>
     </section>
@@ -129,7 +126,7 @@ The TafSIRI Initiative is an innovative platform designed to enhance and streaml
     <!-- Footer Section -->
     <footer>
         <div class="footer-left">
-            <img src="Tafsiri logo white.png" alt="Logo" class="logo-footer">
+            <img src="{{ url_for('static', filename='images/Tafsiri logo white.png') }}" alt="Logo" class="logo-footer">
             TafSIRI Initiative
         </div>
         <div class="footer-middle">

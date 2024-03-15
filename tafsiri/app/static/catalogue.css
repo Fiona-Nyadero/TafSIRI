@@ -1,0 +1,176 @@
+/* Reset some default styles */
+body, h1, h2, p, div {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Circular', sans-serif;
+}
+
+/* Header Styles */
+header {
+    background-color: #F9E0E2;
+    color: black;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-container {
+    margin-right: 20px;
+}
+
+.logo-container img {
+    width: 100px; /* Adjust the width as needed */
+}
+
+.title-container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.title-container p {
+    font-size: 16px;
+    color: black;
+}
+.menu-btn {
+    cursor: pointer;
+}
+
+/* Body Section Styles */
+.body-section {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    font-size: 18px;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+.about, .search, .project-slideshow {
+    margin-bottom: 30px;
+}
+
+.about h2, .search h2, .project-slideshow h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Map Section Styles */
+#map {
+    margin-bottom: 30px;
+}
+
+/* Search Section Styles */
+.search {
+    margin-bottom: 30px;
+}
+
+.search h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+label {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+/* Style the input and select boxes */
+#searchInput,
+#categoryFilter,
+#countyFilter {
+    padding: 8px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Style the button */
+button {
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive Design - Adjustments for smaller screens */
+@media only screen and (max-width: 768px) {
+    form {
+        flex-direction: column;
+    }
+
+    label {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    /* Adjust the styles for smaller screens as needed */
+    #searchInput,
+    #categoryFilter,
+    #countyFilter,
+    button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* Footer Section Styles */
+footer {
+    background-color: #ecf0f1; /* Adjust the color based on your design */
+    color: #7f8c8d;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Additional Footer Styles */
+.footer-section {
+    display: flex;
+    justify-content: space-around; /* Change to space-around for better spacing */
+    align-items: center;
+}
+
+.footer-section div {
+    flex: 1;
+    text-align: center;
+}
+
+/* Responsive Design - Adjustments for smaller screens */
+@media only screen and (max-width: 768px) {
+    footer {
+        padding: 20px 10px; /* Reduce horizontal padding for smaller screens */
+    }
+
+    .footer-section {
+        flex-direction: column;
+        align-items: center; /* Center items in smaller screens */
+    }
+
+    .footer-section div {
+        margin-top: 10px; /* Add margin between items in smaller screens */
+    }
+}
+footer {
+    background-color: #F9E0E2;
+    color: black;
+    padding: 20px;
+    text-align: center;
+}

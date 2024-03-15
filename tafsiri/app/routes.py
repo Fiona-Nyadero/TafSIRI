@@ -67,6 +67,11 @@ def user(username):
     ]
     return render_template('user.html', user=user, projects=projects)
 
+@app.route('/project/<projectname>')
+def project(projectname):
+    project = db.first_or_404(sa.select(Project).where(Project.Title == projectname))
+    return render_template('project.html', title=projectname, project=project)
+
 @app.before_request
 def before_request():
     if current_user.is_authenticated:

@@ -41,10 +41,29 @@ class Project(db.Model):
     Title: so.Mapped[str] = so.mapped_column(sa.String(256))
     Timestamp: so.Mapped[datetime] = so.mapped_column(
         index=True, default=lambda: datetime.now(timezone.utc))
+    #Project page deets
     User_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey(User.id),
                                                index=True)
+    # Cover_photo: Hero section/Catalogue thumbnail
+    Description: so.Mapped[Optional[str]] = so.mapped_column(sa.String(140))
+    Background: so.Mapped[Optional[str]] = so.mapped_column(sa.String(1024))
+    Proposal: so.Mapped[Optional[str]] = so.mapped_column(sa.String(1024))
+    Phase: so.Mapped[Optional[str]] = so.mapped_column(sa.String(120))
+    # Phase: Conception, Tendering, Construction, Operation(DLP), Stalled
+    # Extent: plot boundaries on a map
+    # Photos: link to 3d renders
+    # Feedback_id: foreign key(dont know how yet)
+    # Feedback_period: when project is open for feedback
+    # SDG_id: foreign key
+    # Contact_person: Author(user-id)
+
+    #Catalogue page deets
+    # Cover_photo: Hero section/Catalogue thumbnail
+    # Location_id: County(can be a foreign key)
+    # Coordinates: Latitude, Longitude
+    # Category_id: project type(can be a foreign key)
     Author: so.Mapped[User] = so.relationship(back_populates='Projects')
-    # Description:Location:Category:Status:cd 
+    
 
     def __repr__(self):
         return '<Project {}>'.format(self.Title)
