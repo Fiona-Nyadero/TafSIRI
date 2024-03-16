@@ -1,0 +1,83 @@
+{% extends "base2.html" %}
+
+{% block content %}
+    <h1>Add Project</h1>
+
+    <form method="POST" action="">
+        {{ form.csrf_token }}
+        <p>
+            {{ form.title.label }}<br>
+            {{ form.title(size=42) }}<br>
+            {% for error in form.title.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description(size=42) }}<br>
+            {% for error in form.description.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.background.label }}<br>
+            {{ form.background(size=42) }}<br>
+            {% for error in form.background.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.proposal.label }}<br>
+            {{ form.proposal(size=42) }}<br>
+            {% for error in form.proposal.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.phase.label }}<br>
+            {{ form.phase(size=42) }}<br>
+            {% for error in form.phase.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.latitude.label }}<br>
+            {{ form.latitude(size=42) }}<br>
+            {% for error in form.latitude.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.longitude.label }}<br>
+            {{ form.longitude(size=42) }}<br>
+            {% for error in form.longitude.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.location.label }}<br>
+            {{ form.location(size=42) }}<br>
+            {% for error in form.location.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.sdgs.label }}<br>
+            {{ form.sdgs(size=42) }}<br>
+            {% for error in form.sdgs.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.submission_deadline.label }}<br>
+            {{ form.submission_deadline(size=42) }}<br>
+            {% for error in form.submission_deadline.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        
+        <button type="submit">Add Project</button>
+    </form>
+
+    <a href="{{ url_for('index') }}">Cancel</a>
+{% endblock %}
