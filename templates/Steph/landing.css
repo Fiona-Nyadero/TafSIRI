@@ -43,7 +43,23 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 50px 20px;
-    text-align: center;
+    text-align: left;
+}
+.section2 p {
+    position: relative; /* Required for positioning the bullet point */
+    padding-left: 25px; /* Adjust the distance between bullet point and text */
+}
+
+.section2 p::before {
+    content: ""; /* Required for the bullet point */
+    position: absolute; /* Position the bullet point */
+    left: 0; /* Adjust the position of the bullet point */
+    top: 35%; /* Adjust the position of the bullet point */
+    transform: translateY(-50%); /* Adjust the position of the bullet point */
+    width: 15px; /* Size of the bullet point */
+    height: 15px; /* Size of the bullet point */
+    border-radius: 50%; /* Make the bullet point round */
+    background-color: white; /* Color of the bullet point */
 }
 .content-section {
     height: 100vh;
@@ -51,8 +67,28 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 50px 20px;
-    text-align: center;
+    text-align: left;
 }
+/* Style for paragraphs with colored bullet points */
+.content-section p,
+.background-section p {
+    position: relative; /* Required for positioning the bullet point */
+    padding-left: 25px; /* Adjust the distance between bullet point and text */
+}
+
+.content-section p::before, 
+.background-section p::before {
+    content: ""; /* Required for the bullet point */
+    position: absolute; /* Position the bullet point */
+    left: 0; /* Adjust the position of the bullet point */
+    top: 50%; /* Adjust the position of the bullet point */
+    transform: translateY(-50%); /* Adjust the position of the bullet point */
+    width: 15px; /* Size of the bullet point */
+    height: 15px; /* Size of the bullet point */
+    border-radius: 50%; /* Make the bullet point round */
+    background-color: #f16819; /* Color of the bullet point */
+}
+
 .content_explore {
     flex-direction: row-reverse;
     flex: 1;
@@ -77,10 +113,10 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: left;
     background: url('background-image.jpg') center/cover no-repeat; /* Add background image */
     color: white;
-    padding: 50px;
+    padding: 50px 20px;
 }
 
 .content_Government {
@@ -90,14 +126,29 @@ header {
 
 /* Main Content Section 4 */
 .content-section_alternate {
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
-    min-height: 100vh; /* Change from height to min-height */
     padding: 50px 20px;
+    text-align: left;
+}
+.content-section_alternate p {
+    position: relative; /* Required for positioning the bullet point */
+    padding-left: 25px; /* Adjust the distance between bullet point and text */
 }
 
+.content-section_alternate p::before {
+    content: ""; /* Required for the bullet point */
+    position: absolute; /* Position the bullet point */
+    left: 0; /* Adjust the position of the bullet point */
+    top: 35%; /* Adjust the position of the bullet point */
+    transform: translateY(-50%); /* Adjust the position of the bullet point */
+    width: 15px; /* Size of the bullet point */
+    height: 15px; /* Size of the bullet point */
+    border-radius: 50%; /* Make the bullet point round */
+    background-color: #f16819; /* Color of the bullet point */
+}
 .content-section_alternate .image,
 .content-section_alternate .content_volunteer {
     flex: 1;
@@ -172,6 +223,26 @@ header {
 .btn:hover {
     background-color: #555;
 }
+.content-section,
+.section2,
+.content-section_alternate,
+.content-section p {
+    font-size: 18px; /* Adjust the font size as needed */
+    font-family: 'Roboto', sans-serif; /* Change the font family */
+}
+
+.content-section h2,
+.section2 h2,
+.content-section_alternate h2,
+.content-section h2.gradient-text {
+    font-size: 24px; /* Adjust the heading font size as needed */
+    font-family: 'Montserrat', sans-serif; /* Change the heading font family */
+}
+/* Center headings within the content-section */
+.content-section_alternate h2
+{
+    text-align: center;
+}
 
 /* Footer Section Styles */
 footer {
@@ -197,7 +268,7 @@ footer {
 
 /* Main Content Section 5 */
 .content-section {
-    background-color: white; /* Add desired background color */
+    background-color: rgb(234, 238, 241); /* Add desired background color */
 }
 .gradient-text {
     background-image: linear-gradient(45deg, rgb(21, 22, 22), #1f2020); /* Adjust gradient colors as needed */
