@@ -25,6 +25,9 @@ class User(UserMixin, db.Model):
 
     Projects: so.WriteOnlyMapped['Project'] = so.relationship(
         back_populates='Author')
+    
+    Response: so.WriteOnlyMapped['Feedback'] = so.relationship(
+        back_populates='Responsee')
 
     def __repr__(self):
         return '<User {}>'.format(self.Username)
@@ -65,15 +68,35 @@ class Project(db.Model):
     #Catalogue page deets
     # Cover_photo: Hero section/Catalogue thumbnail
     County: so.Mapped[Optional[str]] = so.mapped_column(sa.String(100))
-    Latitude: so.Mapped[Optional[float]] = so.mapped_column(Float(20))
-    Longitude: so.Mapped[Optional[float]] = so.mapped_column(Float(20))
+    Latitude: so.Mapped[Optional[float]] = so.mapped_column(sa.Float(20))
+    Longitude: so.Mapped[Optional[float]] = so.mapped_column(sa.Float(20))
     Category: so.Mapped[Optional[str]] = so.mapped_column(sa.String(100))
     Author: so.Mapped[User] = so.relationship(back_populates='Projects')
+    Feedback_received: so.Mapped['Feedback'] = so.relationship(back_populates='Feedback_project')
     
 
     def __repr__(self):
         return '<Project {}>'.format(self.Title)
+
+class Feedback(db.Model):
+    id: so.Mapped[int] = so.mapped_column(primary_key=True)
+    Rating: so.Mapped[int] = so.mapped_column(sa.Integer)
+    Rating_reason: so.Mapped[str] = so.mapped_column(sa.String(1024))
+    Suggestions: so.Mapped[str] = so.mapped_column(sa.String(1024))
+    Submitted: so.Mapped[datetime] = so.mapped_column(
+        index=True, default=lambda: datetime.now(timezone.utc))
     
+    Responsee_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey(User.id),
+                                               index=True)
+    
+    Responsee: so.Mapped[User] = so.relationship(back_populates='Response')
+
+    Feedback_project_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey(Project.id),
+                                               index=True)
+    Feedback_project: so.Mapped[Project] = so.relationship(back_populates='Feedback_received')
+
+    def __repr__(self):
+        return f'<Feedback id={self.id} rating={self.Rating} responsee={self.Responsee_id} feedback_project={self.Feedback_project_id}>'
 @login.user_loader
 def load_user(id):
     return db.session.get(User, int(id))

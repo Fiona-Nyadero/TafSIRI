@@ -1,9 +1,10 @@
 from flask_login import current_user, login_user, login_required, logout_user
 import sqlalchemy as sa
 from app import db
-from app.models import User, Project
-from app.forms import RegistrationForm, LoginForm, EditProfileForm, AddProjectForm, EditProjectForm
-from flask import render_template, flash, redirect, url_for, request
+from app.models import User, Project, Feedback
+from app.forms import RegistrationForm, LoginForm, EditProfileForm, AddProjectForm, EditProjectForm, FeedbackForm
+from flask import render_template, flash, redirect, url_for, request, send_file
+from io import BytesIO
 from urllib.parse import urlsplit
 from app import app
 from datetime import datetime, timezone
@@ -78,16 +79,42 @@ def user(username):
     ]
     return render_template('user.html', user=user, projects=projects)
 
-@app.route('/project/<projectname>')
-def project(projectname):
-    project = db.first_or_404(sa.select(Project).where(Project.Title == projectname))
-    return render_template('project.html', title=projectname, project=project)
-
 @app.before_request
 def before_request():
     if current_user.is_authenticated:
         current_user.Last_seen = datetime.now(timezone.utc)
         db.session.commit()
+
+@app.route('/project/<projectname>')
+def project(projectname):
+    project = db.first_or_404(sa.select(Project).where(Project.Title == projectname))
+    return render_template('project.html', title=projectname, project=project)
+
+@app.route('/project/<projectname>/feedback', methods=['GET', 'POST'])
+def project_feedback(projectname):
+    project = Project.query.filter_by(Title=projectname).first()
+    if project is None:
+        flash('Project not found.')
+        return redirect(url_for('catalogue'))
+    user_id = current_user.id
+    form = FeedbackForm()
+    if form.validate_on_submit():
+        rating = form.rating.data
+        rating_reason = form.rating_reason.data
+        suggestions = form.suggestions.data
+
+        feedback = Feedback(
+            Rating=rating,
+            Rating_reason=rating_reason,
+            Suggestions=suggestions,
+            Responsee_id=user_id,
+            Feedback_project_id=project.id
+        )
+        db.session.add(feedback)
+        db.session.commit()
+        flash('Feedback submitted successfully. Thank you for your feedback!')
+        return redirect(url_for('project', projectname=projectname))
+    return render_template('feedback.html', title='Have your Say!', project=project, form=form)
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required

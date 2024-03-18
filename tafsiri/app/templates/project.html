@@ -24,7 +24,7 @@
     Some random pdfs and scans
     
     <h2>Have your say</h2>
-    <button type="submit">Have your Say!</button>
+    <button><a href="{{ url_for('project_feedback', projectname=project.Title) }}">Have your Say!</a></button>
     <p>Thank you for your interest in this project. By completing the feedback form you agree to our privacy policy. Please remember to <a href="{{ url_for('login') }}">log in</a> to provide your feedback.</p>
     
     <h2><b>Who's Listening</b></h2>

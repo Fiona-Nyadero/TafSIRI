@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateField, TextAreaField, SelectField, DateTimeField, FloatField
-from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Length
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateField, TextAreaField, SelectField, DateTimeField, FloatField, IntegerField
+from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Length, NumberRange
 import sqlalchemy as sa
 from app import db
 from app.models import User, Project
@@ -70,4 +70,10 @@ class AddProjectForm(FlaskForm):
                                                 validators=[DataRequired()], default='Undefined')
     sdgs = StringField('SDGs', validators=[DataRequired()])
     county = StringField('County', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+class FeedbackForm(FlaskForm):
+    rating = IntegerField('Rating', validators=[DataRequired(), NumberRange(min=1, max=5)])
+    rating_reason = TextAreaField('Rating_reason', validators=[Length(min=0, max=1024)])
+    suggestions = TextAreaField('Suggestions', validators=[Length(min=0, max=1024)])
     submit = SubmitField('Submit')
