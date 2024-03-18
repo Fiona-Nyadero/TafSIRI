@@ -4,7 +4,7 @@ body, h1, h2, p, div {
     padding: 0;
 }
 
-body {
+/*body {
     font-family: 'Cbircular', sans-serif;
 }
 
@@ -26,7 +26,7 @@ header {
 }
 
 .title-container h1 {
-    font-size: 24px;
+    font-size: 35px;
     margin-bottom: 10px;
 }
 
@@ -34,6 +34,18 @@ header {
     font-size: 16px;
     color: black;
 }
+
+p {
+    font-family: "Cantarell", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.alegreya-heading {
+    font-family: "Alegreya", serif;
+    font-weight: 700; /* Use the desired weight, e.g., 400 for regular, 700 for bold */
+    font-style: normal;
+  }
 
 /* Main Content Section Styles */
 /*section 2*/
@@ -81,7 +93,7 @@ header {
     content: ""; /* Required for the bullet point */
     position: absolute; /* Position the bullet point */
     left: 0; /* Adjust the position of the bullet point */
-    top: 50%; /* Adjust the position of the bullet point */
+    top: 35%; /* Adjust the position of the bullet point */
     transform: translateY(-50%); /* Adjust the position of the bullet point */
     width: 15px; /* Size of the bullet point */
     height: 15px; /* Size of the bullet point */
@@ -189,7 +201,9 @@ header {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
+#Image1 {
+    max-height: 150%;
+}
 #Image2 {
     max-height: 100%;
 }
@@ -227,16 +241,14 @@ header {
 .section2,
 .content-section_alternate,
 .content-section p {
-    font-size: 18px; /* Adjust the font size as needed */
-    font-family: 'Roboto', sans-serif; /* Change the font family */
+    font-size: 22px; /* Adjust the font size as needed */
 }
 
 .content-section h2,
 .section2 h2,
 .content-section_alternate h2,
 .content-section h2.gradient-text {
-    font-size: 24px; /* Adjust the heading font size as needed */
-    font-family: 'Montserrat', sans-serif; /* Change the heading font family */
+    font-size: 27px; /* Adjust the heading font size as needed */
 }
 /* Center headings within the content-section */
 .content-section_alternate h2
@@ -252,8 +264,7 @@ footer {
     text-align: center;
 }
 /* Main Content Section 1 */
-.content-section,
-.content_collaborate {
+.content-section {
     background-color: #f27f7f; /* Add desired background color */
 }
 
