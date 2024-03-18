@@ -18,6 +18,13 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
+        <p>
+            {{ form.job_title.label }}<br>
+            {{ form.job_title(cols= 48, rows=4) }}<br>
+            {% for error in form.job_title.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
         <p>{{ form.submit() }}</p>
     </form>
 {% endblock %}

@@ -1,9 +1,9 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateField, TextAreaField, SelectField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateField, TextAreaField, SelectField, DateTimeField, FloatField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Length
 import sqlalchemy as sa
 from app import db
-from app.models import User
+from app.models import User, Project
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
@@ -37,4 +37,37 @@ class RegistrationForm(FlaskForm):
 class EditProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     about_me = TextAreaField('About me', validators=[Length(min=0, max=140)])
+    job_title = TextAreaField('Job title', validators=[Length(min=0, max=140)])
+    submit = SubmitField('Submit')
+
+class EditProjectForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired()])
+    description = TextAreaField('Description', validators=[Length(min=0, max=256)])
+    phase = SelectField('Phase', choices=[('Conception', 'Conception'), ('Tendering', 'Tendering'),
+                                          ('Construction', 'Construction'), ('Operation', 'Operation'),
+                                          ('Operation(PostDLP)', 'Operation(PostDLP)'),
+                                          ('Stalled', 'Stalled')], validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+class AddProjectForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired()])
+    description = TextAreaField('About me', validators=[Length(min=0, max=256)])
+    background = TextAreaField('About me', validators=[Length(min=0, max=1024)])
+    proposal = TextAreaField('About me', validators=[Length(min=0, max=2048)])
+    deadline = DateTimeField('Deadline', validators=[DataRequired()])
+    latitude = FloatField('Latitude', validators=[DataRequired()])
+    longitude = FloatField('Latitude', validators=[DataRequired()])
+    phase = SelectField('Phase', choices=[('Conception', 'Conception'), ('Tendering', 'Tendering'),
+                                          ('Construction', 'Construction'), ('Operation', 'Operation'),
+                                          ('Operation(PostDLP)', 'Operation(PostDLP)'),
+                                          ('Stalled', 'Stalled')], validators=[DataRequired()])
+    category = SelectField('Category', choices=[('Community', 'Community'), ('Culture', 'Culture'),
+                                                ('Education', 'Education'),
+                                                ('Environment', 'Environment'), ('Health', 'Health'),
+                                                ('Planning', 'Planning'), ('Recreation', 'Recreation'),
+                                                ('Technology', 'Technology'), ('Transportation', 'Transportation'),
+                                                ('MegaProject', 'MegaProject'), ('Undefined', 'Undefined')],
+                                                validators=[DataRequired()], default='Undefined')
+    sdgs = StringField('SDGs', validators=[DataRequired()])
+    county = StringField('County', validators=[DataRequired()])
     submit = SubmitField('Submit')

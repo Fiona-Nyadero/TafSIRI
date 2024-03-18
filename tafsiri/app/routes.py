@@ -2,7 +2,7 @@ from flask_login import current_user, login_user, login_required, logout_user
 import sqlalchemy as sa
 from app import db
 from app.models import User, Project
-from app.forms import RegistrationForm, LoginForm, EditProfileForm
+from app.forms import RegistrationForm, LoginForm, EditProfileForm, AddProjectForm, EditProjectForm
 from flask import render_template, flash, redirect, url_for, request
 from urllib.parse import urlsplit
 from app import app
@@ -13,6 +13,11 @@ from datetime import datetime, timezone
 @login_required
 def index():
     return render_template('index.html', title='Home')
+
+@app.route('/index2')
+@login_required
+def index2():
+    return render_template('index2.html', title='Home')
 
 @app.route('/catalogue')
 def catalogue():
@@ -91,12 +96,14 @@ def edit_profile():
     if form.validate_on_submit():
         current_user.Username = form.username.data
         current_user.About_me = form.about_me.data
+        current_user.Job_title = form.job_title.data
         db.session.commit()
         flash('Your changes have been saved')
         return redirect(url_for('edit_profile'))
     elif request.method == 'GET':
         form.username.data = current_user.Username
         form.about_me.data = current_user.About_me
+        form.job_title.data = current_user.Job_title
     return render_template('edit_profile.html', title='Edit Profile',
                            form=form)
 
@@ -116,16 +123,22 @@ def admin(username):
 @login_required
 def add_project():
     if current_user.Type != 'Admin':
-        return redirect(url_for('index'))
-    form = RegistrationForm()
+        return redirect(url_for('catalogue'))
+    form = AddProjectForm()
     if form.validate_on_submit():
-        user = User(
-            Username=form.username.data,
-            Email=form.email.data,
-            Type=form.user_type.data
-        )
-        user.set_password(form.password.data)
-        db.session.add(user)
+        project = Project(
+            Title=form.title.data,
+            Description=form.description.data,
+            Background=form.background.data,
+            Proposal=form.proposal.data,
+            Deadline=form.deadline.data,
+            SDGs=form.sdgs.data,
+            Latitude=form.latitude.data,
+            Longitude=form.longitude.data,
+            Phase=form.phase.data,
+            Category=form.category.data,
+            County=form.county.data)
+        db.session.add(project)
         db.session.commit()
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('/admin/<username>'))
@@ -136,16 +149,18 @@ def add_project():
 def edit_project():
     if current_user.Type != 'Admin':
         return redirect(url_for('index'))
-    form = EditProfileForm()
+    form = EditProjectForm()
     if form.validate_on_submit():
-        current_user.Username = form.username.data
-        current_user.About_me = form.about_me.data
+        Project.Title = form.title.data
+        Project.Description = form.description.data
+        Project.Phase = form.phase.data
         db.session.commit()
-        flash('Your changes have been saved')
-        return redirect(url_for('edit_profile'))
+        flash('Your project changes have been saved')
+        return redirect(url_for('edit_project'))
     elif request.method == 'GET':
-        form.username.data = current_user.Username
-        form.about_me.data = current_user.About_me
+        form.title.data = Project.Title
+        form.description.data = Project.Description
+        form.phase.data = Project.Phase
     return render_template('edit_project.html', title='Edit Project',
                            form=form)
 

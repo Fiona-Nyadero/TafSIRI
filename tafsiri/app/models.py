@@ -21,6 +21,7 @@ class User(UserMixin, db.Model):
     Last_seen: so.Mapped[Optional[datetime]] = so.mapped_column(
         default=lambda: datetime.now(timezone.utc))
     Type: so.Mapped[Optional[str]] = so.mapped_column(sa.String(10))
+    Job_title: so.Mapped[Optional[str]] = so.mapped_column(sa.String(120))
 
     Projects: so.WriteOnlyMapped['Project'] = so.relationship(
         back_populates='Author')
@@ -47,24 +48,26 @@ class Project(db.Model):
     User_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey(User.id),
                                                index=True)
     # Cover_photo: Hero section/Catalogue thumbnail
-    Description: so.Mapped[Optional[str]] = so.mapped_column(sa.String(140))
+    Description: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256))
     Background: so.Mapped[Optional[str]] = so.mapped_column(sa.String(1024))
-    Proposal: so.Mapped[Optional[str]] = so.mapped_column(sa.String(1024))
+    Proposal: so.Mapped[Optional[str]] = so.mapped_column(sa.String(2048))
     Phase: so.Mapped[Optional[str]] = so.mapped_column(sa.String(120))
             # Phase examples: Conception, Tendering, Construction, Operation(DLP), Stalled
     # Extent: plot boundaries on a map
     # Photos: link to 3d renders
+    # Documents: plans and specifications
     # Feedback_id: foreign key(dont know how yet)
     # Feedback_period: when project is open for feedback
-    # SDG_id: foreign key
-    # Contact_person: Author(user-id)
+    Deadline: so.Mapped[Optional[datetime]] = so.mapped_column(sa.DateTime)
+        # Feedback_period: when project is open for feedback
+    SDGs: so.Mapped[Optional[str]] = so.mapped_column(sa.String(20))
 
     #Catalogue page deets
     # Cover_photo: Hero section/Catalogue thumbnail
-    # Location_id: County(can be a foreign key)
+    County: so.Mapped[Optional[str]] = so.mapped_column(sa.String(100))
     Latitude: so.Mapped[Optional[float]] = so.mapped_column(Float(20))
     Longitude: so.Mapped[Optional[float]] = so.mapped_column(Float(20))
-    # Category_id: project type(can be a foreign key)
+    Category: so.Mapped[Optional[str]] = so.mapped_column(sa.String(100))
     Author: so.Mapped[User] = so.relationship(back_populates='Projects')
     
 
