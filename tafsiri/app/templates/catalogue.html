@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/catalogue.css">
+    <link rel="stylesheet" href="../static/styles_Fi.css">
+    <link rel="stylesheet" href="../static/styles_St.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-.........." crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>TafSIRI Initiative - Catalog</title>
@@ -74,11 +76,6 @@ The TafSIRI Initiative is an innovative platform designed to enhance and streaml
         <div id="map" style="height: 400px;"></div>
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
         <script>
-            // Example location: Nairobi, Kenya
-            // var latitude = -1.286389;
-            // var longitude = 36.817223;
-            // var zoom = 13;
-
             // Initialize the map
             var map = L.map('map').setView([0, 0], 13);
 
@@ -86,6 +83,13 @@ The TafSIRI Initiative is an innovative platform designed to enhance and streaml
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
             }).addTo(map);
+
+            /* Add markers for each project
+            var projects = JSON.parse('{{ projects_json | safe }}')
+            projects.forEach(function(project) {
+                var projectMarker = L.marker([project.Latitude, project.Longitude]).addTo(map);
+                projectMarker.bindPopup(project.Title);
+            });*/
 
             // Add a marker for the user's location
             function addMarker(lat, lon) {
@@ -121,7 +125,15 @@ The TafSIRI Initiative is an innovative platform designed to enhance and streaml
         <div class="project-slideshow">
             <h2>Projects</h2>
             {% for project in projects %}
-            <div><a href="{{ url_for('project', projectname=project.Title) }}"><p><b>{{ project.Title }}</b></p></a></div>
+                {{ project.Title }}
+                {% if project.Cover_photo %}
+                    <img src="" alt="{{ project.Title }} Thumbnail">
+                {% else %}
+                    <img src="../static/images/Illustrate the spiri (1).jpg" alt="Placeholder Thumbnail" class="CataloguePlaceholderThumnail">
+                {% endif %}
+                <p>50 comments</p>
+                <p>View and comment on proposals for the {{ project.Title }}</p>
+                <button><a href="{{ url_for('project', projectname=project.Title) }}">View details</a></button>
             {% endfor %}
         </div>
     </section>

@@ -25,6 +25,12 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
+        <p><i>Do you have a subscription? Use your company credentials to subscribe as an administrator today!</i></p>
+        <p>
+            {{ form.user_type.label }}<br>
+            {{ form.user_type }}<br>
+        </p>
+
         <p>{{ form.submit() }}</p>
     </form>
 {% endblock %}

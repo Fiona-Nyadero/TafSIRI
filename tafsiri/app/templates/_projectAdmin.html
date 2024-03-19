@@ -1,1 +1,2 @@
-<button><a href="{{ url_for('edit_project') }}">Edit this Project</a></button>
+<button><a href="{{ url_for('edit_project', projectname=project.Title) }}">Edit this Project</a></button>
+<button><a href="{{ url_for('manage_projects') }}">Back to all Projects</a></button>

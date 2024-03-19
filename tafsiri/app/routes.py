@@ -8,6 +8,7 @@ from io import BytesIO
 from urllib.parse import urlsplit
 from app import app
 from datetime import datetime, timezone
+import json
 
 @app.route('/')
 @app.route('/index')
@@ -24,7 +25,20 @@ def index2():
 def catalogue():
     query = sa.select(Project)
     projects = db.session.scalars(query)
+    
+    """"projects_data = []
+    for project in projects:
+        project_data = {
+            'title': project.Title,
+            'latitude': project.Latitude,
+            'longitude': project.Longitude
+        }
+        projects_data.append(project_data)
+
+    projects_json = json.dumps(projects_data)"""
+
     return render_template('catalogue.html', title='Catalogue', projects=projects)
+    #projects_json=projects_json
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -58,7 +72,6 @@ def register():
         user = User(
             Username=form.username.data,
             Email=form.email.data,
-            Type=form.user_type.data
         )
         user.set_password(form.password.data)
         db.session.add(user)
@@ -78,6 +91,37 @@ def user(username):
         {'author': user, 'title': 'Test post #2'},
     ]
     return render_template('user.html', user=user, projects=projects)
+
+@app.route('/admin/<username>')
+@login_required
+def admin(username):
+    user = db.first_or_404(sa.select(User).where(User.Username == username))
+    if current_user.Type != 'Admin':
+        return redirect(url_for('index'))
+    projects = [
+        {'author': user, 'title': 'Test post #1'},
+        {'author': user, 'title': 'Test post #2'},
+    ]
+    return render_template('admin.html', user=user, projects=projects)
+
+@app.route('/edit_profile', methods=['GET', 'POST'])
+@login_required
+def edit_profile():
+    form = EditProfileForm()
+    if form.validate_on_submit():
+        current_user.Username = form.username.data
+        current_user.About_me = form.about_me.data
+        current_user.Job_title = form.job_title.data
+        current_user.Type=form.user_type.data
+        db.session.commit()
+        flash('Your changes have been saved')
+        return redirect(url_for('edit_profile'))
+    elif request.method == 'GET':
+        form.username.data = current_user.Username
+        form.about_me.data = current_user.About_me
+        form.job_title.data = current_user.Job_title
+    return render_template('edit_profile.html', title='Edit Profile',
+                           form=form)
 
 @app.before_request
 def before_request():
@@ -116,36 +160,6 @@ def project_feedback(projectname):
         return redirect(url_for('project', projectname=projectname))
     return render_template('feedback.html', title='Have your Say!', project=project, form=form)
 
-@app.route('/edit_profile', methods=['GET', 'POST'])
-@login_required
-def edit_profile():
-    form = EditProfileForm()
-    if form.validate_on_submit():
-        current_user.Username = form.username.data
-        current_user.About_me = form.about_me.data
-        current_user.Job_title = form.job_title.data
-        db.session.commit()
-        flash('Your changes have been saved')
-        return redirect(url_for('edit_profile'))
-    elif request.method == 'GET':
-        form.username.data = current_user.Username
-        form.about_me.data = current_user.About_me
-        form.job_title.data = current_user.Job_title
-    return render_template('edit_profile.html', title='Edit Profile',
-                           form=form)
-
-@app.route('/admin/<username>')
-@login_required
-def admin(username):
-    user = db.first_or_404(sa.select(User).where(User.Username == username))
-    if current_user.Type != 'Admin':
-        return redirect(url_for('index'))
-    projects = [
-        {'author': user, 'title': 'Test post #1'},
-        {'author': user, 'title': 'Test post #2'},
-    ]
-    return render_template('admin.html', user=user, projects=projects)
-
 @app.route('/add_project', methods=['GET', 'POST'])
 @login_required
 def add_project():
@@ -158,38 +172,44 @@ def add_project():
             Description=form.description.data,
             Background=form.background.data,
             Proposal=form.proposal.data,
-            Deadline=form.deadline.data,
             SDGs=form.sdgs.data,
             Latitude=form.latitude.data,
             Longitude=form.longitude.data,
             Phase=form.phase.data,
             Category=form.category.data,
-            County=form.county.data)
+            County=form.county.data,
+            User_id=current_user.id)
         db.session.add(project)
         db.session.commit()
-        flash('Congratulations, you are now a registered user!')
-        return redirect(url_for('/admin/<username>'))
+        flash('Success! You have a project entry!')
+        return redirect(url_for('manage_projects'))
     return render_template('add_project.html', title='Add Project', form=form)
 
-@app.route('/edit_project', methods=['GET', 'POST'])
+@app.route('/edit_project/<projectname>', methods=['GET', 'POST'])
 @login_required
-def edit_project():
+def edit_project(projectname):
+    project = Project.query.filter_by(Title=projectname).first()
+    if project is None:
+        flash('Project not found.')
+        return redirect(url_for('catalogue'))
     if current_user.Type != 'Admin':
-        return redirect(url_for('index'))
+        return redirect(url_for('catalogue'))
+    if current_user != project.Author:
+        return redirect(url_for('project', projectname=projectname))
     form = EditProjectForm()
     if form.validate_on_submit():
-        Project.Title = form.title.data
-        Project.Description = form.description.data
-        Project.Phase = form.phase.data
+        project.Title = form.title.data
+        project.Description = form.description.data
+        project.Phase = form.phase.data
         db.session.commit()
         flash('Your project changes have been saved')
-        return redirect(url_for('edit_project'))
+        return redirect(url_for('manage_projects'))
     elif request.method == 'GET':
-        form.title.data = Project.Title
-        form.description.data = Project.Description
-        form.phase.data = Project.Phase
+        form.title.data = project.Title
+        form.description.data = project.Description
+        form.phase.data = project.Phase
     return render_template('edit_project.html', title='Edit Project',
-                           form=form)
+                           project=project, form=form)
 
 @app.route('/manage_projects')
 @login_required

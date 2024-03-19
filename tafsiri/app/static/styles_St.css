@@ -30,6 +30,11 @@ header {
 h1 {
     color: #333;
 }
+.CataloguePlaceholderThumnail{
+    max-height: 100px;
+    max-width: 200px;
+    text-align: left;
+}
 
 .tagline {
     color: #555;

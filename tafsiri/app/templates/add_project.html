@@ -70,15 +70,8 @@
         </p>
         <p>
             {{ form.sdgs.label }}<br>
-            {{ form.sdgs(size=42) }}<br>
+            {{ form.sdgs }}<br>
             {% for error in form.sdgs.errors %}
-                <span style="color: red;">{{ error }}</span><br>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.deadline.label }}<br>
-            {{ form.deadline(size=42) }}<br>
-            {% for error in form.deadline.errors %}
                 <span style="color: red;">{{ error }}</span><br>
             {% endfor %}
         </p>
@@ -86,5 +79,5 @@
         <p>{{ form.submit() }}</p>
     </form>
 
-    <a href="{{ url_for('catalogue') }}">Cancel</a>
+    <a href="{{ url_for('admin', username=current_user.Username) }}">Cancel</a>
 {% endblock %}

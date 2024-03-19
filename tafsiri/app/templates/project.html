@@ -4,15 +4,15 @@
     <div class="project_hero-section">
         <img src="" alt="project cover photo" id="">
         <div><h1><b>{{ project.Title }}</b></h1></div>
-        <p class="project-hero_text">This is a short deescription</p>
+        <p class="project-hero_text">{{ project.Description }}</p>
         <button type="submit">+ Follow</button>
     </div>
     <hr>
     <h2>Background</h2>
-    <p>Some random text</p>
+    <p>{{ project.Background }}</p>
 
     <h2>The Proposal</h2>
-    <p>Some random text</p>
+    <p>{{ project.Proposal }}</p>
 
     <h2>Project Extent</h2>
     <p>map goes here</p>
@@ -35,6 +35,7 @@
     <hr>
     <h2>Sustainable Development Goals(SDGs)</h2>
     <p>Here's how this project contributes towards sustainable development:</p>
+    <p><b>{{ project.SDGs }}</b></p>
     
     {% if current_user.Type == 'Admin' %}
         {% include '_projectAdmin.html' %}
