@@ -26,7 +26,7 @@ def catalogue():
     query = sa.select(Project)
     projects = db.session.scalars(query)
     
-    """"projects_data = []
+    projects_data = []
     for project in projects:
         project_data = {
             'title': project.Title,
@@ -35,10 +35,10 @@ def catalogue():
         }
         projects_data.append(project_data)
 
-    projects_json = json.dumps(projects_data)"""
+    projects_json = json.dumps(projects_data)
 
-    return render_template('catalogue.html', title='Catalogue', projects=projects)
-    #projects_json=projects_json
+    return render_template('catalogue.html', title='Catalogue', projects=projects,
+                           projects_json=projects_json)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -194,8 +194,8 @@ def edit_project(projectname):
         return redirect(url_for('catalogue'))
     if current_user.Type != 'Admin':
         return redirect(url_for('catalogue'))
-    if current_user != project.Author:
-        return redirect(url_for('project', projectname=projectname))
+    #if current_user != project.Author:
+    #return redirect(url_for('project', projectname=projectname))
     form = EditProjectForm()
     if form.validate_on_submit():
         project.Title = form.title.data
@@ -208,7 +208,7 @@ def edit_project(projectname):
         form.title.data = project.Title
         form.description.data = project.Description
         form.phase.data = project.Phase
-    return render_template('edit_project.html', title='Edit Project',
+        return render_template('edit_project.html', title='Edit Project',
                            project=project, form=form)
 
 @app.route('/manage_projects')
