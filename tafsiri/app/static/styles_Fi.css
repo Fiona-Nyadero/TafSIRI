@@ -1,78 +1,201 @@
+/*General styling*/
 body {
     background-color: #F9E0E2;
     margin: 0;
     padding: 0;
 }
-
-header {
-    color: #010440;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+/*Fonts*/
+h1 {
+    font-size: 45px;
+    margin-bottom: 10px;
+    font-family: "Libre Bodoni", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: semi-expanded;
+}
+.special_h1{
+    font-family: "Ribeye Marrow", serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 30px;
 }
 
+p {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  font-style: normal;
+  font-size: 20px;
+}
+
+h2 {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 550;
+  font-style: oblique;
+  font-size: 33px;
+}
+
+h3 {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 23px;
+  }
+
+
+.big-shouldersdisplay {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+  }
+
+.museomoderno {
+    font-family: "MuseoModerno", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+  }
+
+.bigshot-one-regular {
+    font-family: "Bigshot One", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+/*Header styling*/
+header {
+    color: #E23125;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-bottom: 0px;
+    padding: 15px;
+    font-family: "Margarine", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.header-right a {
+    margin: 0 7px;
+}
 .header-left, .header-right {
     display: flex;
     align-items: center;
-}
-
-.site-menu {
-    margin-left: 20px;
-}
-
-.site-menu a, .header-center a {
     color: #010440;
-    text-decoration: none;
-    margin-right: 15px;
 }
-
-.login-button {
-    background-color: #E23125;
-    color: #fff;
-    padding: 5px 10px;
-    margin-right: 15px;
-    cursor: pointer;
+.header_logo {
+    max-width: 80px;
+    padding-bottom: 20px;
+    margin: 0 7px;
 }
-
-input[type="text"] {
-    padding: 5px;
-    margin-right: 15px;
+.header-left p {
+    color: #010440;
+    font-size: larger;
 }
-
-.header-center {
-    display: flex;
-}
-
 .header-center a {
     margin: 0 15px;
+    font-size: larger;
+    color: #E23125;
 }
-
-.logo {
-    max-width: 75px;
-}
-
 .header-center {
     display: flex;
     align-items: center;
-    font-size: larger;
 }
+
 .loginbutton{
     display: inline-block;
     padding: 10px 20px;
-    background-color: #E23125;
+    background-color: #010440;
     color: #f1f1f1;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
     cursor: pointer;
     border-radius: 25px;
+    
 }
 
-.footer{
-    color: #010440;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+input[type="text"] {
+    padding: 5px;
+    margin-right: 15px;
 }
+/* Footer Style */
+footer{
+    background-color: #010440;
+    color: #f1f1f1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+}
+
+.contact-us form {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+}
+
+.contact-us label {
+    margin-bottom: 8px;
+    margin-top: 2px;
+}
+
+.contact-us input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.contact-us textarea {
+    height: 120px;
+    width: 100%;
+}
+
+.contact-us button {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.logo-footer{
+    max-width: 50px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+}
+body{
+    line-height: 1.6;
+}
+
+/* Responsive Design - Adjustments for smaller screens */
+@media only screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu-btn {
+        margin-top: 10px;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    #searchInput {
+        margin-top: 10px;
+    }
+}
+/* landing page */
+
+
+/* home page */
+

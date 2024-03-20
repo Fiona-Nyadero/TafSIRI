@@ -26,7 +26,22 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
+        <p>
+            {{ form.cover.label }}<br>
+            {{ form.cover }}<br>
+            {% for error in form.cover.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.plan.label }}<br>
+            {{ form.plan }}<br>
+            {% for error in form.plan.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
         <p>{{ form.submit() }}</p>
     </form>
+    <p><a href="{{ url_for('project', projectname=project.Title) }}">Back to {{ project.Title }}</a></p>
     <p><a href="{{ url_for('manage_projects') }}">Back to all Projects</a></p>
 {% endblock %}

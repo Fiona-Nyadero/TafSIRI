@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="projects_hero-section">
+        <h1 id="Projects_Heading">Explore Infrastructure Projects with TafSIRI</h1>
+        <p class="tagline">Empowering Communities, Enhancing Development</p>
+    </section>
+
+        <!-- About Section -->
+        <div class="about">
+            <h3><p><i>Tafsiri</i> means 'to decode/interpret/translate'</p></h3>
+            <p>TafSIRI is your gateway to understanding and engaging with infrastructure projects in your community.</p>
+            <p>Our platform is designed to foster transparent communication and collaboration amongst all project stakeholders.</p>
+            <p>We enable informed decision-making and inclusive development.</p>
+        </div>
+        <!-- Search Section -->
+        <div class="search">
+            <h2>Find Projects</h2>
+            <form id="searchForm">
+                <label for="searchInput">Search Projects:</label>
+                <input type="text" id="searchInput" name="searchInput" placeholder="Enter keywords...">
+                <button type="button" onclick="performSearch()">Search</button>
+            </form>
+        </div>
+
+        <!-- Slide show of Projects -->
+        <div class="project-slideshow">
+            <h2>Featured Projects</h2>
+            {% for project in projects %}
+                {{ project.Title }}
+                {% if project.Cover %}
+                    <img src="../static/projects/{{ project.id }}/coverphoto.jpg" alt="{{ project.Title }} thumbnail" id="">
+                {% else %}
+                    <img src="../static/projects/{{ project.id }}/photo1.jpg" alt="{{ project.Title }} thumbnail">
+                    <!-- <img src="../static/images/Illustrate the spiri (1).jpg" alt="Placeholder Thumbnail" class="CataloguePlaceholderThumnail">-->
+                {% endif %}
+
+                <p>50 comments</p>
+                <p>Discover and comment on proposals for {{ project.Title }}</p>
+                <button><a href="{{ url_for('project', projectname=project.Title) }}">View details</a></button>
+            {% endfor %}
+        </div>
+    </section>
+
+{% endblock %}

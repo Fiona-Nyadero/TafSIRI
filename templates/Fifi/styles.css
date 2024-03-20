@@ -107,8 +107,13 @@ input[type="text"] {
     border-radius: 25px;
 }
 
-footer{
+footer {
     background-color: #010440;
     color: #f1f1f1;
     max-height: 100px;
+}
+
+.footer-left, .footer-right {
+    color: #f1f1f1;
+    display: flex;
 }

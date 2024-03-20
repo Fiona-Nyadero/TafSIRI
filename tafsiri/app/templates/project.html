@@ -1,8 +1,15 @@
 {% extends "base2.html" %}
 
 {% block content %}
+    <button><a href="{{ url_for('projects') }}">Back to all Projects</a></button>
     <div class="project_hero-section">
-        <img src="" alt="project cover photo" id="">
+        <div class= "project_coverphoto">
+            {% if project.Cover %}
+                <img src="../static/projects/{{ project.id }}/coverphoto.jpg" alt="{{ project.Title }} coverphoto" id="">
+            {% else %}
+                <img src="../static/projects/{{ project.id }}/photo1.jpg" alt="{{ project.Title }} coverphoto">
+            {% endif %}
+        </div>
         <div><h1><b>{{ project.Title }}</b></h1></div>
         <p class="project-hero_text">{{ project.Description }}</p>
         <button type="submit">+ Follow</button>
@@ -19,9 +26,13 @@
 
     <h2>Document Library</h2>
     <h3>3D visualisations</h3>
-    Some random 3d pictures
+        <img src="../static/projects/{{ project.id }}/photo1.jpg" alt="{{ project.Title }} photo1">
+        <img src="../static/projects/{{ project.id }}/photo2.jpg" alt="{{ project.Title }} photo2">
+        <img src="../static/projects/{{ project.id }}/photo3.jpg" alt="{{ project.Title }} photo3">
     <h3>Plans and Specifications</h3>
-    Some random pdfs and scans
+    Here are some of the plans:
+        <img src="../static/projects/{{ project.id }}/plan1.png" alt="{{ project.Title }} plan1">
+        <img src="../static/projects/{{ project.id }}/plan2.png" alt="{{ project.Title }} plan2">
     
     <h2>Have your say</h2>
     <button><a href="{{ url_for('project_feedback', projectname=project.Title) }}">Have your Say!</a></button>
@@ -37,6 +48,7 @@
     <p>Here's how this project contributes towards sustainable development:</p>
     <p><b>{{ project.SDGs }}</b></p>
     
+    <button><a href="{{ url_for('projects') }}">Back to all Projects</a></button>
     {% if current_user.Type == 'Admin' %}
         {% include '_projectAdmin.html' %}
     {% endif %}
