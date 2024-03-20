@@ -47,6 +47,8 @@ class EditProjectForm(FlaskForm):
                                           ('Construction', 'Construction'), ('Operation', 'Operation'),
                                           ('Operation(PostDLP)', 'Operation(PostDLP)'),
                                           ('Stalled', 'Stalled')], validators=[DataRequired()])
+    cover = SelectField('Cover', choices=[('Yes', 'Yes'), ('No', 'No')], validators=[DataRequired()], default='No')
+    plan = SelectField('Plan', choices=[('Yes', 'Yes'), ('No', 'No')], validators=[DataRequired()], default='No')
     submit = SubmitField('Submit')
 
 class AddProjectForm(FlaskForm):
@@ -56,6 +58,8 @@ class AddProjectForm(FlaskForm):
     proposal = TextAreaField('Proposal', validators=[Length(min=0, max=2048)])
     latitude = FloatField('Latitude', validators=[DataRequired()])
     longitude = FloatField('Longitude', validators=[DataRequired()])
+    cover = SelectField('Cover', choices=[('Yes', 'Yes'), ('No', 'No')], validators=[DataRequired()], default='No')
+    plan = SelectField('Plan', choices=[('Yes', 'Yes'), ('No', 'No')], validators=[DataRequired()], default='No')
     phase = SelectField('Phase', choices=[('Conception', 'Conception'), ('Tendering', 'Tendering'),
                                           ('Construction', 'Construction'), ('Operation', 'Operation'),
                                           ('Operation(PostDLP)', 'Operation(PostDLP)'),

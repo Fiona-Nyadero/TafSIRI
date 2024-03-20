@@ -16,10 +16,10 @@ import json
 def index():
     return render_template('index.html', title='Home')
 
-@app.route('/index2')
+@app.route('/about')
 @login_required
-def index2():
-    return render_template('index2.html', title='Home')
+def about():
+    return render_template('about.html', title='Home')
 
 @app.route('/catalogue')
 def catalogue():
@@ -39,6 +39,13 @@ def catalogue():
 
     return render_template('catalogue.html', title='Catalogue', projects=projects,
                            projects_json=projects_json)
+
+@app.route('/projects')
+def projects():
+    query = sa.select(Project)
+    projects = db.session.scalars(query)
+
+    return render_template('projects.html', title='Projects', projects=projects)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -178,6 +185,8 @@ def add_project():
             Phase=form.phase.data,
             Category=form.category.data,
             County=form.county.data,
+            Cover=form.cover.data,
+            Plan=form.plan.data,
             User_id=current_user.id)
         db.session.add(project)
         db.session.commit()
@@ -201,6 +210,8 @@ def edit_project(projectname):
         project.Title = form.title.data
         project.Description = form.description.data
         project.Phase = form.phase.data
+        project.Cover=form.cover.data,
+        project.Plan=form.plan.data,
         db.session.commit()
         flash('Your project changes have been saved')
         return redirect(url_for('manage_projects'))
@@ -208,6 +219,8 @@ def edit_project(projectname):
         form.title.data = project.Title
         form.description.data = project.Description
         form.phase.data = project.Phase
+        form.cover.data = project.Cover
+        form.plan.data = project.Plan
         return render_template('edit_project.html', title='Edit Project',
                            project=project, form=form)
 
@@ -219,3 +232,7 @@ def manage_projects():
     query = sa.select(Project)
     projects = db.session.scalars(query)
     return render_template('manage_projects.html', title='Manage Projects', projects=projects)
+
+@app.route('/font_tester')
+def font_tester():
+    return render_template('test.html')

@@ -50,23 +50,24 @@ class Project(db.Model):
     #Project page deets
     User_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey(User.id),
                                                index=True)
-    # Cover_photo: Hero section/Catalogue thumbnail
+    Coverphoto: so.Mapped[Optional[str]] = so.mapped_column(sa.String(10)) #Yes or No
     Description: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256))
     Background: so.Mapped[Optional[str]] = so.mapped_column(sa.String(1024))
     Proposal: so.Mapped[Optional[str]] = so.mapped_column(sa.String(2048))
     Phase: so.Mapped[Optional[str]] = so.mapped_column(sa.String(120))
             # Phase examples: Conception, Tendering, Construction, Operation(DLP), Stalled
     # Extent: plot boundaries on a map
-    # Photos: link to 3d renders
-    # Documents: plans and specifications
-    # Feedback_id: foreign key(dont know how yet)
-    # Feedback_period: when project is open for feedback
+        # Photos: link to 3d renders
+    Photo1_url: so.Mapped[Optional[str]] = so.mapped_column(sa.String(120)) #To be
+    Photo2_url: so.Mapped[Optional[str]] = so.mapped_column(sa.String(120)) #used
+    Photo3_url: so.Mapped[Optional[str]] = so.mapped_column(sa.String(10)) #later
+        # Documents: plans and specifications
+    Plan: so.Mapped[Optional[str]] = so.mapped_column(sa.String(120)) #Yes or No
     Deadline: so.Mapped[Optional[datetime]] = so.mapped_column(sa.DateTime)
         # Feedback_period: when project is open for feedback
     SDGs: so.Mapped[Optional[str]] = so.mapped_column(sa.String(20))
 
     #Catalogue page deets
-    # Cover_photo: Hero section/Catalogue thumbnail
     County: so.Mapped[Optional[str]] = so.mapped_column(sa.String(100))
     Latitude: so.Mapped[Optional[float]] = so.mapped_column(sa.Float(20))
     Longitude: so.Mapped[Optional[float]] = so.mapped_column(sa.Float(20))

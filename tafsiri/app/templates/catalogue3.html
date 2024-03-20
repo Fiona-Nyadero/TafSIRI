@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% include '_catalogueMap.html' %}
+    <div class="search">
+        <h2>Search</h2>
+        <form id="searchForm">
+            <label for="searchInput">Search Projects:</label>
+            <input type="text" id="searchInput" name="searchInput" placeholder="Enter keywords...">
+            <button type="button" onclick="performSearch()">Search</button>
+        </form>
+    </div>
+    
+{% endblock %}
