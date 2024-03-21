@@ -49,7 +49,9 @@ While TafSIRI represents a significant step towards enhancing public participati
 From the initial concept to deployment, the TafSIRI journey spanned several months of hard work and dedication. Reflecting on the experience, we've gained invaluable insights into the intersection of technology and community engagement. Moving forward, we're excited to continue exploring innovative solutions that empower communities and drive positive change.
 
 ## Screenshots
-![alt text](
+![alt text](https://github.com/Fiona-Nyadero/TafSIRI/blob/master/templates/Steph/section2-image.jpg)
+![alt text](https://github.com/Fiona-Nyadero/TafSIRI/blob/master/templates/Steph/Tafsiri%20logo%20blue.png)
+![alt text](https://github.com/Fiona-Nyadero/TafSIRI/blob/master/templates/Steph/section1-image.jpg)
 
 ## Licensing:
 TafSIRI is licensed under the MIT License.
@@ -60,6 +62,6 @@ TafSIRI is licensed under the MIT License.
 * Steffanie Chepkirui
 
 ## Additional Resources:
-What Your Code Repository Says About You
-Awesome List of READMEs
+[Here](What Your Code Repository Says About You)
+[Here](Awesome List of READMEs)
 We appreciate your interest in TafSIRI and look forward to your engagement with our platform!
