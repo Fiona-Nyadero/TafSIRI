@@ -1,4 +1,4 @@
-# The begining of our Project
+# The beginning of our Project
 
 ## Project Name: TafSIRI Initiative
 
