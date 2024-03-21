@@ -1,7 +1,6 @@
 # The begining of our Project
 
 ## Project Name: TafSIRI Initiative
-####
 ![](https://tenor.com/view/welcome-michael-scott-dunder-mifflin-the-office-welcome-aboard-gif-27005393)
 
 **Introduction:**
