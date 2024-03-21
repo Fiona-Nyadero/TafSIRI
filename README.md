@@ -1,7 +1,8 @@
 # The begining of our Project
 
 ## Project Name: TafSIRI Initiative
-![](https://tenor.com/view/welcome-michael-scott-dunder-mifflin-the-office-welcome-aboard-gif-27005393)
+
+![alt text](https://tenor.com/view/welcome-michael-scott-dunder-mifflin-the-office-welcome-aboard-gif-27005393)
 
 **Introduction:**
 Welcome to the TafSIRI Initiative, a transformative platform aimed at enhancing public participation in infrastructure projects in Kenya. TafSIRI enables users to explore architectural plans, provide feedback, and engage with stakeholders, fostering transparent decision-making processes. To learn more about our project, visit our deployed site here and read our final project blog article [here](https://www.linkedin.com/pulse/tafsiri-project-blog-post-steffanie-chepkirui-tfrcf/?trackingId=LqyS1nW%2FQXKgjqQk3LTgJg%3D%3D)
@@ -63,7 +64,7 @@ TafSIRI is licensed under the MIT License.
 * Steffanie Chepkirui
 
 ## Additional Resources:
-What Your Code Repository Says About You
-Awesome List of READMEs
+* What Your Code Repository Says About You
+* Awesome List of READMEs
 
 We appreciate your interest in TafSIRI and look forward to your engagement with our platform!
