@@ -28,10 +28,11 @@ We welcome contributions from the community to enhance TafSIRI further. To contr
  * Commit your changes (git commit -am 'Add new feature').
  * Push to the branch (git push origin feature/improvement).
  * Create a new Pull Request.
+   
 ### Related Projects:
  #### Check out these related projects:
-What Your Code Repository Says About You
-Awesome List of READMEs
+* [What Your Code Repository Says About You]
+* [Awesome List of READMEs]
 
 ## Inspiration:
 Growing up in a diverse urban community there is a huge importance of community engagement in shaping architectural projects. The journey into public service further highlighted the challenges facing public participation in Kenya. Witnessing infrastructural developments lacking user-centered design and input from the community sparked the idea for TafSIRI.
@@ -60,9 +61,5 @@ TafSIRI is licensed under the MIT License.
 ### Author(s) LinkedIn:
 * Fiona Nyadero
 * Steffanie Chepkirui
-
-## Additional Resources:
-* What Your Code Repository Says About You
-* Awesome List of READMEs
-
+  
 We appreciate your interest in TafSIRI and look forward to your engagement with our platform!
