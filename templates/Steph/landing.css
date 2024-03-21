@@ -66,8 +66,8 @@ p {
     content: ""; /* Required for the bullet point */
     position: absolute; /* Position the bullet point */
     left: 0; /* Adjust the position of the bullet point */
-    top: 35%; /* Adjust the position of the bullet point */
-    transform: translateY(-50%); /* Adjust the position of the bullet point */
+    top: 38%; /* Adjust the position of the bullet point */
+    transform: translateY(-40%); /* Adjust the position of the bullet point */
     width: 15px; /* Size of the bullet point */
     height: 15px; /* Size of the bullet point */
     border-radius: 50%; /* Make the bullet point round */
@@ -93,7 +93,7 @@ p {
     content: ""; /* Required for the bullet point */
     position: absolute; /* Position the bullet point */
     left: 0; /* Adjust the position of the bullet point */
-    top: 35%; /* Adjust the position of the bullet point */
+    top: 55%; /* Adjust the position of the bullet point */
     transform: translateY(-50%); /* Adjust the position of the bullet point */
     width: 15px; /* Size of the bullet point */
     height: 15px; /* Size of the bullet point */
@@ -154,7 +154,7 @@ p {
     content: ""; /* Required for the bullet point */
     position: absolute; /* Position the bullet point */
     left: 0; /* Adjust the position of the bullet point */
-    top: 35%; /* Adjust the position of the bullet point */
+    top: 25%; /* Adjust the position of the bullet point */
     transform: translateY(-50%); /* Adjust the position of the bullet point */
     width: 15px; /* Size of the bullet point */
     height: 15px; /* Size of the bullet point */
