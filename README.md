@@ -3,14 +3,18 @@
 ## Project Name: TafSIRI Initiative
 
 **Introduction:**
-Welcome to the TafSIRI Initiative, a transformative platform aimed at enhancing public participation in infrastructure projects in Kenya. TafSIRI enables users to explore architectural plans, provide feedback, and engage with stakeholders, fostering transparent decision-making processes. To learn more about our project, visit our deployed site here and read our final project blog article here.
+Welcome to the TafSIRI Initiative, a transformative platform aimed at enhancing public participation in infrastructure projects in Kenya. TafSIRI enables users to explore architectural plans, provide feedback, and engage with stakeholders, fostering transparent decision-making processes. To learn more about our project, visit our deployed site here and read our final project blog article [here](https://www.linkedin.com/pulse/tafsiri-project-blog-post-steffanie-chepkirui-tfrcf/?trackingId=LqyS1nW%2FQXKgjqQk3LTgJg%3D%3D)
 
 ### Installation:
 To install and run TafSIRI locally on your machine, follow these simple steps:
-* Clone this repository to your local machine.
-* Navigate to the project directory.
-* Install the necessary dependencies by running npm install.
+> Clone this repository to your local machine.
+ ```git clone https://github.com/Fiona-Nyadero/TafSIRI.git```
+> Navigate to the project directory.
+ ```cd TafSIRI```
+> Install the necessary dependencies by running npm install.
+ ```npm install```
 * Start the application by running npm start.
+
 ### Usage:
 Once the application is up and running, users can:
 * Explore architectural plans and specifications.
@@ -24,8 +28,10 @@ We welcome contributions from the community to enhance TafSIRI further. To contr
  * Commit your changes (git commit -am 'Add new feature').
  * Push to the branch (git push origin feature/improvement).
  * Create a new Pull Request.
- * Related Projects:
- * Check out these related projects:
+### Related Projects:
+ #### Check out these related projects:
+What Your Code Repository Says About You
+Awesome List of READMEs
 
 ## Inspiration:
 Growing up in a diverse urban community there is a huge importance of community engagement in shaping architectural projects. The journey into public service further highlighted the challenges facing public participation in Kenya. Witnessing infrastructural developments lacking user-centered design and input from the community sparked the idea for TafSIRI.
@@ -41,6 +47,9 @@ While TafSIRI represents a significant step towards enhancing public participati
 
 ## Timeline and Reflection:
 From the initial concept to deployment, the TafSIRI journey spanned several months of hard work and dedication. Reflecting on the experience, we've gained invaluable insights into the intersection of technology and community engagement. Moving forward, we're excited to continue exploring innovative solutions that empower communities and drive positive change.
+
+## Screenshots
+![alt text](
 
 ## Licensing:
 TafSIRI is licensed under the MIT License.
