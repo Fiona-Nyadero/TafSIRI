@@ -31,8 +31,8 @@ We welcome contributions from the community to enhance TafSIRI further. To contr
    
 ### Related Projects:
  #### Check out these related projects:
-* [What Your Code Repository Says About You]
-* [Awesome List of READMEs]
+* []What Your Code Repository Says About You(https://opensource.com/open-organization/17/1/repo-tells-a-story)
+* []Awesome List of READMEs(https://dev.to/documatic/awesome-readme-examples-for-writing-better-readmes-3eh3)
 
 ## Inspiration:
 Growing up in a diverse urban community there is a huge importance of community engagement in shaping architectural projects. The journey into public service further highlighted the challenges facing public participation in Kenya. Witnessing infrastructural developments lacking user-centered design and input from the community sparked the idea for TafSIRI.
