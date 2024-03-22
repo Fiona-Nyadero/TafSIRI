@@ -50,7 +50,7 @@ class Project(db.Model):
     #Project page deets
     User_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey(User.id),
                                                index=True)
-    Coverphoto: so.Mapped[Optional[str]] = so.mapped_column(sa.String(10)) #Yes or No
+    Cover: so.Mapped[Optional[str]] = so.mapped_column(sa.String(10)) #Yes or No
     Description: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256))
     Background: so.Mapped[Optional[str]] = so.mapped_column(sa.String(1024))
     Proposal: so.Mapped[Optional[str]] = so.mapped_column(sa.String(2048))

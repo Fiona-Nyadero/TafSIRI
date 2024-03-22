@@ -1,4 +1,4 @@
-{% extends "base2.html" %}
+{% extends "base.html" %}
 
 {% block content %}
     <h1>Have your say</h1>
@@ -29,6 +29,14 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
+        <p>By completing the feedback form you agree to our privacy policy.</p>
+        <p>
+            {{ form.privacy_policy.label }} {{ form.privacy_policy(checked=True) }} I agree to the privacy policy<br>
+            {% for error in form.privacy_policy.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        
         <p>{{ form.submit() }}</p>
     </form>
     <p><a href="{{ url_for('project', projectname=project.Title) }}">Cancel</a></p>

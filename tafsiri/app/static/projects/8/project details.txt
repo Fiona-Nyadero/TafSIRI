@@ -1,0 +1,32 @@
+Title: Starehe Point
+
+Description:
+Starehe Point is an embodiment of lifestyle living in a secure
+environment that allows families and residents to grow and 
+enjoy life-changing moments as we ensure your safety, privacy,
+luxury, and peace of mind. 
+
+Background:
+The right to housing is embedded in the Constitution of Kenya, which provides that every person has the right to accessible and adequate housing. With Kenya’s growing economy and one of the fastest-growing urbanisation rates in the continent, the demand for housing has never been greater. This platform is intended to achieve the goals of our national housing policies to provide housing for all and bring to bear the right to safe and secure shelter.
+
+Proposal:
+Starehe Point offers a desirable location with good appreciation potential and low maintenance costs, along with convenient property management services, making it the perfect option for potential secondary homeowners looking for a secure investment.
+
+The one-bedroom apartment is designed to offer comfortable living space, spacious bedroom, and  modern amenities. The two-bedroom apartments are thoughtfully designed to accommodate an average family. The three-bedroom apartments come with natural light, and spacious rooms.
+
+Latitude: -1.282270
+
+Longitude: 36.844228
+
+County: Nairobi
+
+Phase: Construction
+
+Category: housing
+
+SDGs: 11
+
+Cover: y
+
+Plan: y
+

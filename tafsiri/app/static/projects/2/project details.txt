@@ -1,0 +1,34 @@
+Title: Mashujaa Museum Project at Uhuru Gardens
+
+Description: 
+The Mashujaa state-of-the-art, National Monument and Museum, at Uhuru Gardens, Nairobi will showcase 12,300 artefacts collected from all of over Kenya. We invite feedback on this national monument: a celebration of the past and a guide to the future.
+
+Background:
+'Msahau mila ni mtumwa.' So goes a swahili proverb that loosely translates to 'One who forgets their culture is a slave'. This served as inspiration for this project where we are called as Kenyans, to remember our culture. We dared to ask, "What is culture if not our past, present and future?"
+
+Proposal:
+The spaces include:- Peoples of Kenya, Military Heritage, Birth of Kenya, The Moi Exhibition, Kibaki Exhibition, The Tunnel of Martyrs, Hall of Witness, Independence Gallery, Rape Gallery and The Struggle of Independence.
+
+Others are Turi Station, Tomb of Unknown Warrior, Water Feature and Plaza of the People and Ichaweri House.
+
+A Hall of Legends, will showcase the lives of Kenya’s legendary ancestors, including Mzee Jomo Kenyatta, Mekatilili wa Menza, Koitalel arap Samoei, Jaramogi Oginga Odinga and Nabongo Mumia.
+An IT system will be set up to run the facility.
+
+Other features include Mt Shengena Locomotive, the torch of eternity, the Darkness Gallery, the Hall of Innovation and the Rope Gallery.
+
+Latitude: -1.3252649
+
+Longitude: 36.7984335
+
+County: Nairobi
+
+Phase: Operation(PostDLP)
+
+Category: Culture
+
+SDGs: 11
+
+Cover: y
+
+Plan: n
+

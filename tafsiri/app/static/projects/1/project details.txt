@@ -1,0 +1,24 @@
+Title: Machakos Township Affordable Housing Project
+
+Description: Machakos Township AHP is an SDHUD Designed project strategically located within Machakos Town.
+
+Background:
+The right to housing is embedded in the Constitution of Kenya, which provides that every person has the right to accessible and adequate housing. With Kenya’s growing economy and one of the fastest-growing urbanisation rates in the continent, the demand for housing has never been greater. This platform is intended to achieve the goals of our national housing policies to provide housing for all and bring to bear the right to safe and secure shelter.
+
+Proposal: Machakos Township AHP will provide 220 affordable housing units to residents of Machakos County and beyond upon completion. These will comprise 60 studio units, 40 1-bedroom units, 60 2-bedroom units, and 60 3 bedroom units on 2.4 acres. The Development will comprise generous green spaces for relaxation, adequate parking for all homeowners, well-paved rooms for vehicular and pedestrian users, and plans are underway for the inclusion of green fields and play areas. It is located off Chumvi - Machakos -Kitui Road, a few meters from the Machakos Teachers' College and the Kenya Urban Roads Authority Machakos County Offices.
+
+Latitude: -1.520278
+
+Longitude: 37.25658283333333
+
+County: Machakos
+
+Phase: Construction
+
+Category: Housing
+
+SDGs: 11
+
+Cover: n
+
+Plan: y

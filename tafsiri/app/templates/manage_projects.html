@@ -1,9 +1,9 @@
-{% extends "base2.html" %}
+{% extends "base.html" %}
 
 {% block content %}
     <h1>Manage Projects</h1>
     <p>Here's where you can modify an existing project or add one, if you like!</p>
-    <button><a href="{{ url_for('add_project') }}">Add a Project</a></button>
+    <button><p><a href="{{ url_for('add_project') }}">Add a Project</a></p></button>
 
     <div class="project-tiles">
         <h2>Projects</h2>
@@ -12,11 +12,13 @@
         <table>
             <tr valign="top">
                 <td><a href="{{ url_for('project', projectname=project.Title) }}"><img src="" alt="project thumbnail"></a></td>
-                <td><h2>{{ project.Title }}</h2>
+                <td><h3>{{ project.Title }}</h3>
                     <p>{{ project.Description }}</p>
-                    <p><b>Submission Deadline: {{ project.Deadline}}</b></p>
-                    <p><b>Phase: {{ project.Phase }}</b></p>
-                    <button><a href="{{ url_for('edit_project', projectname=project.Title) }}">Edit Project</a></button>
+                    {% if project.Deadline != None %}
+                        <p><b>Submission Deadline: </b>{{ project.Deadline}}</p>
+                    {% endif %}
+                    <p><b>Phase: </b>{{ project.Phase }}</p>
+                    <button><p><a href="{{ url_for('edit_project', projectname=project.Title) }}">Edit Project</a></p></button>
                 </td>
             </tr>
         </table>

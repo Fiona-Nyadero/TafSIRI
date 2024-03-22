@@ -1,0 +1,27 @@
+Title: Buxton Point
+
+Description:
+Buxton Point is an award winning modern and affordable housing project in Mombasa which is being done through a partnership between GulfCap Real Estate and the County Government of Mombasa. 
+
+Background:
+The right to housing is embedded in the Constitution of Kenya, which provides that every person has the right to accessible and adequate housing. With Kenya’s growing economy and one of the fastest-growing urbanisation rates in the continent, the demand for housing has never been greater. This platform is intended to achieve the goals of our national housing policies to provide housing for all and bring to bear the right to safe and secure shelter.
+
+Proposal:
+The project is located at the heart of Mombasa along Abdel Nasser Road which connects to Mombasa North through the Nyali Bridge and is 10 minutes’ drive to the Moi International Airport. It’s a walking distance to key institutions and social amenities such Coast General Hospital, Technical University of Mombasa, Kenya Methodist University, Mombasa Stadium, and reputable primary and secondary schools among others. It is amongst the largest affordable housing projects in Kenya consisting of 2000 housing and commercial units. The apartments include; One Bedroom, Two Bedroom and Three Bedroom.
+
+Latitude: -4.044973
+
+Longitude: 39.668388
+
+County: Mombasa
+
+Phase: Conception
+
+Category: Housing
+
+SDGs: 11
+
+Cover: Y
+
+Plan: Y
+

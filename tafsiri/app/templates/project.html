@@ -1,10 +1,10 @@
-{% extends "base2.html" %}
+{% extends "base.html" %}
 
 {% block content %}
     <button><a href="{{ url_for('projects') }}">Back to all Projects</a></button>
     <div class="project_hero-section">
         <div class= "project_coverphoto">
-            {% if project.Cover %}
+            {% if project.Cover == 'Yes' %}
                 <img src="../static/projects/{{ project.id }}/coverphoto.jpg" alt="{{ project.Title }} coverphoto" id="">
             {% else %}
                 <img src="../static/projects/{{ project.id }}/photo1.jpg" alt="{{ project.Title }} coverphoto">
@@ -29,16 +29,31 @@
         <img src="../static/projects/{{ project.id }}/photo1.jpg" alt="{{ project.Title }} photo1">
         <img src="../static/projects/{{ project.id }}/photo2.jpg" alt="{{ project.Title }} photo2">
         <img src="../static/projects/{{ project.id }}/photo3.jpg" alt="{{ project.Title }} photo3">
-    <h3>Plans and Specifications</h3>
-    Here are some of the plans:
-        <img src="../static/projects/{{ project.id }}/plan1.png" alt="{{ project.Title }} plan1">
-        <img src="../static/projects/{{ project.id }}/plan2.png" alt="{{ project.Title }} plan2">
-    
+        {% if project.Plan == 'Yes' %}
+            <h3>Plans and Specifications</h3>
+            <p>Here are some of the plans:</p>
+            <img src="../static/projects/{{ project.id }}/plan1.png" alt="{{ project.Title }} plan1">
+            <img src="../static/projects/{{ project.id }}/plan2.png" alt="{{ project.Title }} plan2">
+        {% else %}
+            <img src="../static/projects/{{ project.id }}/photo4.jpg" alt="{{ project.Title }} photo4">
+            <img src="../static/projects/{{ project.id }}/photo5.jpg" alt="{{ project.Title }} photo5">
+            <img src="../static/projects/{{ project.id }}/photo6.jpg" alt="{{ project.Title }} photo6">
+            <h3>Plans and Specifications</h3>
+            <p>Unfortunately, the project lacks details on plans and specifications!</p>
+            <p>Kindly bear with us, as we look for these resources for you.</p>
+        {% endif %}
+        
     <h2>Have your say</h2>
-    <button><a href="{{ url_for('project_feedback', projectname=project.Title) }}">Have your Say!</a></button>
-    <p>Thank you for your interest in this project. By completing the feedback form you agree to our privacy policy. Please remember to <a href="{{ url_for('login') }}">log in</a> to provide your feedback.</p>
-    
-    <h2><b>Who's Listening</b></h2>
+    {% if current_user == project.Author %}
+        <button disabled>Have your Say!</button>
+        <button><a href="{{ url_for('feedback', projectname=project.Title) }}">What's being said?</a></button>
+    {% else %}
+        <button><a href="{{ url_for('project_feedback', projectname=project.Title) }}">Have your Say!</a></button>
+    {% endif %}
+    <p>Thank you for your interest in this project! We value your feedback.</p>
+    <p>Please remember to <a href="{{ url_for('login') }}">log in</a> to provide your feedback.</p>
+
+    <h2>Who's Listening</h2>
     <p><b>Proponent: </b>{{ project.Author.Username}}</p>
     <p><b>Email: </b>{{ project.Author.Email }}</p>
     <p><b>Phone: </b>{{ project.Author.Phone_number }}</p>

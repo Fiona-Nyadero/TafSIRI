@@ -1,0 +1,26 @@
+Title: Talanta Sports City Stadium
+
+Description: Talanta is the state-of-the-art stadium scheduled to host the 2027 AFCON games and potentially the opening ceremony. Designed to meet FIFA standards, it is guaranteed to put Kenyan football on the map.
+
+Background:
+With Kenya set to host AFCON in 2027, we needed to raise our national stadiums to be at per with the International nature of the games. Talanta Sports city Stadium is a project among others initiated by the 2027 plans. Others include upgrading/revamping of Nyayo and Kasarani stadiums.
+
+Proposal:
+This is a joint project by the Ministry of Defence and Ministry of Youth Affairs, Creative Economy and Sports. It is a 60000-seat professional football stadium with a total built-up area of 98,150 square meters, outdoor training facilities (including a standard athletics track, a standard football field, and a shared rugby field).
+The heighest point of the roof stands at 54meters. The parking can readily accomodate 3,000 vehicles. Construction is set to run from March 2024 to December 2025, done by China Road & Bridge Corporation(CRBC).
+
+Latitude: -1.3058723
+
+Longitude: 36.7499083
+
+County: Nairobi
+
+Phase: Construction
+
+Category: Sports
+
+SDGs: 11
+
+Cover: N
+
+Plan: Y

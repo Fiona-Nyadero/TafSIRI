@@ -2,7 +2,8 @@
 <html lang="en">
     <head>
         <meta name="viewport" content="initial_scale=1, width=device-width">
-        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--title change-->
         {% if title %}
         <title> {{ title }} - TafSIRI Initiative</title>
@@ -15,12 +16,17 @@
         <!-- <link rel="stylesheet" href="../static/styles_St copy.css"> -->
         <!-- <link rel="stylesheet" href="../static/catalogue.css"> -->
         <!-- <link rel="stylesheet" href="../static/landing.css"> -->
+        <!-- Map -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
         <!-- Icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-.........." crossorigin="anonymous" referrerpolicy="no-referrer">
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100..900&family=Bigshot+One&family=Bodoni+Moda:ital,opsz,wght@0,6..96,800;1,6..96,800&family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Margarine&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Ribeye+Marrow&display=swap" rel="stylesheet">    <body>
+    </head>
+
+    <body>
         <header>
             <div class="header-left">
                 <img src="{{ url_for('static', filename='images/Tafsiri logo blue.png') }}" alt="Logo" class="header_logo">
@@ -35,7 +41,6 @@
             </div>
 
             <div class="header-right">
-                <a href="{{ url_for('font_tester') }}">Test Fonts</a>
                 <div id="User_greeting">
                     {% if current_user.Username %}
                         {% if current_user.Type != 'Admin' %}
@@ -56,13 +61,13 @@
         </header>
         <hr>
         {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         {% endwith %}
         {% block content %}{% endblock %}
         <footer>

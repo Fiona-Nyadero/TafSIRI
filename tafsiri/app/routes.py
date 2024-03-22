@@ -21,6 +21,11 @@ def index():
 def about():
     return render_template('about.html', title='Home')
 
+@app.route('/landing')
+@login_required
+def landing():
+    return render_template('landing.html', title='Home')
+
 @app.route('/catalogue')
 def catalogue():
     query = sa.select(Project)
@@ -93,10 +98,8 @@ def user(username):
     user = db.first_or_404(sa.select(User).where(User.Username == username))
     if current_user.Type == 'Admin':
         return redirect(url_for('index'))
-    projects = [
-        {'author': user, 'title': 'Test post #1'},
-        {'author': user, 'title': 'Test post #2'},
-    ]
+    query = sa.select(Project)
+    projects = db.session.scalars(query)
     return render_template('user.html', user=user, projects=projects)
 
 @app.route('/admin/<username>')
@@ -105,10 +108,8 @@ def admin(username):
     user = db.first_or_404(sa.select(User).where(User.Username == username))
     if current_user.Type != 'Admin':
         return redirect(url_for('index'))
-    projects = [
-        {'author': user, 'title': 'Test post #1'},
-        {'author': user, 'title': 'Test post #2'},
-    ]
+    query = sa.select(Project)
+    projects = db.session.scalars(query)
     return render_template('admin.html', user=user, projects=projects)
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
@@ -210,8 +211,15 @@ def edit_project(projectname):
         project.Title = form.title.data
         project.Description = form.description.data
         project.Phase = form.phase.data
-        project.Cover=form.cover.data,
-        project.Plan=form.plan.data,
+        project.Cover=form.cover.data
+        project.Plan=form.plan.data
+        project.SDGs=form.sdgs.data
+        project.Latitude=form.latitude.data
+        project.Longitude=form.longitude.data
+        project.Background=form.background.data
+        project.Proposal=form.proposal.data
+        project.Category=form.category.data
+        project.County=form.county.data
         db.session.commit()
         flash('Your project changes have been saved')
         return redirect(url_for('manage_projects'))
@@ -221,7 +229,14 @@ def edit_project(projectname):
         form.phase.data = project.Phase
         form.cover.data = project.Cover
         form.plan.data = project.Plan
-        return render_template('edit_project.html', title='Edit Project',
+        form.sdgs.data = project.SDGs
+        form.latitude.data = project.Latitude
+        form.longitude.data = project.Longitude
+        form.background.data = project.Background
+        form.proposal.data = project.Proposal
+        form.category.data = project.Category
+        form.county.data = project.County
+    return render_template('edit_project.html', title='Edit Project',
                            project=project, form=form)
 
 @app.route('/manage_projects')
@@ -233,6 +248,21 @@ def manage_projects():
     projects = db.session.scalars(query)
     return render_template('manage_projects.html', title='Manage Projects', projects=projects)
 
-@app.route('/font_tester')
-def font_tester():
-    return render_template('test.html')
+@app.route('/test_fonts')
+def test_fonts():
+    return render_template('Xtest.html')
+
+@app.route('/feedback/<projectname>', methods=['GET', 'POST'])
+@login_required
+def feedback(projectname):
+    project = Project.query.filter_by(Title=projectname).first()
+    if project is None:
+        flash('Project not found.')
+        return redirect(url_for('catalogue'))
+    if current_user.Type != 'Admin':
+        return redirect(url_for('catalogue'))
+    if current_user != project.Author:
+        return redirect(url_for('project', projectname=projectname))
+    
+    return render_template('feedbacklist.html', title='Project Feedback',
+                           project=project)
