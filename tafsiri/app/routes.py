@@ -9,6 +9,7 @@ from urllib.parse import urlsplit
 from app import app
 from datetime import datetime, timezone
 import json
+from flask_moment import moment
 
 @app.route('/')
 @app.route('/index')
@@ -151,14 +152,10 @@ def project_feedback(projectname):
     user_id = current_user.id
     form = FeedbackForm()
     if form.validate_on_submit():
-        rating = form.rating.data
-        rating_reason = form.rating_reason.data
-        suggestions = form.suggestions.data
-
         feedback = Feedback(
-            Rating=rating,
-            Rating_reason=rating_reason,
-            Suggestions=suggestions,
+            Rating=form.rating.data,
+            Rating_reason=form.rating_reason.data,
+            Suggestions=form.suggestions.data,
             Responsee_id=user_id,
             Feedback_project_id=project.id
         )
@@ -220,6 +217,8 @@ def edit_project(projectname):
         project.Proposal=form.proposal.data
         project.Category=form.category.data
         project.County=form.county.data
+        deadline_str = form.deadline.data
+        project.Deadline=datetime.strptime(deadline_str, '%m/%d/%Y')
         db.session.commit()
         flash('Your project changes have been saved')
         return redirect(url_for('manage_projects'))
@@ -236,6 +235,7 @@ def edit_project(projectname):
         form.proposal.data = project.Proposal
         form.category.data = project.Category
         form.county.data = project.County
+        form.deadline.data = project.Deadline
     return render_template('edit_project.html', title='Edit Project',
                            project=project, form=form)
 

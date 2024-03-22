@@ -15,6 +15,10 @@
         <button type="submit">+ Follow</button>
     </div>
     <hr>
+    {% if project.Deadline != None %}
+        <p>Currently accepting feedback till <b style="font-size: 21px;">{{ moment(project.Deadline).format('dddd') }}, {{ moment(project.Deadline).format('LL') }}</b></p>
+        <p>Deadline is <b style="font-size: 21px;">{{ moment(project.Deadline).fromNow() }}'s time!</b></p> 
+    {% endif %}
     <h2>Background</h2>
     <p>{{ project.Background }}</p>
 
@@ -45,13 +49,15 @@
         
     <h2>Have your say</h2>
     {% if current_user == project.Author %}
+        <p>WOW! Citizens are already engaging with this project.</p>
+        <p>Click on "What's been said?" to view their feedback in realtime.</p>
         <button disabled>Have your Say!</button>
         <button><a href="{{ url_for('feedback', projectname=project.Title) }}">What's being said?</a></button>
     {% else %}
         <button><a href="{{ url_for('project_feedback', projectname=project.Title) }}">Have your Say!</a></button>
+        <p>Thank you for your interest in this project! We value your feedback.</p>
+        <p>Please remember to <a href="{{ url_for('login') }}">log in</a> to provide your feedback.</p>
     {% endif %}
-    <p>Thank you for your interest in this project! We value your feedback.</p>
-    <p>Please remember to <a href="{{ url_for('login') }}">log in</a> to provide your feedback.</p>
 
     <h2>Who's Listening</h2>
     <p><b>Proponent: </b>{{ project.Author.Username}}</p>

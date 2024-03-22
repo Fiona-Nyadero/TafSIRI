@@ -1,6 +1,6 @@
 <table class="adminprofile_projectlist">
     <tr valign="top">
         <td><img src="{{ project.Author.avatar(36)}}" alt="{{ project.Author.Username }} avatar"></td>
-        <td><p>You posted: <br><b>{{ project.Title }}</b><br> on {{ project.Timestamp }}</p></td>
+        <td><p>You posted: <br><b>{{ project.Title }}</b><br> {{ moment(project.Timestamp).fromNow() }}</p></td>
     </tr>
 </table>

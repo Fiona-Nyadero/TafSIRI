@@ -7,7 +7,9 @@
             <td><img src="{{ user.avatar(128) }}" alt="profile avatar"></td>
             <td><h1>Admin: {{ user.Username }}</h1>
                 {% if user.About_me %}<p>{{ user.About_me }}</p>{% endif %}
-                {% if user.Last_seen %}<p>Last seen on: {{ user.Last_seen }}</p>{% endif %}
+                {% if user.Last_seen %}
+                    <p>Last seen on: {{ moment(user.Last_seen).format('LLL') }}</p>
+                {% endif %}
                 <p>Account type: {{ user.Type }} (verified)</p>
             </td>
         </tr>

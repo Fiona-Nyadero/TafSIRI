@@ -14,10 +14,10 @@
                 <td><a href="{{ url_for('project', projectname=project.Title) }}"><img src="" alt="project thumbnail"></a></td>
                 <td><h3>{{ project.Title }}</h3>
                     <p>{{ project.Description }}</p>
-                    {% if project.Deadline != None %}
-                        <p><b>Submission Deadline: </b>{{ project.Deadline}}</p>
-                    {% endif %}
                     <p><b>Phase: </b>{{ project.Phase }}</p>
+                    {% if project.Deadline != None %}
+                        <p><b>Submission deadline: </b>{{ moment(project.Deadline).format('dddd') }}, {{ moment(project.Deadline).format('LL') }} <i style="font-size: 15px;">({{ moment(project.Deadline).fromNow() }})</i></p>
+                    {% endif %}
                     <button><p><a href="{{ url_for('edit_project', projectname=project.Title) }}">Edit Project</a></p></button>
                 </td>
             </tr>

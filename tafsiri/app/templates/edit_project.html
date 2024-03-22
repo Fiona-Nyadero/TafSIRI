@@ -93,6 +93,14 @@
                 <span style="color: red;">{{ error }}</span><br>
             {% endfor %}
         </p>
+        <p>
+            {{ form.deadline.label }}<br>
+            {{ form.deadline }}<br>
+            {% for error in form.plan.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </p>
+        <p class="special_p">Please use this format: {{ moment(current_user.Last_seen).format('L') }}</p>
         <p>{{ form.submit() }}</p>
     </form>
     <p><a href="{{ url_for('project', projectname=project.Title) }}">Back to {{ project.Title }}</a></p>

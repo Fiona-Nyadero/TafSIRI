@@ -47,8 +47,8 @@ class EditProjectForm(FlaskForm):
                                           ('Construction', 'Construction'), ('Operation', 'Operation'),
                                           ('Operation(PostDLP)', 'Operation(PostDLP)'),
                                           ('Stalled', 'Stalled')], validators=[DataRequired()])
-    cover = SelectField('Cover', choices=[('Yes', 'Yes'), ('No', 'No')], validators=[DataRequired()], default='No')
-    plan = SelectField('Plan', choices=[('Yes', 'Yes'), ('No', 'No')], validators=[DataRequired()], default='No')
+    cover = SelectField('Are you uploading any photos and/or renders?', choices=[('Yes', 'Yes'), ('No', 'No')], validators=[DataRequired()], default='No')
+    plan = SelectField('Are you uploading any plans?', choices=[('Yes', 'Yes'), ('No', 'No')], validators=[DataRequired()], default='No')
     background = TextAreaField('Background', validators=[Length(min=0, max=1024)])
     proposal = TextAreaField('Proposal', validators=[Length(min=0, max=2048)])
     latitude = FloatField('Latitude', validators=[DataRequired()])
@@ -98,6 +98,7 @@ class EditProjectForm(FlaskForm):
     ]
     county = SelectField('County', choices=county_choices, validators=[DataRequired()])
     longitude = FloatField('Longitude', validators=[DataRequired()])
+    deadline = StringField('Submission deadline: mm/dd/yyy', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 class AddProjectForm(FlaskForm):
@@ -158,6 +159,7 @@ class AddProjectForm(FlaskForm):
         ('Vihiga', 'Vihiga'), ('Wajir', 'Wajir'), ('West Pokot', 'West Pokot'),
     ]
     county = SelectField('County', choices=county_choices, validators=[DataRequired()])
+    deadline = StringField('Deadline', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 class FeedbackForm(FlaskForm):

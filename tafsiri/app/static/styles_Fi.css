@@ -22,13 +22,19 @@ h1 {
 }
 
 p {
-  font-family: "Nunito", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 450;
-  font-style: normal;
-  font-size: 20px;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 450;
+    font-style: normal;
+    font-size: 20px;
 }
-
+.special_p{
+    font-family: "Nunito", sans-serif;   
+    font-optical-sizing: auto;
+    font-weight: 450;
+    font-style: italic;
+    font-size: 15px;
+}
 h2 {
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
