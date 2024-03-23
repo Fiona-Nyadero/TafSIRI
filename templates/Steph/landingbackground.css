@@ -1,7 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: "Open Sans", sans-serif;
 }
 
 .navigation {
@@ -14,9 +13,15 @@ body {
     /*background-color: rgba(255, 255, 255, 0.5); /* Optional: Add background color with some transparency */
 }
 
-.navbar-right {
+/*.navbar-right {
     float: right;
-    padding-right: 20px;
+    padding-right: 15px;
+}*/
+.navbar-right {
+    position: absolute;
+    top: 80px; /* Adjust the distance from the top */
+    right: 15px; /* Adjust the distance from the right */
+    padding-right: 15px;
 }
 
 .navbar-right a { 
@@ -74,8 +79,7 @@ header {
 .title-container p {
     font-size: 16px;
     color: #fff;
-    font-size: 18px; /* Increase font size as needed*/ 
-    font-family: "Arial", sans-serif;
+    font-size: 18px; /* Increase font size as needed*/
 }
 
 /* Vibrant gradient background */
@@ -141,16 +145,19 @@ header {
 }
 
 .text p {
+    font-family: "Cantarell", sans-serif;
+    font-weight: 400;
     color: #d9fcff;
     font-size: 20px;
     max-width: 50%;
-    font-size: 17px;
     line-height: 28px;
     opacity: 0;
     animation: fadein 2s;
     animation-delay: 1s;
     animation-fill-mode: forwards;
-}
+    font-weight: 400;
+    font-style: normal;
+    }
 
 .button-area {
     position: relative;
@@ -255,6 +262,257 @@ header {
     width: 350px;
     height: auto;
  }
+
+/* Main Content Section Styles */
+/*section 2*/
+.section2 {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    text-align: left;
+    margin-top: 145px; /* Adjust margin-top value as needed */
+}
+
+.section2 p {
+    position: relative; /* Required for positioning the bullet point */
+    padding-left: 25px; /* Adjust the distance between bullet point and text */
+}
+
+/*.section2 {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    text-align: left;
+}
+.section2 p {
+    position: relative; /* Required for positioning the bullet point
+    padding-left: 25px; /* Adjust the distance between bullet point and text 
+}*/
+
+/*.section2 p::before {
+    content: ""; /* Required for the bullet point 
+    position: absolute; /* Position the bullet point 
+    left: 0; /* Adjust the position of the bullet point 
+    top: 38%; /* Adjust the position of the bullet point 
+    transform: translateY(-40%); /* Adjust the position of the bullet point 
+    width: 15px; /* Size of the bullet point 
+    height: 15px; /* Size of the bullet point 
+    border-radius: 50%; /* Make the bullet point round 
+    background-color: white; /* Color of the bullet point 
+}*/
+
+.content-section {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    text-align: left;
+}
+/* Style for paragraphs with colored bullet points */
+.content-section p,
+.background-section p {
+    position: relative; /* Required for positioning the bullet point */
+    padding-left: 25px; /* Adjust the distance between bullet point and text */
+}
+
+.content-section p::before, 
+.background-section p::before {
+    content: ""; /* Required for the bullet point */
+    position: absolute; /* Position the bullet point */
+    left: 0; /* Adjust the position of the bullet point */
+    top: 55%; /* Adjust the position of the bullet point */
+    transform: translateY(-50%); /* Adjust the position of the bullet point */
+    width: 15px; /* Size of the bullet point */
+    height: 15px; /* Size of the bullet point */
+    border-radius: 50%; /* Make the bullet point round */
+    background-color: #f16819; /* Color of the bullet point */
+}
+
+.content_feedback {
+    flex: 1;
+    max-width: 100%;
+}
+
+.content_collaborate {
+    flex-direction: row-reverse;
+    flex: 1;
+    max-width: 100%;
+}
+
+/* Main Content Section 3 */
+.background-section {
+    height: 100vh; /* Adjust the height if necessary */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    background: url('background-image.jpg') center/cover no-repeat; /* Add background image */
+    color: white;
+    padding: 50px 20px;
+}
+
+.content_Government {
+    padding-top: 600px;
+    font-size: x-large;
+}
+
+/* Main Content Section 4 */
+.content-section_alternate {
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    text-align: left;
+}
+.content-section_alternate p {
+    position: relative; /* Required for positioning the bullet point */
+    padding-left: 25px;
+    color: white;
+    } /* Adjust the distance between bullet point and text */
+
+.content-section_alternate h2 {
+    color: white;
+}
+
+/*.content-section_alternate p::before {
+    content: ""; /* Required for the bullet point 
+    position: absolute; /* Position the bullet point 
+    left: 0; /* Adjust the position of the bullet point 
+    top: 25%; /* Adjust the position of the bullet point 
+    transform: translateY(-50%); /* Adjust the position of the bullet point 
+    width: 15px; /* Size of the bullet point 
+    height: 15px; /* Size of the bullet point 
+    border-radius: 50%; /* Make the bullet point round 
+    background-color: #f16819; /* Color of the bullet point 
+}*/
+.content-section_alternate .image,
+.content-section_alternate .content_volunteer {
+    flex: 1;
+    max-width: 50%;
+}
+
+.content-section_alternate .image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.content-section_alternate .content_volunteer {
+    padding: 0 20px;
+}
+
+/* Adjust button styles as needed */
+.content_volunteer .btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.content_volunteer .btn:hover {
+    background-color: #555;
+}
+
+.image {
+    flex: 1;
+}
+.image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#Image1 {
+    max-height: 150%;
+}
+#Image2 {
+    max-height: 100%;
+}
+
+#Image4 {
+    max-height: 80%;
+}
+
+.content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Add more styling as needed */
+.btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+.content-section,
+.section2,
+.content-section_alternate,
+.content-section p {
+    font-size: 22px; /* Adjust the font size as needed */
+}
+
+.content-section h2,
+.section2 h2,
+.content-section_alternate h2,
+.content-section h2.gradient-text {
+    font-size: 27px; /* Adjust the heading font size as needed */
+}
+/* Center headings within the content-section */
+.content-section_alternate h2
+{
+    text-align: center;
+}
+
+/* Footer Section Styles */
+footer {
+    background-color: #F9E0E2;
+    color: black;
+    padding: 20px;
+    text-align: center;
+}
+/* Main Content Section 1 */
+.content-section {
+    background-color: #f27f7f; /* Add desired background color */
+}
+
+/* Section 2 */
+.section2 {
+    background-color: #E23125; /* Add desired background color */
+}
+
+/* Main Content Section 4 */
+.content-section_alternate {
+    background-color: #010440; /* Add desired background color */
+}
+
+/* Main Content Section 5 */
+.content-section {
+    background-color: white; /* Add desired background color */
+}
 
  @keyframes fadein {
     0% {
