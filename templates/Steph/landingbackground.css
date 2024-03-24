@@ -330,7 +330,7 @@ header {
     width: 15px; /* Size of the bullet point */
     height: 15px; /* Size of the bullet point */
     border-radius: 50%; /* Make the bullet point round */
-    background-color: #f16819; /* Color of the bullet point */
+    background-color: #010440; /* Color of the bullet point */
 }
 
 .content_feedback {
@@ -489,10 +489,66 @@ header {
 
 /* Footer Section Styles */
 footer {
-    background-color: #F9E0E2;
+    background-color: #fff;
     color: black;
     padding: 20px;
     text-align: center;
+}
+
+/*.footer {
+    background-color: #2c2d30;
+    color: #fff;
+    padding: 40px 20px;
+}*/
+
+.footer-sections {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-section {
+    flex: 1;
+}
+
+.footer-section h3 {
+    font-size: 25px;
+    color: black;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.footer-section ul li a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #007a5a;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 30px;
+    margin: 0;
+}
+
+.pink-text {
+    background-color: #010440; /* Dark blue color */
+    color: white; /* Set text color to contrast with dark blue */
+    padding: 10px; /* Optional: Add padding for better appearance */
 }
 /* Main Content Section 1 */
 .content-section {
@@ -511,7 +567,7 @@ footer {
 
 /* Main Content Section 5 */
 .content-section {
-    background-color: white; /* Add desired background color */
+    background-color: #E23125; /* Add desired background color */
 }
 
  @keyframes fadein {
