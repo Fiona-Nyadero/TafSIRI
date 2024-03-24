@@ -1,0 +1,56 @@
+<table class="sdhlist">
+    <tr valign="top">
+        {% if project.SDGs == '01 No Poverty' %}
+        <td><img src="../static/images/sdgs/SDG Icons 2019_WEB/E-WEB-Goal-01.png" alt="sdg 01 icon" id="sdgicons"></td>
+        <td><p><b>GOAL {{ project.SDGs }}</b><br> To end poverty in all its forms everywhere by 2030.</p></td>
+        {% elif project.SDGs == '02 Zero Hunger' %}
+        <td><img src="../static/images/sdgs/SDG Icons 2019_WEB/E-WEB-Goal-02.png" alt="sdg 02 icon" id="sdgicons"></td>
+        <td><h3>GOAL {{ project.SDGs }}</h3><br><p>To end hunger, achieve food security and improved nutrition and promote sustainable agriculture.</p></td>
+        {% elif project.SDGs == '03 Good Health and Well-being' %}
+        <td><img src="../static/images/sdgs/SDG Icons 2019_WEB/E-WEB-Goal-03.png" alt="sdg 03 icon" id="sdgicons"></td>
+        <td><h3>GOAL {{ project.SDGs }}</h3><br><p>To ensure healthy lives and promote well-being for all at all ages.</p></td>
+        {% elif project.SDGs == '04 Quality Education' %}
+        <td><img src="../static/images/sdgs/SDG Icons 2019_WEB/E-WEB-Goal-04.png" alt="sdg 04 icon" id="sdgicons"></td>
+        <td><h3>GOAL {{ project.SDGs }}</h3><br><p>Ensure inclusive and quality education for all and promote lifelong learning.</p></td>
+        {% elif project.SDGs == '05 Gender Equality' %}
+        <td><img src="../static/images/sdgs/SDG Icons 2019_WEB/E-WEB-Goal-05.png" alt="sdg 05 icon" id="sdgicons"></td>
+        <td><h3>GOAL {{ project.SDGs }}</h3><br><p>To achieve gender equality and empower all women and girls.</p></td>
+        {% elif project.SDGs == '06 Clean Water and Sanitation' %}
+        <td><img src="../static/images/sdgs/SDG Icons 2019_WEB/E-WEB-Goal-06.png" alt="sdg 06 icon" id="sdgicons"></td>
+        <td><h3>GOAL {{ project.SDGs }}</h3><br><p>To ensure access to safe water sources and sanitation for all.</p></td>
+        {% elif project.SDGs == '07 Affordable and Clean Energy' %}
+        <td><img src="../static/images/sdgs/SDG Icons 2019_WEB/E-WEB-Goal-07.png" alt="sdg 07 icon" id="sdgicons"></td>
+        <td><h3>GOAL {{ project.SDGs }}</h3><br><p>To ensure access to affordable, reliable, sustainable and modern energy for all.</p></td>
+        {% elif project.SDGs == '08 Decent Work and Economic Growth' %}
+        <td><img src="../static/images/sdgs/SDG Icons 2019_WEB/E-WEB-Goal-08.png" alt="sdg 08 icon" id="sdgicons"></td>
+        <td><h3>GOAL {{ project.SDGs }}</h3><br><p>To promote inclusive and sustainable economic growth, employment and decent work for all.</p></td>
+        {% elif project.SDGs == '09 Industry, Innovation and Infrastructure' %}
+        <td><img src="../static/images/sdgs/SDG Icons 2019_WEB/E-WEB-Goal-09.png" alt="sdg 09 icon" id="sdgicons"></td>
+        <td><h3>GOAL {{ project.SDGs }}</h3><br><p>To build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation</p></td>
+        {% elif project.SDGs == '10 Reduced Inequalities' %}
+        <td><img src="../static/images/sdgs/SDG Icons 2019_WEB/E-WEB-Goal-10.png" alt="sdg 10 icon" id="sdgicons"></td>
+        <td><h3>GOAL {{ project.SDGs }}</h3><br><p>To reduce inequalities within and among countries.</p></td>
+        {% elif project.SDGs == '11 Sustainable Cities and Communities' %}
+        <td><img src="../static/images/sdgs/SDG Icons 2019_WEB/E-WEB-Goal-11.png" alt="sdg 11 icon"id="sdgicons"></td>
+        <td><h3>GOAL {{ project.SDGs }}</h3><br><p>To make cities inclusive, safe, resilient and sustainable</p></td>
+        {% elif project.SDGs == '12 Responsible Consumption and Production' %}
+        <td><img src="../static/images/sdgs/SDG Icons 2019_WEB/E-WEB-Goal-12.png" alt="sdg 12 icon" id="sdgicons"></td>
+        <td><h3>GOAL {{ project.SDGs }}</h3><br><p>To ensure sustainable consumption and production patterns.</p></td>
+        {% elif project.SDGs == '13 Climate Action', '13 Climate Action' %}
+        <td><img src="../static/images/sdgs/SDG Icons 2019_WEB/E-WEB-Goal-13.png" alt="sdg 13 icon" id="sdgicons"></td>
+        <td><h3>GOAL {{ project.SDGs }}</h3><br><p>Taking urgent action to tackle climate change and its impacts.</p></td>
+        {% elif project.SDGs == '14 Life Below Water' %}
+        <td><img src="../static/images/sdgs/SDG Icons 2019_WEB/E-WEB-Goal-14.png" alt="sdg 14 icon" id="sdgicons"></td>
+        <td><h3>GOAL {{ project.SDGs }}</h3><br><p>To conserve and sustainably use the world's ocean, seas and marine resources.</p></td>
+        {% elif project.SDGs == '15 Life on Land' %}
+        <td><img src="../static/images/sdgs/SDG Icons 2019_WEB/E-WEB-Goal-15.png" alt="sdg 15 icon" id="sdgicons"></td>
+        <td><h3>GOAL {{ project.SDGs }}</h3><br><p>To sustainably manage forests, combat desertification, halt and reverse land degradation, and halt biodiversity loss.</p></td>
+        {% elif project.SDGs == '16 Peace, Justice and Strong Institutions' %}
+        <td><img src="../static/images/sdgs/SDG Icons 2019_WEB/E-WEB-Goal-16.png" alt="sdg 16 icon" id="sdgicons"></td>
+        <td><h3>GOAL {{ project.SDGs }}</h3><br><p>Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels.</p></td>
+        {% else %}
+        <td><img src="../static/images/sdgs/SDG Icons 2019_WEB/E-WEB-Goal-17.png" alt="sdg 17 icon" id="sdgicons"></td>
+        <td><h3>GOAL {{ project.SDGs }}</h3><br><p>To revitalize the global partnership for sustainable development</p></td>
+        {% endif %}
+    </tr>
+</table>

@@ -1,4 +1,5 @@
-/*General styling*/
+/*############### GENERAL STYLING ########################*/
+
 body {
     background-color: #F9E0E2;
     margin: 0;
@@ -71,7 +72,30 @@ h3 {
     font-weight: 400;
     font-style: normal;
   }
-  
+
+/* Responsive Design - Adjustments for smaller screens */
+@media only screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu-btn {
+        margin-top: 10px;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    #searchInput {
+        margin-top: 10px;
+    }
+}
+
+/*############### PAGES ########################*/
+/******* base.html ********/
+
 /*Header styling*/
 header {
     color: #E23125;
@@ -181,27 +205,47 @@ body{
     line-height: 1.6;
 }
 
-/* Responsive Design - Adjustments for smaller screens */
-@media only screen and (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
 
-    .menu-btn {
-        margin-top: 10px;
-    }
+/********* index page *************/
 
-    form {
-        flex-direction: column;
-    }
 
-    #searchInput {
-        margin-top: 10px;
-    }
+/********* home page **************/
+
+
+/********* about page *************/
+
+
+/********* catalogue page *********/
+
+
+/********* project page ***********/
+
+/*sdg icons*/
+#sdgicons{
+    max-width: 300px;
+    max-height: 300px;
 }
-/* landing page */
 
 
-/* home page */
+/*############### SPECIAL PAGES ########################*/
 
+/****** Profile_User ********/
+
+
+/****** Profile_Admin *******/
+
+
+/****** Feedbacklist ********/
+
+
+/****** Manage_projects *****/
+
+
+/*############### FORMS ########################*/
+
+/******* add_project ********/
+/******* edit_profile *******/
+/******* edit_project *******/
+/******* feedbackform *******/
+/******* login **************/
+/******* register ***********/

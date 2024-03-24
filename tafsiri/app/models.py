@@ -74,7 +74,11 @@ class Project(db.Model):
     Category: so.Mapped[Optional[str]] = so.mapped_column(sa.String(100))
     Author: so.Mapped[User] = so.relationship(back_populates='Projects')
     Feedback_received: so.Mapped['Feedback'] = so.relationship(back_populates='Feedback_project')
-    
+
+    def feedback_count(self):
+        query = sa.select(sa.finc.count()).select_from(
+            self.Feedback_received.select().subquery())
+        return db.session.scalar(query)
 
     def __repr__(self):
         return '<Project {}>'.format(self.Title)

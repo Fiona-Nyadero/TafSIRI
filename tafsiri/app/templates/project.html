@@ -1,19 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <button><a href="{{ url_for('projects') }}">Back to all Projects</a></button>
-    <div class="project_hero-section">
-        <div class= "project_coverphoto">
-            {% if project.Cover == 'Yes' %}
-                <img src="../static/projects/{{ project.id }}/coverphoto.jpg" alt="{{ project.Title }} coverphoto" id="">
-            {% else %}
-                <img src="../static/projects/{{ project.id }}/photo1.jpg" alt="{{ project.Title }} coverphoto">
-            {% endif %}
+    <button><a href="{{ url_for('catalogue') }}">Back to all Projects</a></button>
+
+    <section class="project_Herosection">
+            <div class="project_hero-section">
+            <div class= "project_coverphoto">
+                {% if project.Cover == 'Yes' %}
+                    <img src="../static/projects/{{ project.id }}/coverphoto.jpg" alt="{{ project.Title }} coverphoto" id="">
+                {% else %}
+                    <img src="../static/projects/{{ project.id }}/photo1.jpg" alt="{{ project.Title }} coverphoto">
+                {% endif %}
+            </div>
+            <div><h1><b>{{ project.Title }}</b></h1></div>
+            <p class="project-hero_text">{{ project.Description }}</p>
+            <button type="submit">+ Follow</button>
         </div>
-        <div><h1><b>{{ project.Title }}</b></h1></div>
-        <p class="project-hero_text">{{ project.Description }}</p>
-        <button type="submit">+ Follow</button>
-    </div>
     <hr>
     {% if project.Deadline != None %}
         <p>Currently accepting feedback till <b style="font-size: 21px;">{{ moment(project.Deadline).format('dddd') }}, {{ moment(project.Deadline).format('LL') }}</b></p>
@@ -49,27 +51,38 @@
         
     <h2>Have your say</h2>
     {% if current_user == project.Author %}
-        <p>WOW! Citizens are already engaging with this project.</p>
-        <p>Click on "What's been said?" to view their feedback in realtime.</p>
+
+        {% if project.Feedback_received %}
+            <p>Whoa! Citizens are already engaging with this project.</p>
+            <p>There are already {{ comments }} comments.</p>
+        {% else %}
+            <p>Oops! Citizens are not engaging with this project.</p>
+            <p>There are no comments yet.</p>
+        {% endif %}
+        <p>Click on "What's been said?" to view the feedback, (if any) in realtime.</p>
         <button disabled>Have your Say!</button>
-        <button><a href="{{ url_for('feedback', projectname=project.Title) }}">What's being said?</a></button>
+        <button><a href="{{ url_for('view_feedback', projectname=project.Title) }}">What's being said?</a></button>
     {% else %}
-        <button><a href="{{ url_for('project_feedback', projectname=project.Title) }}">Have your Say!</a></button>
+        <button><a href="{{ url_for('give_feedback', projectname=project.Title) }}">Have your Say!</a></button>
         <p>Thank you for your interest in this project! We value your feedback.</p>
         <p>Please remember to <a href="{{ url_for('login') }}">log in</a> to provide your feedback.</p>
     {% endif %}
+    <hr>
+    <h2>Sustainable Development Goals(SDGs)</h2>
+    <div><img src="../static/images/sdgs/SDG Wheel_Transparent_WEB.png" alt="sdg icon" id="sdglogo"></div>
+    <div>
+        <p>This project works towards sustainable development goal(s):</p>
+        {% include '_sdg.html' %}
+    </div>
 
     <h2>Who's Listening</h2>
     <p><b>Proponent: </b>{{ project.Author.Username}}</p>
     <p><b>Email: </b>{{ project.Author.Email }}</p>
     <p><b>Phone: </b>{{ project.Author.Phone_number }}</p>
     
-    <hr>
-    <h2>Sustainable Development Goals(SDGs)</h2>
-    <p>Here's how this project contributes towards sustainable development:</p>
-    <p><b>{{ project.SDGs }}</b></p>
+
     
-    <button><a href="{{ url_for('projects') }}">Back to all Projects</a></button>
+    <button><a href="{{ url_for('catalogue') }}">Back to all Projects</a></button>
     {% if current_user.Type == 'Admin' %}
         {% include '_projectAdmin.html' %}
     {% endif %}

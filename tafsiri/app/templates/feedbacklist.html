@@ -1,5 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-Tadahhh
+    <h2>Feedback table for {{ project.Title }}</h2>
+    <table>
+        <tr>
+            <th><h3>Index</h3></th>
+            <th><h3>Rating</h3></th>
+            <th><h3>Reason for the Rating</h3>
+            <th><h3>Suggestions for Improvement</h3></th>
+            <th><h3>Feedback submission date</h3></th>
+        </tr>
+        {% for f in feedback %} 
+        <tr>
+            <td><p>{{ f.id }}</p></td>
+            <td><p>{{ f.Rating }}/5</p></td>
+            <td><p>{{ f.Rating_reason }}</p></td>
+            <td><p>{{ f.Suggestions }}</p></td>
+            <td><p>{{ moment(f.Submitted).format('LLL') }}</p></td>
+        </tr>
+    </table>
+    {% endfor %}
 {% endblock %}
