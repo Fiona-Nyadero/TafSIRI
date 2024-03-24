@@ -5,20 +5,31 @@
     <p>Here's where you can modify an existing project or add one, if you like!</p>
     <button><p><a href="{{ url_for('add_project') }}">Add a Project</a></p></button>
 
+    <hr>
     <div class="project-tiles">
         <h2>Projects</h2>
         <p>A list of all the projects can be found below:</p>
         {% for project in projects %}
-        <table>
+        <table class="manageproject_project">
             <tr valign="top">
-                <td><a href="{{ url_for('project', projectname=project.Title) }}"><img src="" alt="project thumbnail"></a></td>
+                <td class="manageproject_thumbnail"><a href="{{ url_for('project', projectname=project.Title) }}">
+                    {% if project.Cover == 'Yes' %}
+                    <img src="../static/projects/{{ project.id }}/coverphoto.jpg" alt="project thumbnail" id="manageproject_thumbnail">
+                    {% else %}
+                    <img src="../static/projects/{{ project.id }}/photo1.jpg" alt="project thumbnail" id="manageproject_thumbnail">
+                    {% endif %}
+                </a></td>
                 <td><h3>{{ project.Title }}</h3>
                     <p>{{ project.Description }}</p>
                     <p><b>Phase: </b>{{ project.Phase }}</p>
                     {% if project.Deadline != None %}
                         <p><b>Submission deadline: </b>{{ moment(project.Deadline).format('dddd') }}, {{ moment(project.Deadline).format('LL') }} <i style="font-size: 15px;">({{ moment(project.Deadline).fromNow() }})</i></p>
                     {% endif %}
+                    {% if current_user==project.Author %}
                     <button><p><a href="{{ url_for('edit_project', projectname=project.Title) }}">Edit Project</a></p></button>
+                    {% else %}
+                    <button disabled><p>Edit Project</a></p></button>
+                    {% endif %}
                 </td>
             </tr>
         </table>

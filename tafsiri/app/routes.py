@@ -20,7 +20,8 @@ def index():
 
 @app.route('/home')
 def home():
-    return render_template('home.html', title='Home')
+    projects= db.session.scalars(sa.select(Project))
+    return render_template('home.html', title='Home', projects=projects)
 
 @app.route('/about')
 def about():

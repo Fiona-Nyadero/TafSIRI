@@ -1,86 +1,137 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="main-body">
-        <div class="hero-section">
-            <div class="carousel-slide">
-                <img src="../static/images/Illustrate the spiri (3).jpg" alt="Slide 1">
-            </div>
-        </div>
-        <div class="info-section">
-            <div class="info-left">
-                <div class="heading">
-                    <h1>The</h1>
-                    <h1>TafSIRI</h1>
-                    <h1>Initiative</h1>
+    <section class="homepage">
+        <Section class="home_herosection">
+                <div class="homehero_heading">
+                    <h1>This is TafSIRI!</h1>
+                    <p id="homehero_tagline">the digital baraza  </p>
                 </div>
-                <p id="tagline">THE DIGITAL BARAZA</p>
+        </Section>
+
+
+        <Section class="home_section1">
+            <div class="home1-textimage">
+                <table class="home1-textimage"><tr>
+                        <td>
+                            <div class="home1_text">
+                                <h2>What's TafSIRI?</h2>
+                                <p>The TafSIRI Initiative is an online, innovative Public Participation platform for public infrastructure projects in Kenya.</p>
+                                <p>TafSIRI is where you see all public projects, displayed in a user-friendly way.</p>
+                                <p><i>'Tafsiri'</i>, means <b>'to decode/interpret/translate.'</b></p><br>
+                                <div class="home1-divider">
+                                    <p>The internet could be a very positive step towards education, organisation and participation in a meaningful society.</p>
+                                    <p>~ by Noam Chomsky</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="home1_image">
+                                <img src="../static/images/Picture2cropped.png" alt="TafSIRI in action">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
-            <div class="info-right">
+
+
+        </Section>
+        <hr>
+
+
+        <Section class="home_section2">
+            <div class="home2_slideshow">
+                {% for project in projects %}
+                    {% if project.Cover == 'Yes' %}
+                    <a href="{{ url_for('project', projectname=project.Title) }}"><img src="../static/projects/{{ project.id }}/coverphoto.jpg" alt="{{ project.Title }}"></a>
+                    {% else %}
+                    <a href="{{ url_for('project', projectname=project.Title) }}"><img src="../static/projects/{{ project.id }}/photo1.jpg" alt="{{ project.Title }}"></a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="home2_text">
                 <p>TafSIRI makes civic engagement fun!</p>
-                <p>The easy platform lets you explore, ask questions and join community conversations on the latests developments</p>
-                <p>TafSIRI encourages curiosity and welcomes all questions and ideas!</p>
+                <p>The easy platform lets you explore & ask questions</p>
+                <p>TafSIRI encourages curiosity and welcomes all ideas!</p>
                 <p>Sign up to make informed decisions with TafSIRI!</p>
+                <a href="{{ url_for('catalogue') }}"><button class="home-button">View Projects Now!</button></a>
+                
             </div>
-        </div>
-        <div class="about">
-            <h1>About</h1>
-            <p>The TafSIRI Initiative is an innovative platform designed to enhance and streamline Public Participation in infrastructure projects at the County level.</p>
-            <p>The term "TafSIRI" originates from the Swahili word 'Tafsiri,' meaning 'to decode/interpret/translate.'</p>
-        </div>
-    </div>
-    <div class="double-footerinfo">
-        <div class="footer-left">
-            <h3>Contact Us</h3>
-            <p>Drop your queries and comments below!</p>
-            <form class="contact-us" action="">
-                <div class="form-floating">
-                    <label for="floatingInput">Name: </label>
-                    <input type="name" class="form-control" id="floatingInput" placeholder="Name">
+        </Section>
+<hr>
+
+        <Section class="home_section3">
+            <table class="home3-textimage"><tr>
+                <td>
+                    <div class="home3_text">
+                        <h2>Why TafSIRI?</h2>
+                            <p>The current approach to public participation in infrastructure development in Kenya is failing. </p>
+                            <p>Public participation is considered as one of the principles of good governance by the 2010 Kenyan Constitution.</p>
+                            <p>TafSIRI calls out the effectiveness and quality of public participation in the country.</p>
+                        <div class="home3-divider">
+                            <p>People's participation is the essence of good governance.</p>
+                            <p>~ Narendra Modi</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="home1_image">
+                        <img src="../static/images/Picture2cropped.png" alt="TafSIRI in action">
+                    </div>
+                </td>
+            </tr>
+        </table>
+        </Section>
+<hr>
+
+        <Section class="home_section4">
+            <div class="home4-left">
+                <h3>Contact Us</h3>
+                <p>Drop your queries and comments below!</p>
+                <form class="contact-us" action="">
+                    <div class="form-floating">
+                        <label for="floatingInput">Name: </label>
+                        <input type="name" class="form-control" id="floatingInput" placeholder="Name">
+                    </div>
+                    <div class="form-floating">
+                        <label for="floatingInput">Email address: </label>
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    </div>
+                    <div class="form-floating">
+                        <label for="floatingInput">Message: </label>
+                        <textarea name="" id="message" class="form-control"></textarea>
+                    </div>
+                    <input type="submit" class="form-button">
+                </form>
+            </div>
+            <div class="home4-right">
+                <div id="Contact-info">
+                    <h3>Our Contacts</h3>
+                    <p>Our friendly Public Liason is available from Monday</p>
+                    <p>to Friday 8.30am-5pm to assist with your enquiries.</p>
+                    <div class="email-address">
+                        <p><b>Email:</b> <u>tafsiriinitiative@gmail.com</u></p>
+                    </div>
+                    <div 
+                    class="mobile">
+                        <p><b>Mobile:</b> +254 712 345678, +254 787 654321 </p>
+                    </div>
+                    <div class="address">
+                        <p><b>P. 0. Box</b> 24680-08642,</p>
+                        <p>Nairobi-Kenya.</p>
+                    </div>
                 </div>
-                <div class="form-floating">
-                    <label for="floatingInput">Email address: </label>
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                </div>
-                <div class="form-floating">
-                    <label for="floatingInput">Message: </label>
-                    <textarea name="" id="message" class="form-control"></textarea>
-                </div>
-                <input type="submit" class="form-button">
-            </form>
-        </div>
-        <div class="footer-right">
-            <div id="Contact-info">
-                <h3>Our Contacts</h3>
-                <p>Our friendly Public Liason is available from Monday</p>
-                <p>to Friday 8.30am-5pm to assist with your enquiries.</p>
-                <div class="email-address">
-                    <p><b>Email:</b> <u>tafsiriinitiative@gmail.com</u></p>
-                </div>
-                <div 
-                class="mobile">
-                    <p><b>Mobile:</b> +254 712 345678, +254 787 654321 </p>
-                </div>
-                <div class="address">
-                    <p><b>P. 0. Box</b> 24680-08642,</p>
-                    <p>Nairobi-Kenya.</p>
+                <div id="Social-media">
+                    <h3>Social Links</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
                 </div>
             </div>
-            <div id="Social-media">
-                <h3>Social Links</h3>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div id="developers">
-                <p><b>Developed by:</b> Stephanie Chepkirui, Fiona Nyadero</p>
-            </div>
-            <div id="copyright">
-                <p><i>&copy; 2024 TafSIRI. All rights reserved.</i></p>
-            </div>
-        </div>
-    </div>
+        </Section>
+    </section>
 {% endblock %}

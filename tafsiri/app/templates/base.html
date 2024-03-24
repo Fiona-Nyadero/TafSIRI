@@ -34,9 +34,9 @@
             </div>
 
             <div class="header-center">
-                <a href="{{ url_for('index') }}">Home</a>
-                <a href="{{ url_for('about')}}">About</a>
-                <a href="{{ url_for('catalogue') }}">Catalogue</a>
+                <a href="{{ url_for('home') }}">home</a>
+                <a href="{{ url_for('about')}}">about</a>
+                <a href="{{ url_for('catalogue') }}">catalogue</a>
             </div>
 
             <div class="header-right">
@@ -71,9 +71,12 @@
         {% block content %}{% endblock %}
         <footer>
             <div class="footer-left">
-                <img src="{{ url_for('static', filename='images/Tafsiri logo white.png') }}" alt="Logo" class="logo-footer">
-                Initiative
+                <div class="footer_logo"><img src="{{ url_for('static', filename='images/Tafsiri logo white.png') }}" alt="Logo" class="logo-footer"> Initiative</div>
+                <div class="copyright">
+                    <p>&copy; Copyright 2024 | TafSIRI Initiative | All rights reserved.</p>
+                </div>
             </div>
+
             <div class="footer-middle">
                 <div class="social-media">
                     <div class="social-icons">
@@ -84,13 +87,15 @@
                     </div>
                 </div>
             </div>
+
             <div class="footer-right">
-                <div class="copyright">
-                    <p>&copy; Copyright 2024 | TafSIRI Initiative | All rights reserved.</p>
+                <div id="developers">
+                    <p><b>Developed and maintained by:</b><br>
+                        Steffanie Chepkirui, Fiona Nyadero</p>
                 </div>
             </div>
         </footer>                     
         {{ moment.include_moment() }}
-        <script src="script.js"></script>
+        <script src="../static/script.js"></script>
     </body>
 </html>
