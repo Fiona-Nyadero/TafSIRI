@@ -2,7 +2,7 @@ from flask_login import current_user, login_user, login_required, logout_user
 import sqlalchemy as sa
 from app import db
 from app.models import User, Project, Feedback
-from app.forms import RegistrationForm, LoginForm, EditProfileForm, AddProjectForm, EditProjectForm, FeedbackForm
+from app.forms import RegistrationForm, LoginForm, EditProfileForm, AddProjectForm, EditProjectForm, FeedbackForm, SearchForm
 from flask import render_template, flash, redirect, url_for, request, send_file
 from io import BytesIO
 from urllib.parse import urlsplit
@@ -13,50 +13,45 @@ from flask_moment import moment
 
 @app.route('/')
 @app.route('/index')
-@login_required
 def index():
-    return render_template('index.html', title='Home')
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    return render_template('index.html')
+
+@app.route('/home')
+def home():
+    return render_template('home.html', title='Home')
 
 @app.route('/about')
-@login_required
 def about():
-    return render_template('about.html', title='Home')
-
-@app.route('/landing')
-@login_required
-def landing():
-    return render_template('landing.html', title='Home')
+    return render_template('about.html', title='About')
 
 @app.route('/catalogue')
 def catalogue():
     query = sa.select(Project)
-    projects = db.session.scalars(query)
+    proposals = db.session.scalars(query)
     
     projects_data = []
-    for project in projects:
+    for proposal in proposals:
         project_data = {
-            'title': project.Title,
-            'latitude': project.Latitude,
-            'longitude': project.Longitude
+            'title': proposal.Title,
+            'latitude': proposal.Latitude,
+            'longitude': proposal.Longitude
         }
         projects_data.append(project_data)
 
     projects_json = json.dumps(projects_data)
 
-    return render_template('catalogue.html', title='Catalogue', projects=projects,
-                           projects_json=projects_json)
-
-@app.route('/projects')
-def projects():
-    query = sa.select(Project)
     projects = db.session.scalars(query)
 
-    return render_template('projects.html', title='Projects', projects=projects)
+    return render_template('catalogue.html', title='Catalogue', projects=projects,
+                           projects_json=projects_json, proposals=proposals)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
         user = db.session.scalar(
@@ -67,19 +62,19 @@ def login():
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
         if not next_page or urlsplit(next_page).netloc != '':
-            next_page = url_for('index')
+            next_page = url_for('home')
         return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('index'))
+    return redirect(url_for('home'))
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for('home'))
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(
@@ -98,20 +93,20 @@ def register():
 def user(username):
     user = db.first_or_404(sa.select(User).where(User.Username == username))
     if current_user.Type == 'Admin':
-        return redirect(url_for('index'))
+        return redirect(url_for('home'))
     query = sa.select(Project)
     projects = db.session.scalars(query)
-    return render_template('user.html', user=user, projects=projects)
+    return render_template('user.html', user=user, projects=projects, title='My Account')
 
 @app.route('/admin/<username>')
 @login_required
 def admin(username):
     user = db.first_or_404(sa.select(User).where(User.Username == username))
     if current_user.Type != 'Admin':
-        return redirect(url_for('index'))
+        return redirect(url_for('home'))
     query = sa.select(Project)
     projects = db.session.scalars(query)
-    return render_template('admin.html', user=user, projects=projects)
+    return render_template('admin.html', user=user, projects=projects, title='My Account')
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
@@ -141,29 +136,34 @@ def before_request():
 @app.route('/project/<projectname>')
 def project(projectname):
     project = db.first_or_404(sa.select(Project).where(Project.Title == projectname))
+    #comments = project.feedback_count()
     return render_template('project.html', title=projectname, project=project)
 
-@app.route('/project/<projectname>/feedback', methods=['GET', 'POST'])
-def project_feedback(projectname):
+@app.route('/give_feedback/<projectname>', methods=['GET', 'POST'])
+def give_feedback(projectname):
     project = Project.query.filter_by(Title=projectname).first()
     if project is None:
         flash('Project not found.')
         return redirect(url_for('catalogue'))
-    user_id = current_user.id
-    form = FeedbackForm()
-    if form.validate_on_submit():
-        feedback = Feedback(
-            Rating=form.rating.data,
-            Rating_reason=form.rating_reason.data,
-            Suggestions=form.suggestions.data,
-            Responsee_id=user_id,
-            Feedback_project_id=project.id
-        )
-        db.session.add(feedback)
-        db.session.commit()
-        flash('Feedback submitted successfully. Thank you for your feedback!')
-        return redirect(url_for('project', projectname=projectname))
-    return render_template('feedback.html', title='Have your Say!', project=project, form=form)
+    if current_user.is_authenticated:
+        user_id = current_user.id
+        form = FeedbackForm()
+        if form.validate_on_submit():
+            feedback = Feedback(
+                Rating=form.rating.data,
+                Rating_reason=form.rating_reason.data,
+                Suggestions=form.suggestions.data,
+                Responsee_id=user_id,
+                Feedback_project_id=project.id
+            )
+            db.session.add(feedback)
+            db.session.commit()
+            flash('Feedback submitted successfully. Thank you for your feedback!')
+            return redirect(url_for('project', projectname=projectname))
+    else:
+        flash('Plaese Log in to access the form.')
+        return redirect(url_for('login'))
+    return render_template('feedbackform.html', title='Have your Say!', project=project, form=form)
 
 @app.route('/add_project', methods=['GET', 'POST'])
 @login_required
@@ -243,7 +243,7 @@ def edit_project(projectname):
 @login_required
 def manage_projects():
     if current_user.Type != 'Admin':
-        return redirect(url_for('index'))
+        return redirect(url_for('home'))
     query = sa.select(Project)
     projects = db.session.scalars(query)
     return render_template('manage_projects.html', title='Manage Projects', projects=projects)
@@ -252,17 +252,23 @@ def manage_projects():
 def test_fonts():
     return render_template('Xtest.html')
 
-@app.route('/feedback/<projectname>', methods=['GET', 'POST'])
+@app.route('/view_feedback/<projectname>', methods=['GET', 'POST'])
 @login_required
-def feedback(projectname):
+def view_feedback(projectname):
     project = Project.query.filter_by(Title=projectname).first()
     if project is None:
         flash('Project not found.')
         return redirect(url_for('catalogue'))
     if current_user.Type != 'Admin':
         return redirect(url_for('catalogue'))
+    
+    project_id = Project.id
+    feedback = Feedback.query.filter(Feedback.Feedback_project_id == project_id).all()
+    if feedback is None:
+        flash('No feedback found for this project.')
+        return redirect(url_for('project', projectname=projectname))
     if current_user != project.Author:
         return redirect(url_for('project', projectname=projectname))
     
     return render_template('feedbacklist.html', title='Project Feedback',
-                           project=project)
+                           project=project, feedback=feedback)

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="projects_hero-section">
+        <h1 id="Projects_Heading">Explore Infrastructure Projects with TafSIRI</h1>
+        <p class="tagline">Empowering Communities, Enhancing Development</p>
+    </section>
+
+    <section class="projects_section2">
+        <!-- About Section -->
+        <div class="about">
+            <h2>Tafsiri means <b>'to decode/interpret/translate'</b></h2>
+            <p>TafSIRI is your gateway to understanding and engaging with infrastructure projects in your community.</p>
+            <p>Our platform is designed to foster transparent communication and collaboration amongst all project stakeholders.</p>
+            <p>We enable informed decision-making and inclusive development.</p>
+        </div>
+        {% if current_user.Type == 'Admin' %}
+        <div>
+            <h2>Add your own project below!</h2>
+            <p>Have you got a project to submit? We would love to see it!</p>
+            <button><p><a href="{{ url_for('add_project') }}">Add a Project</a></p></button>
+        </div>
+        {% endif %}
+    </section>
+
+    <section class="projects_section3">
+        <!-- Search Section -->
+        <div class="search">
+            <h2>Search</h2>
+            <form id="searchForm" method="GET" action="{{ url_for('search') }}">
+            {{ search_form.hidden_tag() }}
+            {{ search_form.search_query.label }} {{ search_form.search_query }}
+            {{ search_form.category_filter.label }} {{ search_form.category_filter }}
+            {{ search_form.county_filter.label }} {{ search_form.county_filter }}
+            {{ search_form.submit }}
+            </form>
+        </div>
+    </section>
+
+    <section class="searchresults">
+        <!-- A list of Projects -->
+        <div class="project-slideshow">
+
+            {% for project in projects %}
+                <h3>{{ project.Title }}</h3>
+                
+                    <img src="../static/projects/{{ project.id }}/coverphoto.jpg" alt="{{ project.Title }} coverphoto" id="">
+                    {% if project.Cover == 'No' %}
+                        <img src="../static/projects/{{ project.id }}/photo1.jpg" alt="{{ project.Title }} thumbnail">
+                        <!-- <img src="../static/images/Illustrate the spiri (1).jpg" alt="Placeholder Thumbnail" class="CataloguePlaceholderThumnail">-->
+                    {% endif %}
+
+                <p>50 comments</p>
+                <p>Discover and comment on proposals for {{ project.Title }}</p>
+                <button><p><a href="{{ url_for('project', projectname=project.Title) }}">View details</a></p></button>
+            {% endfor %}
+        </div>
+    </section>
+
+{% endblock %}
