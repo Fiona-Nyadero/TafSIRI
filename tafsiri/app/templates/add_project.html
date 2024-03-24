@@ -9,28 +9,28 @@
             {{ form.title.label }}<br>
             {{ form.title(size=42) }}<br>
             {% for error in form.title.errors %}
-                <span style="color: red;">{{ error }}</span><br>
+                <span class="error-message">{{ error }}</span><br>
             {% endfor %}
         </p>
         <p>
             {{ form.description.label }}<br>
             {{ form.description(cols= 48, rows=6) }}<br>
             {% for error in form.description.errors %}
-                <span style="color: red;">{{ error }}</span><br>
+                <span class="error-message">{{ error }}</span><br>
             {% endfor %}
         </p>
         <p>
             {{ form.background.label }}<br>
             {{ form.background(cols= 48, rows=8) }}<br>
             {% for error in form.background.errors %}
-                <span style="color: red;">{{ error }}</span><br>
+                <span class="error-message">{{ error }}</span><br>
             {% endfor %}
         </p>
         <p>
             {{ form.proposal.label }}<br>
             {{ form.proposal(cols= 48, rows=10) }}<br>
             {% for error in form.proposal.errors %}
-                <span style="color: red;">{{ error }}</span><br>
+                <span class="error-message">{{ error }}</span><br>
             {% endfor %}
         </p>
         
@@ -38,21 +38,21 @@
             {{ form.latitude.label }}<br>
             {{ form.latitude(size=42) }}<br>
             {% for error in form.latitude.errors %}
-                <span style="color: red;">{{ error }}</span><br>
+                <span class="error-message">{{ error }}</span><br>
             {% endfor %}
         </p>
         <p>
             {{ form.longitude.label }}<br>
             {{ form.longitude(size=42) }}<br>
             {% for error in form.longitude.errors %}
-                <span style="color: red;">{{ error }}</span><br>
+                <span class="error-message">{{ error }}</span><br>
             {% endfor %}
         </p>
         <p>
             {{ form.county.label }}<br>
             {{ form.county(size=42) }}<br>
             {% for error in form.county.errors %}
-                <span style="color: red;">{{ error }}</span><br>
+                <span class="error-message">{{ error }}</span><br>
             {% endfor %}
         </p>
 
@@ -60,7 +60,7 @@
             {{ form.phase.label }}<br>
             {{ form.phase }}<br>
             {% for error in form.phase.errors %}
-                <span style="color: red;">{{ error }}</span><br>
+                <span class="error-message">{{ error }}</span><br>
             {% endfor %}
         </p>
 
@@ -68,14 +68,14 @@
             {{ form.category.label }}<br>
             {{ form.category }}<br>
             {% for error in form.category.errors %}
-                <span style="color: red;">{{ error }}</span><br>
+                <span class="error-message">{{ error }}</span><br>
             {% endfor %}
         </p>
         <p>
             {{ form.sdgs.label }}<br>
             {{ form.sdgs }}<br>
             {% for error in form.sdgs.errors %}
-                <span style="color: red;">{{ error }}</span><br>
+                <span class="error-message">{{ error }}</span><br>
             {% endfor %}
         </p>
 
@@ -83,19 +83,22 @@
             {{ form.cover.label }}<br>
             {{ form.cover }}<br>
             {% for error in form.cover.errors %}
-                <span style="color: red;">{{ error }}</span><br>
+                <span class="error-message">{{ error }}</span><br>
             {% endfor %}
         </p>
         <p>
             {{ form.plan.label }}<br>
             {{ form.plan }}<br>
             {% for error in form.plan.errors %}
-                <span style="color: red;">{{ error }}</span><br>
+                <span class="error-message">{{ error }}</span><br>
             {% endfor %}
         </p>
         
         <p>{{ form.submit() }}</p>
     </form>
 
-    <a href="{{ url_for('manage_projects') }}">Cancel</a>
+    <a class="cancel-link" href="{{ url_for('manage_projects') }}">Cancel</a>
+{% endblock %}
+{% block additional_css %}
+    <link rel="stylesheet" type="text/css" href="add_project.css">
 {% endblock %}

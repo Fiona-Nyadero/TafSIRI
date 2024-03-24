@@ -1,0 +1,50 @@
+/* Body background color */
+body {
+    background-color: #F9E0E2; /* Pink */
+}
+
+/* Heading color */
+h1 {
+    color: black; /* Red */
+}
+
+/* Form label color */
+label {
+    color: #010440; /* Dark Blue */
+}
+
+/* Form input field styles */
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #010440; /* Dark Blue border */
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Error message color */
+.error-message {
+    color: #E23125; /* Red */
+}
+
+/* Submit button style */
+input[type="submit"] {
+    background-color: #E23125; /* Red */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Cancel link style */
+.cancel-link {
+    color: #010440; /* Dark Blue */
+    text-decoration: none;
+}
+
+.cancel-link:hover {
+    text-decoration: underline;
+}

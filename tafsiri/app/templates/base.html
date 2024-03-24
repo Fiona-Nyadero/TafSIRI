@@ -38,7 +38,6 @@
                 <a href="{{ url_for('about')}}">About</a>
                 <a href="{{ url_for('catalogue') }}">Catalogue</a>
             </div>
-
             <div class="header-right">
                 <div id="User_greeting">
                     {% if current_user.Username %}
@@ -69,6 +68,7 @@
             {% endif %}
         {% endwith %}
         {% block content %}{% endblock %}
+        {% block additional_css %}{% endblock %}
         <footer>
             <div class="footer-left">
                 <img src="{{ url_for('static', filename='images/Tafsiri logo white.png') }}" alt="Logo" class="logo-footer">
