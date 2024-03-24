@@ -1,0 +1,535 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navigation {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    position: fixed; /* Change from absolute to fixed */
+    top: 0;
+    width: 100%; /* Change width to 100% */
+    z-index: 1;
+    /*background-color: rgba(255, 255, 255, 0.5); /* Optional: Add background color with some transparency */
+}
+
+/*.navbar-right {
+    float: right;
+    padding-right: 15px;
+}*/
+.navbar-right {
+    position: absolute;
+    top: 80px; /* Adjust the distance from the top */
+    right: 15px; /* Adjust the distance from the right */
+    padding-right: 15px;
+}
+
+.navbar-right a { 
+    text-decoration: none;
+    padding: 30px;
+    color: #fff;
+    font-family: Arial;
+    font-weight: 500;
+}
+
+.navbar-right a:hover {
+    text-decoration: underline;
+}
+
+.navbar-logo {
+    float: left;
+    padding-left: 5px;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    margin-right: 20px;
+}
+
+.navbar-logo img {
+    width: 170px; /* Adjust the width as needed */
+}
+
+header {
+    background-color: #F9E0E2; /* Pink background */
+    color: black;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.alegreya-heading {
+    font-family: "Alegreya", serif;
+    font-weight: 700; /* Use the desired weight, e.g., 400 for regular, 700 for bold */
+    font-style: normal;
+}
+
+.gradient-text {
+    background-image: linear-gradient(45deg, #F9E0E2, #fff); /* Gradient from Red to Dark Blue */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.title-container h1 {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.title-container p {
+    font-size: 16px;
+    color: #fff;
+    font-size: 18px; /* Increase font size as needed*/
+}
+
+/* Vibrant gradient background */
+.block {
+    width: 100%;
+    height: 760px;
+    background-color: #010440; /* Pink background */
+    transform: skewY(-12deg);
+    transform-origin: 0;
+    position: absolute;
+    top: 0;
+}
+
+.block span {
+    height: 190px;
+    position: absolute;
+}
+
+.block span:nth-child(1) {
+    width: 33.3%;
+    width: calc(100% / 3);
+    left: -16.66666%;
+    left: calc(calc(calc(100% / 3) /2) * -1);
+    background: #E23125; /* Red */
+}
+
+.block span:nth-child(2) {
+    width: 33.33333%;
+    width: calc(100% / 3);
+    top: 0;
+    left: 16.66666%;
+    left: calc(calc(100% / 3) / 2);
+    right: auto;
+    background: #E23125; /* Dark Blue */
+}
+
+.block span:nth-child(3) {
+    width: 33.33333%;
+    width: calc(100% / 3);
+    left: 49.99999%;
+    left: calc(calc(calc(100% / 3) / 2) + calc(100% / 3));
+    bottom: auto;
+    background: #E23125; /* Red */
+}
+
+.text {
+    position: relative;
+    height: 860px;
+    display: flex;
+    margin: -60px 0 0 280px;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    max-width: 1024px;
+}
+
+.text h1 {
+    font-size: 40px;
+    opacity: 0;
+    animation: fadein 1s;
+    animation-delay: 0.4s;
+    animation-fill-mode: forwards;
+}
+
+.text p {
+    font-family: "Cantarell", sans-serif;
+    font-weight: 400;
+    color: #d9fcff;
+    font-size: 20px;
+    max-width: 50%;
+    line-height: 28px;
+    opacity: 0;
+    animation: fadein 2s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    font-weight: 400;
+    font-style: normal;
+    }
+
+.button-area {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 320px;
+}
+
+.button-area a {
+    background: #3ecf8e99;
+    border-radius: 10px;
+    padding: 1em 1.6em;
+    font-size: 0.9em;
+    margin: 4em, 1em 0 0;
+    color: #fff;
+    text-decoration: none;
+    flex-grow: 1;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0 0.19);  
+}
+
+.image-wrapper-tablet {
+    position: absolute;
+    opacity: 0;
+    top: 400px;
+    right: 375px;
+    transform: translateY(100px) rotate(-12deg);
+    background: #fff;
+    padding: 5px 10px;
+    border-radius: 24px;
+    box-shadow: inset 0 4px 7px 1px #fff, inset 0 -5px 20px rgba(173, 186, 204, 0.25), 0 2px 6px rgba(0, 21, 64, 0.14), 0 10px 20px rgba(0, 21, 64, 0.05);
+    animation: up 1s;
+    animation-delay: 0.8s;
+    animation-fill-mode: forwards;
+ }
+
+ .image-wrapper-tablet img {
+    width: 450px;
+    height: auto;
+ }
+
+ .image-wrapper-phone {
+    position: absolute;
+    opacity: 0;
+    top: 300px;
+    right: 45px;
+    transform: translateY(100px) rotate(-12deg);
+    background: #fff;
+    padding: 60px 20px;
+    border-radius: 34px;
+    box-shadow: inset 0 4px 7px 1px #fff, inset 0 -5px 20px rgba(173, 186, 204, 0.25), 0 2px 6px rgba(0, 21, 64, 0.14), 0 2px 6px rgba(0, 21, 64, 0.14);
+    animation: up 1s;
+    animation-delay: 0.8s;
+    animation-fill-mode: forwards;
+ }
+
+ .image-wrapper-phone img {
+    width: 250px;
+    height: auto;
+ }
+
+ .image-wrapper-phone-small {
+    position: absolute;
+    opacity: 0;
+    top: 700px;
+    right: 490px;
+    transform: translateY(100px) rotate(-12deg);
+    background: #fff;
+    padding: 50px 20px;
+    border-radius: 24px;
+    box-shadow: inset 0 4px 7px 1px #fff, inset 0 -5px 20px rgba(173, 186, 204, 0.25), 0 2px 6px rgba(0, 21, 64, 0.14), 0 2px 6px rgba(0, 21, 64, 0.14);
+    animation: up 1s;
+    animation-delay: 0.8s;
+    animation-fill-mode: forwards;
+ }
+
+ .image-wrapper-phone-small img {
+    width: 250px;
+    height: auto;
+ }
+
+ .image-wrapper-tablet-portrait {
+    position: absolute;
+    opacity: 0;
+    top: 630px;
+    right: 50px;
+    transform: translateY(100px) rotate(-12deg);
+    background: #fff;
+    padding: 58px 30px;
+    border-radius: 34px;
+    box-shadow: inset 0 4px 7px 1px #fff, inset 0 -5px 20px rgba(173, 186, 204, 0.25), 0 2px 6px rgba(0, 21, 64, 0.14), 0 10px 20px rgba(0, 21, 64, 0.05);
+    animation: up 1s;
+    animation-delay: 0.8s;
+    animation-fill-mode: forwards;
+ }
+
+ .image-wrapper-tablet-portrait img {
+    width: 350px;
+    height: auto;
+ }
+
+/* Main Content Section Styles */
+/*section 2*/
+.section2 {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    text-align: left;
+    margin-top: 145px; /* Adjust margin-top value as needed */
+}
+
+.section2 p {
+    position: relative; /* Required for positioning the bullet point */
+    padding-left: 25px; /* Adjust the distance between bullet point and text */
+}
+
+/*.section2 {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    text-align: left;
+}
+.section2 p {
+    position: relative; /* Required for positioning the bullet point
+    padding-left: 25px; /* Adjust the distance between bullet point and text 
+}*/
+
+/*.section2 p::before {
+    content: ""; /* Required for the bullet point 
+    position: absolute; /* Position the bullet point 
+    left: 0; /* Adjust the position of the bullet point 
+    top: 38%; /* Adjust the position of the bullet point 
+    transform: translateY(-40%); /* Adjust the position of the bullet point 
+    width: 15px; /* Size of the bullet point 
+    height: 15px; /* Size of the bullet point 
+    border-radius: 50%; /* Make the bullet point round 
+    background-color: white; /* Color of the bullet point 
+}*/
+
+.content-section {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    text-align: left;
+}
+/* Style for paragraphs with colored bullet points */
+.content-section p,
+.background-section p {
+    position: relative; /* Required for positioning the bullet point */
+    padding-left: 25px; /* Adjust the distance between bullet point and text */
+}
+
+.content-section p::before, 
+.background-section p::before {
+    content: ""; /* Required for the bullet point */
+    position: absolute; /* Position the bullet point */
+    left: 0; /* Adjust the position of the bullet point */
+    top: 55%; /* Adjust the position of the bullet point */
+    transform: translateY(-50%); /* Adjust the position of the bullet point */
+    width: 15px; /* Size of the bullet point */
+    height: 15px; /* Size of the bullet point */
+    border-radius: 50%; /* Make the bullet point round */
+    background-color: #f16819; /* Color of the bullet point */
+}
+
+.content_feedback {
+    flex: 1;
+    max-width: 100%;
+}
+
+.content_collaborate {
+    flex-direction: row-reverse;
+    flex: 1;
+    max-width: 100%;
+}
+
+/* Main Content Section 3 */
+.background-section {
+    height: 100vh; /* Adjust the height if necessary */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    background: url('../static/landing/background-image.jpg') center/cover no-repeat; /* Add background image */
+    color: white;
+    padding: 50px 20px;
+}
+
+.content_Government {
+    padding-top: 600px;
+    font-size: x-large;
+}
+
+/* Main Content Section 4 */
+.content-section_alternate {
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    text-align: left;
+}
+.content-section_alternate p {
+    position: relative; /* Required for positioning the bullet point */
+    padding-left: 25px;
+    color: white;
+    } /* Adjust the distance between bullet point and text */
+
+.content-section_alternate h2 {
+    color: white;
+}
+
+/*.content-section_alternate p::before {
+    content: ""; /* Required for the bullet point 
+    position: absolute; /* Position the bullet point 
+    left: 0; /* Adjust the position of the bullet point 
+    top: 25%; /* Adjust the position of the bullet point 
+    transform: translateY(-50%); /* Adjust the position of the bullet point 
+    width: 15px; /* Size of the bullet point 
+    height: 15px; /* Size of the bullet point 
+    border-radius: 50%; /* Make the bullet point round 
+    background-color: #f16819; /* Color of the bullet point 
+}*/
+.content-section_alternate .image,
+.content-section_alternate .content_volunteer {
+    flex: 1;
+    max-width: 50%;
+}
+
+.content-section_alternate .image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.content-section_alternate .content_volunteer {
+    padding: 0 20px;
+}
+
+/* Adjust button styles as needed */
+.content_volunteer .btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.content_volunteer .btn:hover {
+    background-color: #555;
+}
+
+.image {
+    flex: 1;
+}
+.image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#Image1 {
+    max-height: 150%;
+}
+#Image2 {
+    max-height: 100%;
+}
+
+#Image4 {
+    max-height: 80%;
+}
+
+.content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Add more styling as needed */
+.btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+.content-section,
+.section2,
+.content-section_alternate,
+.content-section p {
+    font-size: 22px; /* Adjust the font size as needed */
+}
+
+.content-section h2,
+.section2 h2,
+.content-section_alternate h2,
+.content-section h2.gradient-text {
+    font-size: 27px; /* Adjust the heading font size as needed */
+}
+/* Center headings within the content-section */
+.content-section_alternate h2
+{
+    text-align: center;
+}
+
+/* Footer Section Styles */
+footer {
+    background-color: #F9E0E2;
+    color: black;
+    padding: 20px;
+    text-align: center;
+}
+/* Main Content Section 1 */
+.content-section {
+    background-color: #f27f7f; /* Add desired background color */
+}
+
+/* Section 2 */
+.section2 {
+    background-color: #E23125; /* Add desired background color */
+}
+
+/* Main Content Section 4 */
+.content-section_alternate {
+    background-color: #010440; /* Add desired background color */
+}
+
+/* Main Content Section 5 */
+.content-section {
+    background-color: white; /* Add desired background color */
+}
+
+ @keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+ }
+
+ @keyframes up {
+    0% {
+        transform: translateY(100px) rotate(-12deg);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0) rotate(-12deg);
+        opacity: 1;
+    }
+    }

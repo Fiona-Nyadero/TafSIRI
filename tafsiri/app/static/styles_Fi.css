@@ -107,6 +107,8 @@ header {
     font-family: "Margarine", sans-serif;
     font-weight: 500;
     font-style: normal;
+    height: 30px;
+    width: auto;
 }
 
 .header-right a {
@@ -120,7 +122,7 @@ header {
 .header_logo {
     max-width: 80px;
     padding-bottom: 20px;
-    margin: 0 7px;
+    margin: 0 5px;
 }
 .header-left p {
     color: #010440;
@@ -138,12 +140,12 @@ header {
 
 .loginbutton{
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 10px;
     background-color: #010440;
     color: #f1f1f1;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 12px;
     cursor: pointer;
     border-radius: 25px;
     
@@ -210,7 +212,172 @@ body{
 
 
 /********* home page **************/
+.homepage{
+    align-items: center;
+}
+.home_herosection{
+    background-image: url(../static/images/Illustrate\ the\ spiri\ \(4\).jpg);
+    height: 720px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.homehero_heading{
+    padding-top: 400px;
 
+}
+.homehero_heading h1{
+    text-align: right;
+    color: #010440;
+    font-size: 60px;
+    font-family: "Libre Bodoni", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: semi-expanded;
+    background-color: #E23125;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    margin-bottom: 0%;
+    margin-right: 20px;
+    width: 100%;
+}
+.homehero_heading p{
+    text-align: right;
+    color: #f1f1f1;
+    font-size: 45px;
+    margin-bottom: 10px;
+    font-family: "Libre Bodoni", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: semi-expanded;
+    background-color: #E23125;
+    padding-right: 50px;
+    padding-bottom: 10px;
+    padding-top: 0px;
+    margin-top: 0%;
+}
+.home_section1{
+    align-items: center;
+    margin: 0%;
+    width: 100%;
+}
+
+.home1_text{
+    margin-top: 0;
+    line-height: 25px;
+    margin-right: 50px;
+    align-items: center;
+    text-align: left;
+    padding-top: 20px;
+    padding-left: 100px;
+    padding-bottom: 0;
+}
+.home1_image{
+    height: 100%;
+    margin: 0;
+    padding-top: -20px;
+    text-align: left;
+}
+.home1-divider{
+    align-items: center;
+    background-image: url(../static/images/tornpaper.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-right: -50px;
+    width: 600px;
+    height: 270px;
+    margin-top: -90px;
+    padding-top: 120px;
+    padding-left: 130px;
+    padding-right: 70px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+.home1-divider p{
+    font-family: "Margarine", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    font-style: normal;
+    line-height: 40px;
+    color: #E23125;
+}
+.home_section2{
+    height: 540px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #CDD1DA;
+}
+
+.home2_slideshow img {
+    height: 520px;
+    width: 800px;
+    overflow: hidden;
+    display: none;
+}
+
+.home_section3{
+    align-items: center;
+    margin: 0%;
+    width: 100%;
+}
+.home3_text {
+    margin-top: 0;
+    line-height: 25px;
+    margin-right: 50px;
+    align-items: center;
+    text-align: left;
+    padding-top: 20px;
+    padding-left: 100px;
+    padding-bottom: 0;
+}
+.home3-divider{
+    align-items: center;
+    background-image: url(../static/images/tornpaper.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-right: -50px;
+    width: 600px;
+    height: 270px;
+    margin-top: -30px;
+    padding-top: 130px;
+    padding-left: 130px;
+    padding-right: 70px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+.home3-divider p {
+    font-family: "Margarine", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    font-style: normal;
+    line-height: 40px;
+    color: #2980b9;
+}
+
+.home_section4{
+    background-color: #9CBCD9;
+    height: 540px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.home-button {
+    font-family: "Margarine", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    font-style: normal;
+    padding: 3px;
+    background-color: #010440;
+    color: #f1f1f1;
+    border: none;
+    text-align: center;
+    display: inline-block;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 25px;
+}
 
 /********* about page *************/
 
@@ -239,7 +406,20 @@ body{
 
 
 /****** Manage_projects *****/
+.manageproject_project table{
+    width: 100%;
+}
 
+.manageproject_thumbnail td{
+    width: 600px;
+    align-items: center;
+}
+
+#manageproject_thumbnail {
+    max-width: 300px;
+    max-height: 200px;
+    overflow: hidden;
+}
 
 /*############### FORMS ########################*/
 
