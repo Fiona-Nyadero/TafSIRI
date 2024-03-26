@@ -1,6 +1,6 @@
 /*############### GENERAL STYLING ########################*/
 
-body {
+.tafsiri {
     background-color: #F9E0E2;
     margin: 0;
     padding: 0;
@@ -21,7 +21,9 @@ h1 {
     font-style: normal;
     font-size: 30px;
 }
-
+a {
+    text-decoration: none;
+}
 p {
     font-family: "Nunito", sans-serif;
     font-optical-sizing: auto;
@@ -113,6 +115,7 @@ header {
 
 .header-right a {
     margin: 0 7px;
+    text-decoration: none;
 }
 .header-left, .header-right {
     display: flex;
@@ -132,13 +135,14 @@ header {
     margin: 0 15px;
     font-size: larger;
     color: #E23125;
+    text-decoration: none;
 }
 .header-center {
     display: flex;
     align-items: center;
 }
 
-.loginbutton{
+/*.loginbutton button{
     display: inline-block;
     padding: 10px 10px;
     background-color: #010440;
@@ -149,6 +153,20 @@ header {
     cursor: pointer;
     border-radius: 25px;
     
+}*/
+
+.loginbutton {
+    font-size: 12px;
+    font-style: normal;
+    padding: 3px;
+    background-color: #010440;
+    color: #f1f1f1;
+    border: none;
+    text-align: center;
+    display: inline-block;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 25px;
 }
 
 input[type="text"] {
@@ -201,7 +219,7 @@ a:hover {
 }
 
 button:hover {
-    background-color: #2980b9; /* Darker shade on hover */
+    background-color: #E23125; 
 }
 body{
     line-height: 1.6;
@@ -222,7 +240,7 @@ body{
     background-size: 100% 100%;
 }
 .homehero_heading{
-    padding-top: 400px;
+    padding-top: 480px;
 
 }
 .homehero_heading h1{
@@ -288,7 +306,7 @@ body{
     width: 600px;
     height: 270px;
     margin-top: -90px;
-    padding-top: 120px;
+    padding-top: 84px;
     padding-left: 130px;
     padding-right: 70px;
     padding-bottom: 20px;
@@ -299,8 +317,12 @@ body{
     font-weight: 500;
     font-size: 18px;
     font-style: normal;
-    line-height: 40px;
+    line-height: 33px;
     color: #E23125;
+}
+.home1-divider i{
+    text-align: right;
+    padding-left: 150px;
 }
 .home_section2{
     height: 540px;
@@ -341,7 +363,7 @@ body{
     width: 600px;
     height: 270px;
     margin-top: -30px;
-    padding-top: 130px;
+    padding-top: 105px;
     padding-left: 130px;
     padding-right: 70px;
     padding-bottom: 20px;
@@ -352,7 +374,7 @@ body{
     font-weight: 500;
     font-size: 18px;
     font-style: normal;
-    line-height: 40px;
+    line-height: 30px;
     color: #2980b9;
 }
 
@@ -380,11 +402,297 @@ body{
 }
 
 /********* about page *************/
+.aboutpage{
+    align-items: center;
+}
+.about_herosection{
+    background-image: url(../static/images/Illustrate\ the\ spiri\ \(4\).jpg);
+    height: 360px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.abouthero_heading{
+    padding-top: 215px;
 
+}
+.abouthero_heading h1{
+    text-align: right;
+    color: #010440;
+    font-size: 40px;
+    font-family: "Libre Bodoni", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: semi-expanded;
+    background-color: #E23125;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    margin-bottom: 0%;
+    margin-right: 20px;
+    width: 100%;
+}
+.abouthero_heading p{
+    text-align: right;
+    color: #f1f1f1;
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-family: "Libre Bodoni", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: semi-expanded;
+    background-color: #E23125;
+    padding-right: 50px;
+    padding-bottom: 10px;
+    padding-top: 0px;
+    margin-top: 0%;
+}
+
+.about_section1{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.about1-textleft {
+    width: 600px;
+    padding-left: 250px;
+    padding-right: 15px;
+    background-color: #E23125;
+    text-align: left;
+}
+.about1-textright {
+    padding-right: 15px;
+    padding-left: 50px;
+}
+.about1-image {
+    height: 100%;
+    margin: 0;
+    padding-top: -40px;
+    text-align: left;
+}
+.about_section2{
+    height: 1080px;
+    text-align: center;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.about_section3{
+    background-color: #9CBCD9;
+    height: 540px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.about3-teamimage img {
+    height: 50%;
+}
+.about3-textleft {
+    text-align: center;
+}
+.about3-button {
+    font-family: "Margarine", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    font-style: normal;
+    padding: 3px;
+    background-color: #010440;
+    color: #f1f1f1;
+    border: none;
+    text-align: center;
+    display: inline-block;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 25px;
+}
+.about3-textright {
+    text-align: center;
+    align-items: center;
+}
+.about_section4{
+    background-color: #2980b9;
+    height: 270px;
+    text-align: center;
+}
 
 /********* catalogue page *********/
+.cataloguepage{
+    align-items: center;
+}
+.catalogue_herosection{
+    background-image: url(../static/images/Illustrate\ the\ spiri\ \(4\).jpg);
+    height: 360px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.cataloguehero_heading{
+    padding-top: 215px;
 
+}
+.cataloguehero_heading h1{
+    text-align: right;
+    color: #010440;
+    font-size: 40px;
+    font-family: "Libre Bodoni", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: semi-expanded;
+    background-color: #E23125;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    margin-bottom: 0%;
+    margin-right: 20px;
+    width: 100%;
+}
+.cataloguehero_heading p{
+    text-align: right;
+    color: #f1f1f1;
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-family: "Libre Bodoni", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: semi-expanded;
+    background-color: #E23125;
+    padding-right: 50px;
+    padding-bottom: 10px;
+    padding-top: 0px;
+    margin-top: 0%;
+}
+.catalogue_section1{
+    height: 200px;
+    text-align: center;
+    padding-top: 50px;
+}
+.catalogue_section2{
+    background-color: #9CBCD9;
+    height: 620px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.catalogue2-text {
+    padding-right: 100px;
+    text-align: center;
+    padding-left: 75px;
+}
+.catalogue2-text b {
+    font-family: "Margarine", sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    font-style: normal;
+}
 
+#map {
+    margin-left: 75px;
+}
+.catalogue_section3{
+    margin-top: -10px;
+    align-items: center;
+    /*background-color: #E23125;*/
+    height: 90px;
+    padding-left: 150px;
+    padding-right: 150px;
+}
+.catalogue3-searchText {
+    text-align: center;
+    margin-bottom: -25px;
+}
+.catalogue3-searchForm {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 25px;
+}
+.catalogue3-searchForm label, input, select, button{
+    font-family: "Nunito", sans-serif;   
+    font-optical-sizing: auto;
+    font-weight: 450;
+    font-style: normal;
+    font-size: 20px;
+}
+.catalogue3-searchForm button{
+    background-color: #010440;
+    color: #f1f1f1;
+    border: none;
+    text-align: center;
+    display: inline-block;
+    padding: 6px 6px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-family: "Margarine", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    font-style: normal;
+}
+.catalogue_section4 {
+    align-items: center;
+    padding-left: 65px;
+}
+
+.catalogue4-text {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.card-img-top {
+    object-fit: cover; /* Crop image to fit container */
+    height: 200px; /* Set a fixed height for all images */
+}
+.card-body {
+    height: 260px;
+}
+.card-body h3 {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 23px;
+}
+.catalogue4-button {
+    font-family: "Margarine", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    font-style: normal;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 4px;
+    background-color: #010440;
+    color: #f1f1f1;
+    border: none;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 25px;
+}
+.catalogue_section5 {
+    padding-left: 75px;
+}
+
+.catalogue5-button {
+    font-family: "Margarine", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    font-style: normal;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: #010440;
+    color: #f1f1f1;
+    border: none;
+    text-align: center;
+    display: inline-block;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 25px;
+}
 /********* project page ***********/
 
 /*sdg icons*/

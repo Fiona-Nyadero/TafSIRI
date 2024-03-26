@@ -1,170 +1,183 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <section class="catalogue_hero-section">
-        <div><img src="../static/projects/3/coverphoto.jpg" alt="Catalogue hero immage" id="Catalogue_HeroImage"></div>
-        <h1 id="Catalogue_Heading">Explore Infrastructure Projects with TafSIRI</h1>
-        <p class="tagline">Empowering Communities, Enhancing Development</p>
-    </section>
+    <section class="cataloguepage">
 
-    <section class="catalogue_section2">
-        <!-- About Sub-Section -->
-        <div class="about">
-            <h2>Tafsiri means <b>'to decode/interpret/translate'</b></h2>
-            <p>TafSIRI is your gateway to understanding and engaging with infrastructure projects in your community.</p>
-            <p>Our platform is designed to foster transparent communication and collaboration amongst all project stakeholders.</p>
-            <p>We enable informed decision-making and inclusive development.</p>
-        </div>
+        <section class="catalogue_herosection">
+            <div class="cataloguehero_heading">
+                <h1>This is TafSIRI!</h1>
+                <p id="cataloguehero_tagline">Catalogue</p>
+            </div>
+        </section>
 
-        <!--Map Sub Section-->
-        <div id="map" style="height: 650px; width: 650px;" ></div>
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-        <script>
-            // Initialize the map
-            var map = L.map('map').setView([-0.023559, 37.906193], 5);
+        <section class="catalogue_section1">
+            <h2 class="catalogue1-heading">Tafsiri means <b>'to decode/interpret/translate'</b></h2>
+            <p class="catalogue1-text">TafSIRI is your gateway to understanding and engaging with infrastructure projects in your community.</p>
+            <p class="catalogue1-text">Our platform fosters transparent communication and collaboration amongst all project stakeholders.</p>
+        </section>
+        <hr>
+        <section class="catalogue_section2">
+            <!--Map Sub Section-->
+            <div id="map" style="height: 600px; width: 600px;" ></div>
+            <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+            <script>
+                // Initialize the map
+                var map = L.map('map').setView([-0.023559, 37.906193], 4);
 
-            // Add OpenStreetMap tile layer
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors'
-            }).addTo(map);
+                // Add OpenStreetMap tile layer
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(map);
 
-            // Add markers for each project
-            var proposals = JSON.parse('{{ projects_json | safe }}')
-            proposals.forEach(function(proposal) {
-                var projectMarker = L.marker([proposal.latitude, proposal.longitude]).addTo(map);
-                projectMarker.bindPopup(proposal.title);
-            });
-
-            // Add a marker for the user's
-            function addMarker(lat, lon) {
-                L.marker([lat, lon]).addTo(map)
-                    .bindPopup('Your Location').openPopup();
-            }
-
-            // Check if the browser supports geolocation
-            if ('geolocation' in navigator) {
-                // Get the user's current location
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var latitude = position.coords.latitude;
-                    var longitude = position.coords.longitude;
-                    map.setView([latitude, longitude], 13); // Set view to user's location
-                    addMarker(latitude, longitude); // Add marker for user's location
+                // Add markers for each project
+                var proposals = JSON.parse('{{ projects_json | safe }}')
+                proposals.forEach(function(proposal) {
+                    var projectMarker = L.marker([proposal.latitude, proposal.longitude]).addTo(map);
+                    projectMarker.bindPopup(proposal.title);
                 });
-            } else {
-                console.log('Geolocation is not supported by this browser.');
-            }
-        </script>
-    </section>
 
-    <section class="catalogue_section3">
-        <!-- Search Section -->
-        <div class="search">
-            <h2>Search</h2>
-                    <!-- Search Section -->
-                    <div class="search">
-                        <h2>Search</h2>
-                        <form id="searchForm">
-                            <label for="searchInput">Search Projects:</label>
-                            <input type="text" id="searchInput" name="searchInput" placeholder="Enter keywords...">
-                            <label for="categoryFilter">Category:</label>
-                            <select id="categoryFilter" name="categoryFilter">
-                                <option value="">All Categories</option>
-                                <option value="Environment">Environment</option>
-                                <option value="Parks and Recreation">Parks and Recreation</option>
-                                <option value="Transport and Mobility">Transport and Mobility</option>
-                                <option value="Technology">Technology</option>
-                                <option value="Education">Education</option>
-                                <option value="Planning">Planning</option>
-                                <option value="Community">Community</option>
-                                <option value="Culture">Culture</option>
-                                <option value="Megaproject">Megaproject</option>
+                // Add a marker for the user's
+                function addMarker(lat, lon) {
+                    L.marker([lat, lon]).addTo(map)
+                        .bindPopup('Your Location').openPopup();
+                }
 
-                            </select>
-                            <label for="countyFilter">County:</label>
-                            <select id="countyFilter" name="countyFilter">
-                                <option value="">All Counties</option>
-                                <option value="Kwale">Kwale</option>
-                                <option value="Kilifi">Kilifi</option>
-                                <option value="Tana River">Tana River</option>
-                                <option value="Lamu">Lamu</option>
-                                <option value="Taita-Taveta">Taita-Taveta</option>
-                                <option value="Garissa">Garissa</option>
-                                <option value="Wajir">Wajir</option>
-                                <option value="Mandera">Mandera</option>
-                                <option value="Marsabit">Marsabit</option>
-                                <option value="Isiolo">Isiolo</option>
-                                <option value="Meru">Meru</option>
-                                <option value="Tharaka-Nithi">Tharaka-Nithi</option>
-                                <option value="Embu">Embu</option>
-                                <option value="Kitui">Kitui</option>
-                                <option value="Machakos">Machakos</option>
-                                <option value="Makueni">Makueni</option>
-                                <option value="Nyandarua">Nyandarua</option>
-                                <option value="Nyeri">Nyeri</option>
-                                <option value="Kirinyaga">Kirinyaga</option>
-                                <option value="Murang'a">Murang'a</option>
-                                <option value="Kiambu">Kiambu</option>
-                                <option value="Turkana">Turkana</option>
-                                <option value="West Pokot">West Pokot</option>
-                                <option value="Samburu">Samburu</option>
-                                <option value="Trans Nzoia">Trans Nzoia</option>
-                                <option value="Uasin Gishu">Uasin Gishu</option>
-                                <option value="Elgeyo-Marakwet">Elgeyo-Marakwet</option>
-                                <option value="Nandi">Nandi</option>
-                                <option value="Baringo">Baringo</option>
-                                <option value="Laikipia">Laikipia</option>
-                                <option value="Nakuru">Nakuru</option>
-                                <option value="Narok">Narok</option>
-                                <option value="Kajiado">Kajiado</option>
-                                <option value="Kericho">Kericho</option>
-                                <option value="Bomet">Bomet</option>
-                                <option value="Kakamega">Kakamega</option>
-                                <option value="Vihiga">Vihiga</option>
-                                <option value="Bungoma">Bungoma</option>
-                                <option value="Busia">Busia</option>
-                                <option value="Siaya">Siaya</option>
-                                <option value="Kisumu">Kisumu</option>
-                                <option value="Homa Bay">Homa Bay</option>
-                                <option value="Migori">Migori</option>
-                                <option value="Kisii">Kisii</option>
-                                <option value="Nyamira">Nyamira</option>
-                                <option value="Nairobi">Nairobi</option>
+                // Check if the browser supports geolocation
+                if ('geolocation' in navigator) {
+                    // Get the user's current location
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        var latitude = position.coords.latitude;
+                        var longitude = position.coords.longitude;
+                        map.setView([latitude, longitude], 13); // Set view to user's location
+                        addMarker(latitude, longitude); // Add marker for user's location
+                    });
+                } else {
+                    console.log('Geolocation is not supported by this browser.');
+                }
+            </script>
+            <!-- About Sub-Section -->
+            <div class="catalogue2-text">
+                <h2>Explore Infrastructure Projects with TafSIRI</h2>
+                <p>Empowering Communities, Enhancing Development</p>
+                <p>We enable <b>informed decision-making</b> and <b>inclusive development.</b></p>
+                <p>Use the map to <b>identify a project</b> next to you today!</p>
+            </div>
+        </section>
 
-                            </select>
-                            <button type="button" onclick="performSearch()">Search</button>
-                        </form>
+        <hr>
+        <section class="catalogue_section3">
+                        <!-- Search Section -->
+                        <div class="search">
+                            <div class="catalogue3-searchText"><h2>Search</h2></div>
+                            <div>
+                            <form class="catalogue3-searchForm">
+                                <label for="searchInput">Search Projects:</label>
+                                <input type="text" id="searchInput" name="searchInput" placeholder="Enter keywords...">
+                                <label for="categoryFilter">Category:</label>
+                                <select id="categoryFilter" name="categoryFilter">
+                                    <option value="">All Categories</option>
+                                    <option value="Environment">Environment</option>
+                                    <option value="Parks and Recreation">Parks and Recreation</option>
+                                    <option value="Transport and Mobility">Transport and Mobility</option>
+                                    <option value="Technology">Technology</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Planning">Planning</option>
+                                    <option value="Community">Community</option>
+                                    <option value="Culture">Culture</option>
+                                    <option value="Megaproject">Megaproject</option>
+
+                                </select>
+                                <label for="countyFilter">County:</label>
+                                <select id="countyFilter" name="countyFilter">
+                                    <option value="">All Counties</option>
+                                    <option value="Kwale">Kwale</option>
+                                    <option value="Kilifi">Kilifi</option>
+                                    <option value="Tana River">Tana River</option>
+                                    <option value="Lamu">Lamu</option>
+                                    <option value="Taita-Taveta">Taita-Taveta</option>
+                                    <option value="Garissa">Garissa</option>
+                                    <option value="Wajir">Wajir</option>
+                                    <option value="Mandera">Mandera</option>
+                                    <option value="Marsabit">Marsabit</option>
+                                    <option value="Isiolo">Isiolo</option>
+                                    <option value="Meru">Meru</option>
+                                    <option value="Tharaka-Nithi">Tharaka-Nithi</option>
+                                    <option value="Embu">Embu</option>
+                                    <option value="Kitui">Kitui</option>
+                                    <option value="Machakos">Machakos</option>
+                                    <option value="Makueni">Makueni</option>
+                                    <option value="Nyandarua">Nyandarua</option>
+                                    <option value="Nyeri">Nyeri</option>
+                                    <option value="Kirinyaga">Kirinyaga</option>
+                                    <option value="Murang'a">Murang'a</option>
+                                    <option value="Kiambu">Kiambu</option>
+                                    <option value="Turkana">Turkana</option>
+                                    <option value="West Pokot">West Pokot</option>
+                                    <option value="Samburu">Samburu</option>
+                                    <option value="Trans Nzoia">Trans Nzoia</option>
+                                    <option value="Uasin Gishu">Uasin Gishu</option>
+                                    <option value="Elgeyo-Marakwet">Elgeyo-Marakwet</option>
+                                    <option value="Nandi">Nandi</option>
+                                    <option value="Baringo">Baringo</option>
+                                    <option value="Laikipia">Laikipia</option>
+                                    <option value="Nakuru">Nakuru</option>
+                                    <option value="Narok">Narok</option>
+                                    <option value="Kajiado">Kajiado</option>
+                                    <option value="Kericho">Kericho</option>
+                                    <option value="Bomet">Bomet</option>
+                                    <option value="Kakamega">Kakamega</option>
+                                    <option value="Vihiga">Vihiga</option>
+                                    <option value="Bungoma">Bungoma</option>
+                                    <option value="Busia">Busia</option>
+                                    <option value="Siaya">Siaya</option>
+                                    <option value="Kisumu">Kisumu</option>
+                                    <option value="Homa Bay">Homa Bay</option>
+                                    <option value="Migori">Migori</option>
+                                    <option value="Kisii">Kisii</option>
+                                    <option value="Nyamira">Nyamira</option>
+                                    <option value="Nairobi">Nairobi</option>
+
+                                </select>
+                                <button type="button" onclick="performSearch()">Search</button>
+                            </form>
+                            </div>
+                        </div>
+        </section>
+        <hr>
+        <section class="catalogue_section4">
+            <div class="catalogue4-text"><h2>Featured Projects</h2></div>
+            <hr>
+            <div class="catalogue4-cards">
+                <div class="row">
+                    {% for project in projects %}
+                    <div class="col-md-3">
+                        <div class="card" style="width: 18rem;">
+                            {% if project.Cover == 'Yes' %}
+                                <img src="../static/projects/{{ project.id }}/coverphoto.jpg" alt="{{ project.Title }} thumbnail" class="card-img-top">
+                            {% else %}
+                                <img src="../static/projects/{{ project.id }}/photo1.jpg" alt="{{ project.Title }} thumbnail" class="card-img-top">
+                            {% endif %}
+                            <div class="card-body">
+                                <h3 class="card-title">{{ project.Title }}</h3>
+                                <p class="card-text"> Discover and comment on this project</p>
+                                <a href="{{ url_for('project', projectname=project.Title) }}"><button class="catalogue4-button">View details</button></a>
+                            </div>
+                        </div>
                     </div>
-                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        
+        <section class="catalogue_section5">
+            {% if current_user.Type == 'Admin' %}
+            <hr>
+            <div>
+                <h2>Add your own project below!</h2>
+                <p>Have you got a project to submit? We would love to see it!</p>
+                <a href="{{ url_for('add_project') }}"><button class="catalogue5-button">Add a Project</button></a>
+            </div>
+            {% endif %}
+        </section>
     </section>
-
-    <section class="catalogue_section4">
-        <!-- A "table" of Projects -->
-        <div class="project-slideshow">
-            <h2>Featured Projects</h2>
-            {% for project in projects %}
-                <h3>{{ project.Title }}</h3>
-                {% if project.Cover == 'Yes' %}
-                    <img src="../static/projects/{{ project.id }}/coverphoto.jpg" alt="{{ project.Title }} coverphoto" id="">
-                {% else %}
-                    <img src="../static/projects/{{ project.id }}/photo1.jpg" alt="{{ project.Title }} thumbnail">
-                {% endif %}
-
-                <p>50 comments</p>
-                <p>Discover and comment on proposals for {{ project.Title }}</p>
-                <button><p><a href="{{ url_for('project', projectname=project.Title) }}">View details</a></p></button>
-            {% endfor %}
-        </div>
-    </section>
-
-    <hr>
-    <section class="catalogue_section5">
-        {% if current_user.Type == 'Admin' %}
-        <div>
-            <h2>Add your own project below!</h2>
-            <p>Have you got a project to submit? We would love to see it!</p>
-            <button><p><a href="{{ url_for('add_project') }}">Add a Project</a></p></button>
-        </div>
-        {% endif %}
-    </section>
-
 {% endblock %}

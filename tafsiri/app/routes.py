@@ -273,3 +273,19 @@ def view_feedback(projectname):
     
     return render_template('feedbacklist.html', title='Project Feedback',
                            project=project, feedback=feedback)
+
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    form = SearchForm(request.form)
+    if request.method == 'POST' and form.validate():
+        keywords = form.keywords.data
+        category = form.category.data
+        county = form.county.data
+
+        if not keywords:
+            projects = Project.query.filter_by(category=category, county=county).all()
+        else:
+            projects = Project.query.filter(Project.keywords.ilike(f'%{keywords}%')).filter_by(category=category, county=county).all()
+
+        return render_template('results.html', projects=projects)
+    return redirect(url_for('catalogue', form=form))

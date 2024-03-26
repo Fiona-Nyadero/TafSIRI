@@ -1,49 +1,91 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <section class="about_herosection">
-        <div class="main-body">
-            <div class="hero-section">
-                <div class="carousel-slide">
-                    <img src="img388.jpg" alt="Slide 1">
-                </div>
+    <Section class="aboutpage">
+        <section class="about_herosection">
+            <div class="abouthero_heading">
+                <h1>This is TafSIRI!</h1>
+                <p id="abouthero_tagline">About</p>
             </div>
-    </section>
-
-    <section class="about_section2">
-            <div class="info-section">
-                <div class="info-left">
-                    <div class="heading">
-                        <h1>The</h1>
-                        <h1>TafSIRI</h1>
-                        <h1>Initiative</h1>
-                    </div>
-                    <p id="tagline">THE DIGITAL BARAZA</p>
+        </section>
+        <section class="about_section1">
+            <div class="about1-textleft">
+                <div class="heading">
+                    <h1>The<br>
+                        TafSIRI<br>
+                        Initiative</h1>
                 </div>
-                <div class="info-right">
-                    <p>TafSIRI makes civic engagement fun!</p>
-                    <p>The easy platform lets you explore, ask questions and join community conversations on the latests developments</p>
-                    <p>TafSIRI encourages curiosity and welcomes all questions and ideas!</p>
-                    <p>Sign up to make informed decisions with TafSIRI!</p>
-                </div>
+                <p id="about_tagline">the digital baraza</p>
             </div>
-    </section>
-
-    <section class="about_section3">
-                <div class="about"> <!--Project background and conception-->
-                    <h2>About</h2>
-                    <p>The TafSIRI Initiative is an innovative platform designed to enhance and streamline Public Participation in infrastructure projects at the County level.</p>
-                    <p>The term "TafSIRI" originates from the Swahili word 'Tafsiri,' meaning 'to decode/interpret/translate.'</p>
+            <div class="about1-textright">
+                <p>The TafSIRI initiative is a civic educational/advocacy, interactive website, with a user-friendly interface to encourage public action.</p>
+                <p>It encourages impactful, inclusive and people-oriented Urban Development. </p>
+            </div>
+            <div class="about1-image">
+                <img src="../static/images/Picture2cropped.png" alt="TafSIRI in action">
+            </div>
+        </section>
+        <hr>
+        <section class="about_section2">
+            <h2>About TafSIRI</h2>
+                <div class="about2-textbackground"> <!--Project background and conception-->
+                    <h3>the background</h3>
+                    <p>Public participation is one of the principles of good governance, according to the 2010 Kenyan Constitution. However the approach currently employed for the process is failing, resulting in public markets, streets and schools etc with very poor user-experience.</p>
+                    <p>Several discussions on Urban governance allude to public engagement as the key to inclusive and sustainable urban development. We arge that is not enough to ask whether it has been done. Its quality has to come to question as well.</p>
                 </div>
-        </div>
 
-    </section>
+                <div class="about2-textproblem">
+                    <h3>the problem</h3>
+                    <p>Inaccessible or incomprehensive information on infrastructure projects leads to poor engagement which leads to ineffective public participation. Often this challenge is caused by difficulties in accessing proposed plans. The majority of the public are often uninvited to the discussion forum.</p>
+                    <p>Even when the drawings are provided, there is a challenge in understanding the proposed complex technical Architectural/Engineering plans and specifications, by the majority of the population. While the presentations in the forums are expertly done, to the untrained eyes and minds, it is just garble.</p>
 
-    <section class="about_section4">
-        <div><h2>The TafSIRI team</h2></div>
-    </section>
+                </div>
+                <div class="about2-textsolution">
+                    <h3>the solution</h3>
+                    <p>The initiative will solicit Architectural/Engineering plans and specifications from various local government offices including but not limited to Municipality offices and County Public Works Departments.</p>
+                    <p>Leveraging heavily on Architectural visualization through Computer-Aided Design, the TafSIRI team will then create photorealistic visuals out of the Architectural/Engineering plans and specifications and avail the visually-interpreted information to the public via the website.</p>
+                    <p>The feedback on individual projects will then consolidated and presented at the relevant offices within the National and County governments' structure on behalf of the people. These institutions will be promptly encouraged to constantly provide updates on the decisions made with regards to the feedback collected from the public, thus the platform will fulfill its role as an advocacy agent.</p>
+                </div>
 
-    <section>
-        <div><h2>Partnerships</h2></div>
-    </section>
-    {% endblock %}
+        </section>
+        <hr>
+        <section class="about_section3">
+            <div class="about3-textleft">
+                <h2>The TafSIRI team</h2>
+                <p>Teamwork makes the dream work, or so they say!</p>
+                <p>Are you a young person who wants to make a lasting impact?</p>
+                <p>Contribute your skills to better your community.</p>
+                <a href=""><button class="about3-button">Join us today</button></a>
+            </div>
+            <div class="about3-textright">
+                <h3>Meet the TafSIRI core Team</h3>
+                <table>
+                    <tr>
+                        <div class="about3-teamimage">
+                        <td><img src="../static/images/Picture2cropped.png" alt="Steph photo" class="about3-teamimage"></td>
+                        <td><img src="../static/images/Picture2cropped.png" alt="Fiona photo" class="about3-teamimage"></td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <td><p>Steffanie Chepkirui<br>
+                            Software Engineer/Co-founder</p>
+                        </td>
+                        <td><p>Fiona Nyadero<br>
+                            Software Engineer/Co-founder</p>'
+                        </td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </section>
+        <hr>
+        <section class="about_section4">
+            <div>
+            <h2>Partnerships</h2>
+            <p>We are always on the look out for partners to collaborate together towards meaningful public engagements.</p>
+            <p>If this is you, kindly write to us, at tafsiri@gmail.com, expressing your interest!</p>
+            <p>We would love to hear from you, Partner!</p>
+            </div>
+        </section>
+    </Section>
+{% endblock %}

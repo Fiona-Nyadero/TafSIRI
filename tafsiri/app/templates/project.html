@@ -18,8 +18,8 @@
         </div>
     <hr>
     {% if project.Deadline != None %}
-        <p>Currently accepting feedback till <b style="font-size: 21px;">{{ moment(project.Deadline).format('dddd') }}, {{ moment(project.Deadline).format('LL') }}</b></p>
-        <p>Deadline is <b style="font-size: 21px;">{{ moment(project.Deadline).fromNow() }}'s time!</b></p> 
+        <p>Currently accepting feedback until <b style="font-size: 21px;">{{ moment(project.Deadline).format('dddd') }}, {{ moment(project.Deadline).format('LL') }}</b></p>
+        <p>Deadline is <b style="font-size: 21px;">{{ moment(project.Deadline).fromNow() }}!</b></p> 
     {% endif %}
     <h2>Background</h2>
     <p>{{ project.Background }}</p>
