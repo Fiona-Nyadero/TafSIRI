@@ -1,90 +1,124 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <button><a href="{{ url_for('catalogue') }}">Back to all Projects</a></button>
-
-    <section class="project_Herosection">
+    <section class="projectpage">
+        <section class="project_Herosection">
             <div class="project_hero-section">
-            <div class= "project_coverphoto">
-                {% if project.Cover == 'Yes' %}
-                    <img src="../static/projects/{{ project.id }}/coverphoto.jpg" alt="{{ project.Title }} coverphoto" id="">
-                {% else %}
-                    <img src="../static/projects/{{ project.id }}/photo1.jpg" alt="{{ project.Title }} coverphoto">
+                <div class= "project_coverphoto">
+                    {% if project.Cover == 'Yes' %}
+                        <img src="../static/projects/{{ project.id }}/coverphoto.jpg" alt="{{ project.Title }} coverphoto" class="project-cover">
+                    {% else %}
+                        <img src="../static/projects/{{ project.id }}/photo1.jpg" alt="{{ project.Title }} coverphoto" class="project-cover">
+                    {% endif %}
+                </div>
+                <hr>
+                <div class="project-hero_text">
+                    <h1><b>{{ project.Title }}</b></h1>
+                    <p>{{ project.Description }}</p>
+                    <!--button type="submit">+ Follow</button-->
+                </div>
+            </div>
+            <div class="project-hero_deadline">
+                {% if project.Deadline != None %}
+                    <p>Currently accepting feedback until <b style="font-size: 21px;">{{ moment(project.Deadline).format('dddd') }}, {{ moment(project.Deadline).format('LL') }}</b></p>
+                    <p>Deadline is <b style="font-size: 21px;">{{ moment(project.Deadline).fromNow() }}!</b></p> 
                 {% endif %}
             </div>
-            <div><h1><b>{{ project.Title }}</b></h1></div>
-            <p class="project-hero_text">{{ project.Description }}</p>
-            <button type="submit">+ Follow</button>
-        </div>
-    <hr>
-    {% if project.Deadline != None %}
-        <p>Currently accepting feedback until <b style="font-size: 21px;">{{ moment(project.Deadline).format('dddd') }}, {{ moment(project.Deadline).format('LL') }}</b></p>
-        <p>Deadline is <b style="font-size: 21px;">{{ moment(project.Deadline).fromNow() }}!</b></p> 
-    {% endif %}
-    <h2>Background</h2>
-    <p>{{ project.Background }}</p>
+        </section>
+        <hr>
+        <section class="project_section1">
+            <div class="project1-background">
+                <h2>Background</h2>
+                <p>{{ project.Background }}</p>
+            </div>
+            <div class="project1-proposal">
+                <h2>The Proposal</h2>
+                <p>{{ project.Proposal }}</p>
+            </div>
+            <div class="project1-map">
+            <!--h2>Project Extent</h2>
+            <p>map goes here</p-->
+            </div>
+        </section>
+        <hr>
+        <section class="project_section2">
+            <h2>Document Library</h2>
+            <h3>3D visualisations</h3>
+                <div class="project2-3Ds">
+                    <img src="../static/projects/{{ project.id }}/photo1.jpg" alt="{{ project.Title }} photo1" class="project-photo">
+                    <img src="../static/projects/{{ project.id }}/photo2.jpg" alt="{{ project.Title }} photo2" class="project-photo">
+                    <img src="../static/projects/{{ project.id }}/photo3.jpg" alt="{{ project.Title }} photo3" class="project-photo">
+                </div>
+            
+                {% if project.Plan == 'Yes' %}
+                    <hr>
+                    <h3>Plans and Specifications</h3>
+                    <p>Here are some of the plans:</p>
+                    <div class="project2-plans_photos">
+                        <img src="../static/projects/{{ project.id }}/plan1.png" alt="{{ project.Title }} plan1">
+                        <img src="../static/projects/{{ project.id }}/plan2.png" alt="{{ project.Title }} plan2">
+                    {% else %}
+                    <div class="project2-morephotos">
+                        <img src="../static/projects/{{ project.id }}/photo4.jpg" alt="{{ project.Title }} photo4">
+                        <img src="../static/projects/{{ project.id }}/photo5.jpg" alt="{{ project.Title }} photo5">
+                        <img src="../static/projects/{{ project.id }}/photo6.jpg" alt="{{ project.Title }} photo6">
+                    </div>
+                    {% endif %}
+                    </div>
+                {% if project.Plan == 'No' %}  
+                <div class="project2-noplans">
+                    <h3>Plans and Specifications</h3>
+                    <p>Unfortunately, the project lacks details on plans and specifications!</p>
+                    <p>Kindly bear with us, as we look for these resources for you.</p>
+                </div>
+                {% endif %}
+            </div>
+        </section>
+        <hr>
+        <section class="project_section3">
+        <h2>Have your say!</h2>
+        {% if current_user == project.Author %}
 
-    <h2>The Proposal</h2>
-    <p>{{ project.Proposal }}</p>
-
-    <h2>Project Extent</h2>
-    <p>map goes here</p>
-
-    <h2>Document Library</h2>
-    <h3>3D visualisations</h3>
-        <img src="../static/projects/{{ project.id }}/photo1.jpg" alt="{{ project.Title }} photo1">
-        <img src="../static/projects/{{ project.id }}/photo2.jpg" alt="{{ project.Title }} photo2">
-        <img src="../static/projects/{{ project.id }}/photo3.jpg" alt="{{ project.Title }} photo3">
-        {% if project.Plan == 'Yes' %}
-            <h3>Plans and Specifications</h3>
-            <p>Here are some of the plans:</p>
-            <img src="../static/projects/{{ project.id }}/plan1.png" alt="{{ project.Title }} plan1">
-            <img src="../static/projects/{{ project.id }}/plan2.png" alt="{{ project.Title }} plan2">
+            {% if project.Feedback_received %}
+                <p>Whoa! Citizens are already engaging with this project.</p>
+                <p>There are already {{ comments }} comments.</p>
+            {% else %}
+                <p>Oops! Citizens are not engaging with this project.</p>
+                <p>There are no comments yet.</p>
+            {% endif %}
+            <p>Click on "What's been said?" to view the feedback, (if any) in realtime.</p>
+            <button class="project5-button" disabled>Have your Say!</button>
+            <a href="{{ url_for('view_feedback', projectname=project.Title) }}"><button class="project5-button">What's being said?</button></a>
         {% else %}
-            <img src="../static/projects/{{ project.id }}/photo4.jpg" alt="{{ project.Title }} photo4">
-            <img src="../static/projects/{{ project.id }}/photo5.jpg" alt="{{ project.Title }} photo5">
-            <img src="../static/projects/{{ project.id }}/photo6.jpg" alt="{{ project.Title }} photo6">
-            <h3>Plans and Specifications</h3>
-            <p>Unfortunately, the project lacks details on plans and specifications!</p>
-            <p>Kindly bear with us, as we look for these resources for you.</p>
+            <a href="{{ url_for('give_feedback', projectname=project.Title) }}"><button class="project5-button">Have your Say!</button></a>
+            <p>Thank you for your interest in this project! We value your feedback.</p>
+            <p>Please remember to <a href="{{ url_for('login') }}">log in</a> to provide your feedback.</p>
         {% endif %}
-        
-    <h2>Have your say</h2>
-    {% if current_user == project.Author %}
-
-        {% if project.Feedback_received %}
-            <p>Whoa! Citizens are already engaging with this project.</p>
-            <p>There are already {{ comments }} comments.</p>
-        {% else %}
-            <p>Oops! Citizens are not engaging with this project.</p>
-            <p>There are no comments yet.</p>
-        {% endif %}
-        <p>Click on "What's been said?" to view the feedback, (if any) in realtime.</p>
-        <button disabled>Have your Say!</button>
-        <button><a href="{{ url_for('view_feedback', projectname=project.Title) }}">What's being said?</a></button>
-    {% else %}
-        <button><a href="{{ url_for('give_feedback', projectname=project.Title) }}">Have your Say!</a></button>
-        <p>Thank you for your interest in this project! We value your feedback.</p>
-        <p>Please remember to <a href="{{ url_for('login') }}">log in</a> to provide your feedback.</p>
-    {% endif %}
-    <hr>
-    <h2>Sustainable Development Goals(SDGs)</h2>
-    <div><img src="../static/images/sdgs/SDG Wheel_Transparent_WEB.png" alt="sdg icon" id="sdglogo"></div>
-    <div>
-        <p>This project works towards sustainable development goal(s):</p>
-        {% include '_sdg.html' %}
-    </div>
-
-    <h2>Who's Listening</h2>
-    <p><b>Proponent: </b>{{ project.Author.Username}}</p>
-    <p><b>Email: </b>{{ project.Author.Email }}</p>
-    <p><b>Phone: </b>{{ project.Author.Phone_number }}</p>
-    
-
-    
-    <button><a href="{{ url_for('catalogue') }}">Back to all Projects</a></button>
-    {% if current_user.Type == 'Admin' %}
-        {% include '_projectAdmin.html' %}
-    {% endif %}
-
+        </section>
+        <hr>
+        <section class="project_section4">
+            <div class="project4-sdg-proposer">
+                <div class="project4-sdgs">
+                    <h2>Sustainable Development Goals(SDGs)</h2>
+                    <div class="project4-sdgicons">
+                        <div class="sdgs-right">
+                            {% include '_sdg.html' %}
+                        </div>
+                    </div>
+                </div>
+                <div class="project4-proposer">
+                    <h2>Who's Listening</h2>
+                    <p><b>Proponent: </b>{{ project.Author.Username}}</p>
+                    <p><b>Email: </b>{{ project.Author.Email }}</p>
+                    <p><b>Phone: </b>{{ project.Author.Phone_number }}</p>
+                </div>
+            </div>
+        </section>
+        <section class="project_section5">
+            <a href="{{ url_for('catalogue') }}"><button class="project5-button">Back to Catalogue</button></a>
+            {% if current_user.Type == 'Admin' %}
+                {% include '_projectAdmin.html' %}
+            {% endif %}
+        </section>
+    </section>
 {% endblock %}

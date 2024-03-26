@@ -143,22 +143,13 @@ header {
 }
 
 /*.loginbutton button{
-    display: inline-block;
-    padding: 10px 10px;
-    background-color: #010440;
-    color: #f1f1f1;
-    text-align: center;
     text-decoration: none;
-    font-size: 12px;
-    cursor: pointer;
-    border-radius: 25px;
-    
 }*/
 
 .loginbutton {
     font-size: 12px;
     font-style: normal;
-    padding: 3px;
+    padding: 10px 10px;
     background-color: #010440;
     color: #f1f1f1;
     border: none;
@@ -167,6 +158,7 @@ header {
     margin: 10px 5px;
     cursor: pointer;
     border-radius: 25px;
+    
 }
 
 input[type="text"] {
@@ -181,6 +173,9 @@ footer{
     justify-content: space-evenly;
     align-items: center;
     padding: 20px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 .contact-us form {
@@ -213,7 +208,13 @@ footer{
 .logo-footer{
     max-width: 50px;
 }
+.social-icons a {
+    margin-right: 10px;
+}
 
+.social-icons a i {
+    font-size: 30px;
+}
 a:hover {
     text-decoration: underline;
 }
@@ -256,7 +257,8 @@ body{
     padding-top: 10px;
     padding-bottom: 0px;
     margin-bottom: 0%;
-    margin-right: 20px;
+    /*margin-right: 20px;*/
+    padding-right: 50px;
     width: 100%;
 }
 .homehero_heading p{
@@ -390,7 +392,9 @@ body{
     font-weight: 500;
     font-size: 15px;
     font-style: normal;
-    padding: 3px;
+    padding: 6px 6px;
+    padding-left: 20px;
+    padding-right: 20px;
     background-color: #010440;
     color: #f1f1f1;
     border: none;
@@ -428,7 +432,8 @@ body{
     padding-top: 10px;
     padding-bottom: 0px;
     margin-bottom: 0%;
-    margin-right: 20px;
+    /*margin-right: 20px;*/
+    padding-right: 50px;
     width: 100%;
 }
 .abouthero_heading p{
@@ -471,7 +476,7 @@ body{
     text-align: left;
 }
 .about_section2{
-    height: 1080px;
+    height: 780px;
     text-align: center;
     padding-left: 150px;
     padding-right: 150px;
@@ -480,13 +485,22 @@ body{
 }
 .about_section3{
     background-color: #9CBCD9;
-    height: 540px;
+    height: 450px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
-.about3-teamimage img {
-    height: 50%;
+.about3-team {
+    display: flex;
+}
+.about3-team img {
+    object-fit: cover;
+    height: 200px;
+}
+#about3-teamimage {
+    height: 300px;
+    width: 200px;
+    overflow: hidden;
 }
 .about3-textleft {
     text-align: center;
@@ -496,7 +510,9 @@ body{
     font-weight: 500;
     font-size: 15px;
     font-style: normal;
-    padding: 3px;
+    padding: 6px 6px;
+    padding-left: 20px;
+    padding-right: 20px;
     background-color: #010440;
     color: #f1f1f1;
     border: none;
@@ -511,9 +527,13 @@ body{
     align-items: center;
 }
 .about_section4{
+    margin-top: -15px;
     background-color: #2980b9;
-    height: 270px;
+    height: 250px;
     text-align: center;
+}
+.about4-text {
+    padding-top: 45px;
 }
 
 /********* catalogue page *********/
@@ -543,7 +563,8 @@ body{
     padding-top: 10px;
     padding-bottom: 0px;
     margin-bottom: 0%;
-    margin-right: 20px;
+    /*margin-right: 20px;*/
+    padding-right: 50px;
     width: 100%;
 }
 .cataloguehero_heading p{
@@ -634,14 +655,13 @@ body{
     align-items: center;
     padding-left: 65px;
 }
-
 .catalogue4-text {
     text-align: center;
     margin-bottom: 15px;
 }
 .card-img-top {
-    object-fit: cover; /* Crop image to fit container */
-    height: 200px; /* Set a fixed height for all images */
+    object-fit: cover;
+    height: 200px;
 }
 .card-body {
     height: 260px;
@@ -694,13 +714,97 @@ body{
     border-radius: 25px;
 }
 /********* project page ***********/
-
-/*sdg icons*/
-#sdgicons{
-    max-width: 300px;
-    max-height: 300px;
+.projectpage{
+    align-items: center;
+    text-align: center;
+}
+.project_coverphoto {
+}
+.project_coverphoto img{
+    height: 600px;
+    max-width: 800px;
 }
 
+.project-hero_text {
+    padding-left: 200px;
+    padding-right: 200px;
+}
+.project-hero_deadline {
+    padding-left: 200px;
+    padding-right: 200px;
+}
+.project_section1 {
+    padding-left: 200px;
+    padding-right: 200px;
+}
+.project2-3Ds {
+    display: flex;
+}
+.project2-3Ds img {
+    object-fit: cover;
+    width: 500px;
+}
+.project2-plans_photos {
+    display: flex;
+}
+.project2-plans_photos img{
+    object-fit: cover;
+    width: 500px;
+}
+.project2-morephotos {
+    display: flex;
+}
+.project2-morephotos img{
+    object-fit: cover;
+    width: 500px;
+}
+.project4-sdg-proposer{
+    display: flex;
+    padding-left: 150px;
+}
+.project4-sdgs h2{
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+.project4-sdgicons {
+    display: flex;
+}
+#sdglogo{
+    max-width: 250px;
+    max-height: 250px;
+}
+#sdgicons{
+    max-width: 150px;
+    max-height: 150px;
+}
+.project4-proposer p{
+    text-align: left;
+}
+.project4-proposer {
+    padding-left: 100px;
+}
+.sdglist p{
+    text-align: left;
+    line-height: 5px;
+}
+.project5-button {
+    font-family: "Margarine", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    font-style: normal;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: #010440;
+    color: #f1f1f1;
+    border: none;
+    text-align: center;
+    display: inline-block;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 25px;
+}
 
 /*############### SPECIAL PAGES ########################*/
 
