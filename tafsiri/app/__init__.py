@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from datetime import datetime
 from flask_moment import Moment
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -13,6 +14,7 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login'
 moment = Moment(app)
+CORS(app)
 
 @app.template_filter('datetimeformat')
 def datetimeformat(value, format='%d-%m-%YT%H:%M'):

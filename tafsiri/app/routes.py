@@ -120,7 +120,7 @@ def edit_profile():
         current_user.Type=form.user_type.data
         db.session.commit()
         flash('Your changes have been saved')
-        return redirect(url_for('edit_profile'))
+        return redirect(url_for('home'))
     elif request.method == 'GET':
         form.username.data = current_user.Username
         form.about_me.data = current_user.About_me

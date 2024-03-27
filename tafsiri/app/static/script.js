@@ -54,4 +54,4 @@ function rotateImages() {
     currentImageIndex = (currentImageIndex + 1) % images.length;
 }
 
-setInterval(rotateImages, 5000); // Rotate every 30 seconds
+setInterval(rotateImages, 5000); // Rotate every 5 seconds
