@@ -263,6 +263,86 @@ header {
     height: auto;
  }
 
+/*.image-wrapper-tablet {
+    position: absolute;
+    opacity: 0;
+    top: 400px;
+    right: 375px;
+    transform: translateY(100px) rotate(-12deg);
+    background: #fff;
+    padding: 5px 10px;
+    border-radius: 24px;
+    box-shadow: inset 0 4px 7px 1px #fff, inset 0 -5px 20px rgba(173, 186, 204, 0.25), 0 2px 6px rgba(0, 21, 64, 0.14), 0 10px 20px rgba(0, 21, 64, 0.05);
+    animation: up 1s;
+    animation-delay: 0.8s;
+    animation-fill-mode: forwards;
+ }
+
+ .image-wrapper-tablet img {
+    width: 450px;
+    height: auto;
+ }
+
+ .image-wrapper-phone {
+    position: absolute;
+    opacity: 0;
+    top: 300px;
+    right: 45px;
+    transform: translateY(100px) rotate(-12deg);
+    background: #fff;
+    padding: 60px 20px;
+    border-radius: 34px;
+    box-shadow: inset 0 4px 7px 1px #fff, inset 0 -5px 20px rgba(173, 186, 204, 0.25), 0 2px 6px rgba(0, 21, 64, 0.14), 0 2px 6px rgba(0, 21, 64, 0.14);
+    animation: up 1s;
+    animation-delay: 0.8s;
+    animation-fill-mode: forwards;
+ }
+
+ .image-wrapper-phone img {
+    width: 250px;
+    height: auto;
+ }
+
+ .image-wrapper-phone-small {
+    position: absolute;
+    opacity: 0;
+    top: 700px;
+    right: 490px;
+    transform: translateY(100px) rotate(-12deg);
+    background: #fff;
+    padding: 50px 20px;
+    border-radius: 24px;
+    box-shadow: inset 0 4px 7px 1px #fff, inset 0 -5px 20px rgba(173, 186, 204, 0.25), 0 2px 6px rgba(0, 21, 64, 0.14), 0 2px 6px rgba(0, 21, 64, 0.14);
+    animation: up 1s;
+    animation-delay: 0.8s;
+    animation-fill-mode: forwards;
+ }
+
+ .image-wrapper-phone-small img {
+    width: 250px;
+    height: auto;
+ }
+
+ .image-wrapper-tablet-portrait {
+    position: absolute;
+    opacity: 0;
+    top: 630px;
+    right: 50px;
+    transform: translateY(100px) rotate(-12deg);
+    background: #fff;
+    padding: 58px 30px;
+    border-radius: 34px;
+    box-shadow: inset 0 4px 7px 1px #fff, inset 0 -5px 20px rgba(173, 186, 204, 0.25), 0 2px 6px rgba(0, 21, 64, 0.14), 0 10px 20px rgba(0, 21, 64, 0.05);
+    animation: up 1s;
+    animation-delay: 0.8s;
+    animation-fill-mode: forwards;
+ }
+
+ .image-wrapper-tablet-portrait img {
+    width: 350px;
+    height: auto;
+ }
+
 /* Main Content Section Styles */
 /*section 2*/
 .section2 {
@@ -340,6 +420,7 @@ header {
 
 .content_collaborate {
     flex-direction: row-reverse;
+    
     flex: 1;
     max-width: 100%;
 }
@@ -352,7 +433,7 @@ header {
     justify-content: center;
     align-items: center;
     text-align: left;
-    background: url('background-image.jpg') center/cover no-repeat; /* Add background image */
+    background: url('../static/images/background-image.jpg') center/cover no-repeat; /* Add background image */
     color: white;
     padding: 50px 20px;
 }
