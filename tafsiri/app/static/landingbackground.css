@@ -352,7 +352,7 @@ header {
     justify-content: center;
     align-items: center;
     text-align: left;
-    background: url('background-image.jpg') center/cover no-repeat; /* Add background image */
+    background: url('../static/images/background-image.jpg') center/cover no-repeat; /* Add background image */
     color: white;
     padding: 50px 20px;
 }
