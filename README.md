@@ -55,7 +55,7 @@ From the initial concept to deployment, the TafSIRI journey spanned several mont
 ![alt text](https://github.com/Fiona-Nyadero/TafSIRI/blob/master/templates/Steph/section1-image.jpg)
 
 ## Licensing:
-TafSIRI is licensed under the MIT License.
+TafSIRI is licensed under the [MIT LICENSE](tafsiri/LICENSE)
 
 
 ### Author(s) LinkedIn:
