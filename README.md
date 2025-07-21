@@ -38,7 +38,7 @@ We welcome contributions from the community to enhance TafSIRI further. To contr
 Growing up in a diverse urban community there is a huge importance of community engagement in shaping architectural projects. The journey into public service further highlighted the challenges facing public participation in Kenya. Witnessing infrastructural developments lacking user-centered design and input from the community sparked the idea for TafSIRI.
 
 ## Technical Challenge:
-One of the most significant technical challenges we faced was integrating complex architectural plans into an accessible and user-friendly web platform. Leveraging technologies like HTML, CSS, JavaScript, Python (Flask), and MySQL Lite, we strived to create a seamless user experience. Additionally, incorporating Computer-Aided Design and Virtual Reality to interpret technical drawings posed another hurdle.
+One of the most significant technical challenges we faced was integrating complex architectural plans into an accessible and user-friendly web platform. Leveraging technologies like HTML, CSS, JavaScript, Python (Flask), and SQL Lite, we strived to create a seamless user experience. Additionally, incorporating Computer-Aided Design and Virtual Reality to interpret technical drawings posed another hurdle.
 
 ## Struggles and Triumphs:
 Throughout the development process, we encountered numerous roadblocks, from understanding complex architectural plans to ensuring secure user authentication. Implementing user authentication seemed daunting initially, but through collaboration with peers and technical staff, we successfully overcame the challenge, ensuring a secure and functional authentication system.
